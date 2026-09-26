@@ -1,0 +1,1457 @@
+{
+  "totalProjects": 64,
+  "projectsAnalyzed": [
+    {
+      "name": "11.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "11111111111111113D.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "111something.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "111version1.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "111version2.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "1329test.html",
+      "isDirectory": false,
+      "tagCount": 8,
+      "tags": [
+        "purpose:developer-tools",
+        "domain:devtools",
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "1hm.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "1menu.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "purpose:food-app",
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "1mysite",
+      "isDirectory": true,
+      "tagCount": 6,
+      "tags": [
+        "purpose:portfolio",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "scaleTarget:personal",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "21st",
+      "isDirectory": true,
+      "tagCount": 5,
+      "tags": [
+        "purpose:photography",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "3333ddddzpyral PARAMS.txt",
+      "isDirectory": false,
+      "tagCount": 3,
+      "tags": [
+        "features:3d-graphics",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "text"
+      ]
+    },
+    {
+      "name": "3D-Coverflow-main",
+      "isDirectory": true,
+      "tagCount": 9,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "architecture:static-site",
+        "uiParadigm:gallery",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html",
+        "css",
+        "javascript"
+      ]
+    },
+    {
+      "name": "3DZpyral copy.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "3DZpyral.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "3cord.py",
+      "isDirectory": false,
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "python"
+      ]
+    },
+    {
+      "name": "3d-musical-realm",
+      "isDirectory": true,
+      "tagCount": 11,
+      "tags": [
+        "purpose:music",
+        "audience:musicians",
+        "domain:music",
+        "features:audio",
+        "features:3d-graphics",
+        "features:webgl",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html",
+        "css",
+        "javascript"
+      ]
+    },
+    {
+      "name": "3dSpiralOld.html",
+      "isDirectory": false,
+      "tagCount": 8,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "architecture:static-site",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "3models.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "3models2.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "3thing.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AAA.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AAB.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AlexGoodhart.html",
+      "isDirectory": false,
+      "tagCount": 9,
+      "tags": [
+        "audience:artists",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "scaleTarget:personal",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AlexOS.html",
+      "isDirectory": false,
+      "tagCount": 8,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "scaleTarget:personal",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AlexProjects",
+      "isDirectory": true,
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "scaleTarget:personal",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "AlexSite2",
+      "isDirectory": true,
+      "tagCount": 5,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "scaleTarget:personal",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AnotherOS copy.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AnotherOS.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "Apperture",
+      "isDirectory": true,
+      "tagCount": 5,
+      "tags": [
+        "audience:consumers",
+        "architecture:static-site",
+        "monetization:open-source",
+        "complexity:trivial",
+        "stage:beta"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "Apperture2",
+      "isDirectory": true,
+      "tagCount": 11,
+      "tags": [
+        "purpose:entertainment",
+        "audience:developers",
+        "audience:consumers",
+        "domain:art",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "contentType:interactive",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "techStack": [
+        "node",
+        "python",
+        "html"
+      ]
+    },
+    {
+      "name": "Archive",
+      "isDirectory": true,
+      "tagCount": 14,
+      "tags": [
+        "purpose:analytics",
+        "purpose:data-visualization",
+        "domain:art",
+        "features:charts",
+        "architecture:spa",
+        "architecture:ssr",
+        "uiParadigm:blog",
+        "uiParadigm:carousel",
+        "dataHandling:real-time-sync",
+        "deploymentTarget:web",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:complex",
+        "stage:archived"
+      ],
+      "techStack": [
+        "node",
+        "typescript",
+        "javascript"
+      ]
+    },
+    {
+      "name": "Archive.zip",
+      "isDirectory": false,
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "archive"
+      ]
+    },
+    {
+      "name": "Attendance.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AudioBrowzer",
+      "isDirectory": true,
+      "tagCount": 13,
+      "tags": [
+        "purpose:music",
+        "audience:musicians",
+        "domain:music",
+        "features:authentication",
+        "features:audio",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "dataHandling:file-based",
+        "deploymentTarget:web",
+        "contentType:media-rich",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "AutoTextSaver",
+      "isDirectory": true,
+      "tagCount": 6,
+      "tags": [
+        "purpose:automation",
+        "purpose:writing",
+        "domain:automation",
+        "uiParadigm:editor",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "BLACKBOX",
+      "isDirectory": true,
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:beta"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "BROWZRbase",
+      "isDirectory": true,
+      "tagCount": 13,
+      "tags": [
+        "purpose:utility",
+        "audience:developers",
+        "domain:art",
+        "domain:automation",
+        "features:websocket",
+        "dataHandling:real-time-sync",
+        "dataHandling:local-storage",
+        "dataHandling:file-based",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "techStack": [
+        "node"
+      ]
+    },
+    {
+      "name": "Background 3js",
+      "isDirectory": true,
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "Binding",
+      "isDirectory": true,
+      "tagCount": 19,
+      "tags": [
+        "purpose:entertainment",
+        "purpose:utility",
+        "audience:developers",
+        "domain:art",
+        "features:websocket",
+        "features:drag-drop",
+        "architecture:spa",
+        "architecture:static-site",
+        "dataHandling:real-time-sync",
+        "dataHandling:local-storage",
+        "deploymentTarget:web",
+        "integrationType:embeddable",
+        "contentType:interactive",
+        "interactionModel:collaborative",
+        "monetization:free",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "techStack": [
+        "node",
+        "typescript",
+        "html"
+      ]
+    },
+    {
+      "name": "Blog UI.html",
+      "isDirectory": false,
+      "tagCount": 11,
+      "tags": [
+        "purpose:content-management",
+        "purpose:writing",
+        "purpose:design",
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:blog",
+        "deploymentTarget:web",
+        "contentType:text-heavy",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "Book",
+      "isDirectory": true,
+      "tagCount": 5,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:text-heavy",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html",
+        "css"
+      ]
+    },
+    {
+      "name": "Book.png",
+      "isDirectory": false,
+      "tagCount": 3,
+      "tags": [
+        "contentType:text-heavy",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "Briiziary.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "BrowserBase.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "Browzer",
+      "isDirectory": true,
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:beta"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "Butterflies",
+      "isDirectory": true,
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "Butterflies.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "CATALOG-SUMMARY.txt",
+      "isDirectory": false,
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "text"
+      ]
+    },
+    {
+      "name": "CLINE",
+      "isDirectory": true,
+      "tagCount": 8,
+      "tags": [
+        "purpose:developer-tools",
+        "audience:developers",
+        "architecture:static-site",
+        "uiParadigm:cli",
+        "deploymentTarget:web",
+        "deploymentTarget:cli-tool",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "CODE",
+      "isDirectory": true,
+      "tagCount": 6,
+      "tags": [
+        "purpose:developer-tools",
+        "architecture:static-site",
+        "uiParadigm:editor",
+        "contentType:code-focused",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "CONNECTED.md",
+      "isDirectory": false,
+      "tagCount": 3,
+      "tags": [
+        "purpose:social",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "COUNTD0WN.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "CSS style lab.css",
+      "isDirectory": false,
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "CSS3D",
+      "isDirectory": true,
+      "tagCount": 5,
+      "tags": [
+        "features:3d-graphics",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "CSSbox.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "CUFOLIO_NAVIGATOR_INFO.md",
+      "isDirectory": false,
+      "tagCount": 4,
+      "tags": [
+        "purpose:portfolio",
+        "uiParadigm:portfolio-site",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": []
+    },
+    {
+      "name": "Camera.js",
+      "isDirectory": false,
+      "tagCount": 4,
+      "tags": [
+        "purpose:photography",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "javascript"
+      ]
+    },
+    {
+      "name": "CameraModule.js",
+      "isDirectory": false,
+      "tagCount": 4,
+      "tags": [
+        "purpose:photography",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "javascript"
+      ]
+    },
+    {
+      "name": "Cardlings.html",
+      "isDirectory": false,
+      "tagCount": 6,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "CaseChronicle1",
+      "isDirectory": true,
+      "tagCount": 11,
+      "tags": [
+        "purpose:education",
+        "audience:developers",
+        "domain:education",
+        "domain:art",
+        "architecture:static-site",
+        "dataHandling:local-storage",
+        "deploymentTarget:web",
+        "integrationType:standalone",
+        "techStyle:vanilla-js",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "techStack": [
+        "html",
+        "css",
+        "javascript"
+      ]
+    },
+    {
+      "name": "Chooseyourclass.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:archived"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "ClassTimer",
+      "isDirectory": true,
+      "tagCount": 5,
+      "tags": [
+        "architecture:static-site",
+        "uiParadigm:calendar-view",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "ClassTimer copy.html",
+      "isDirectory": false,
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:calendar-view",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "techStack": [
+        "html"
+      ]
+    },
+    {
+      "name": "Claude",
+      "isDirectory": true,
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "techStack": [
+        "html"
+      ]
+    }
+  ],
+  "tagDistribution": {
+    "domain:ai-ml": 31,
+    "features:ai-powered": 31,
+    "architecture:static-site": 49,
+    "deploymentTarget:web": 50,
+    "complexity:trivial": 54,
+    "stage:prototype": 33,
+    "features:3d-graphics": 8,
+    "stage:legacy": 15,
+    "stage:archived": 8,
+    "purpose:developer-tools": 3,
+    "domain:devtools": 1,
+    "stage:experimental": 1,
+    "purpose:food-app": 1,
+    "purpose:portfolio": 2,
+    "scaleTarget:personal": 5,
+    "complexity:simple": 9,
+    "purpose:photography": 3,
+    "uiParadigm:gallery": 1,
+    "uiParadigm:carousel": 3,
+    "purpose:music": 2,
+    "audience:musicians": 2,
+    "domain:music": 2,
+    "features:audio": 2,
+    "features:webgl": 1,
+    "uiParadigm:audio-player": 2,
+    "audience:artists": 1,
+    "domain:art": 6,
+    "uiParadigm:os-interface": 4,
+    "audience:consumers": 2,
+    "monetization:open-source": 1,
+    "stage:beta": 7,
+    "purpose:entertainment": 2,
+    "audience:developers": 5,
+    "deploymentTarget:desktop": 2,
+    "contentType:interactive": 2,
+    "techStyle:component-based": 4,
+    "purpose:analytics": 1,
+    "purpose:data-visualization": 1,
+    "features:charts": 1,
+    "architecture:spa": 2,
+    "architecture:ssr": 1,
+    "uiParadigm:blog": 2,
+    "dataHandling:real-time-sync": 3,
+    "techStyle:typescript-strict": 2,
+    "complexity:complex": 1,
+    "features:authentication": 1,
+    "architecture:pwa": 1,
+    "dataHandling:file-based": 2,
+    "contentType:media-rich": 1,
+    "purpose:automation": 1,
+    "purpose:writing": 2,
+    "domain:automation": 2,
+    "uiParadigm:editor": 2,
+    "purpose:utility": 2,
+    "features:websocket": 2,
+    "dataHandling:local-storage": 3,
+    "features:drag-drop": 1,
+    "integrationType:embeddable": 1,
+    "interactionModel:collaborative": 1,
+    "monetization:free": 1,
+    "purpose:content-management": 1,
+    "purpose:design": 1,
+    "contentType:text-heavy": 3,
+    "uiParadigm:cli": 1,
+    "deploymentTarget:cli-tool": 1,
+    "contentType:code-focused": 1,
+    "purpose:social": 1,
+    "uiParadigm:portfolio-site": 1,
+    "purpose:education": 1,
+    "domain:education": 1,
+    "integrationType:standalone": 1,
+    "techStyle:vanilla-js": 1,
+    "uiParadigm:calendar-view": 2
+  },
+  "categoryDistribution": {
+    "domain": 43,
+    "features": 47,
+    "architecture": 53,
+    "deploymentTarget": 53,
+    "complexity": 64,
+    "stage": 64,
+    "purpose": 24,
+    "scaleTarget": 5,
+    "uiParadigm": 18,
+    "audience": 10,
+    "monetization": 2,
+    "contentType": 7,
+    "techStyle": 7,
+    "dataHandling": 8,
+    "integrationType": 2,
+    "interactionModel": 1
+  },
+  "projectsWithMostTags": [
+    {
+      "name": "Binding",
+      "tagCount": 19,
+      "tags": [
+        "purpose:entertainment",
+        "purpose:utility",
+        "audience:developers",
+        "domain:art",
+        "features:websocket",
+        "features:drag-drop",
+        "architecture:spa",
+        "architecture:static-site",
+        "dataHandling:real-time-sync",
+        "dataHandling:local-storage",
+        "deploymentTarget:web",
+        "integrationType:embeddable",
+        "contentType:interactive",
+        "interactionModel:collaborative",
+        "monetization:free",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "Archive",
+      "tagCount": 14,
+      "tags": [
+        "purpose:analytics",
+        "purpose:data-visualization",
+        "domain:art",
+        "features:charts",
+        "architecture:spa",
+        "architecture:ssr",
+        "uiParadigm:blog",
+        "uiParadigm:carousel",
+        "dataHandling:real-time-sync",
+        "deploymentTarget:web",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:complex",
+        "stage:archived"
+      ]
+    },
+    {
+      "name": "AudioBrowzer",
+      "tagCount": 13,
+      "tags": [
+        "purpose:music",
+        "audience:musicians",
+        "domain:music",
+        "features:authentication",
+        "features:audio",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "dataHandling:file-based",
+        "deploymentTarget:web",
+        "contentType:media-rich",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "BROWZRbase",
+      "tagCount": 13,
+      "tags": [
+        "purpose:utility",
+        "audience:developers",
+        "domain:art",
+        "domain:automation",
+        "features:websocket",
+        "dataHandling:real-time-sync",
+        "dataHandling:local-storage",
+        "dataHandling:file-based",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "3d-musical-realm",
+      "tagCount": 11,
+      "tags": [
+        "purpose:music",
+        "audience:musicians",
+        "domain:music",
+        "features:audio",
+        "features:3d-graphics",
+        "features:webgl",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Apperture2",
+      "tagCount": 11,
+      "tags": [
+        "purpose:entertainment",
+        "audience:developers",
+        "audience:consumers",
+        "domain:art",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "contentType:interactive",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "Blog UI.html",
+      "tagCount": 11,
+      "tags": [
+        "purpose:content-management",
+        "purpose:writing",
+        "purpose:design",
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:blog",
+        "deploymentTarget:web",
+        "contentType:text-heavy",
+        "complexity:trivial",
+        "stage:legacy"
+      ]
+    },
+    {
+      "name": "CaseChronicle1",
+      "tagCount": 11,
+      "tags": [
+        "purpose:education",
+        "audience:developers",
+        "domain:education",
+        "domain:art",
+        "architecture:static-site",
+        "dataHandling:local-storage",
+        "deploymentTarget:web",
+        "integrationType:standalone",
+        "techStyle:vanilla-js",
+        "complexity:simple",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "3D-Coverflow-main",
+      "tagCount": 9,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "architecture:static-site",
+        "uiParadigm:gallery",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "AlexGoodhart.html",
+      "tagCount": 9,
+      "tags": [
+        "audience:artists",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "scaleTarget:personal",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    }
+  ],
+  "projectsWithFewestTags": [
+    {
+      "name": "CSS style lab.css",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:legacy"
+      ]
+    },
+    {
+      "name": "CATALOG-SUMMARY.txt",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Browzer",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "BLACKBOX",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "Archive.zip",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:archived"
+      ]
+    },
+    {
+      "name": "3cord.py",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:legacy"
+      ]
+    },
+    {
+      "name": "CONNECTED.md",
+      "tagCount": 3,
+      "tags": [
+        "purpose:social",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Book.png",
+      "tagCount": 3,
+      "tags": [
+        "contentType:text-heavy",
+        "complexity:trivial",
+        "stage:legacy"
+      ]
+    },
+    {
+      "name": "3333ddddzpyral PARAMS.txt",
+      "tagCount": 3,
+      "tags": [
+        "features:3d-graphics",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Claude",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    }
+  ],
+  "projectsWithZeroTags": [],
+  "topTags": [
+    {
+      "tag": "complexity:trivial",
+      "count": 54
+    },
+    {
+      "tag": "deploymentTarget:web",
+      "count": 50
+    },
+    {
+      "tag": "architecture:static-site",
+      "count": 49
+    },
+    {
+      "tag": "stage:prototype",
+      "count": 33
+    },
+    {
+      "tag": "domain:ai-ml",
+      "count": 31
+    },
+    {
+      "tag": "features:ai-powered",
+      "count": 31
+    },
+    {
+      "tag": "stage:legacy",
+      "count": 15
+    },
+    {
+      "tag": "complexity:simple",
+      "count": 9
+    },
+    {
+      "tag": "features:3d-graphics",
+      "count": 8
+    },
+    {
+      "tag": "stage:archived",
+      "count": 8
+    }
+  ],
+  "batchInfo": {
+    "batch": 1,
+    "range": "1-64",
+    "generatedAt": "2026-01-02T00:19:52.526Z"
+  }
+}

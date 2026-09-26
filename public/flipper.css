@@ -1,0 +1,83 @@
+/* ---------- Live flipper, contact sheet, capture panel ---------- */
+#flipperView { background: #0b0d11; }
+#flipperView .fl-bar { background: #13161c; border-bottom: 1px solid #1f2430; }
+.fl-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 8px;
+  border: 1px solid #2a3140; background: #171b23; color: #cbd5e1; font-size: 12px; line-height: 1;
+  transition: background .15s, border-color .15s, color .15s; white-space: nowrap;
+}
+.fl-btn:hover:not(:disabled) { background: #1d2331; border-color: rgba(0,229,255,.45); color: #fff; }
+.fl-btn:focus-visible, #sheetView button:focus-visible, .fl-range:focus-visible { outline: 2px solid #00e5ff; outline-offset: 2px; }
+.fl-btn:disabled { opacity: .35; cursor: not-allowed; }
+.fl-btn.primary { background: rgba(0,229,255,.12); border-color: rgba(0,229,255,.5); color: #7ff3ff; }
+.fl-btn.danger:hover { border-color: rgba(248,113,113,.6); color: #fca5a5; }
+.fl-btn .material-symbols-outlined { font-size: 18px; }
+.fl-range { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: #263043; border-radius: 2px; }
+.fl-range::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #00e5ff; box-shadow: 0 0 8px rgba(0,229,255,.6); cursor: pointer; }
+.fl-stage { position: relative; flex: 1; min-height: 0; background: #06080b; }
+.fl-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+.fl-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; background: #0b0d11; z-index: 2; }
+.fl-overlay.translucent { background: rgba(11,13,17,.85); backdrop-filter: blur(2px); }
+.fl-card { max-width: 560px; width: 100%; background: #13161c; border: 1px solid #252b38; border-radius: 14px; padding: 22px 24px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.fl-card h3 { font-size: 15px; font-weight: 600; color: #f1f5f9; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
+.fl-card p { font-size: 13px; color: #94a3b8; line-height: 1.5; margin: 0 0 10px; }
+.fl-card .fl-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.fl-card ul.choices { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; max-height: 260px; overflow: auto; }
+.fl-card ul.choices button { width: 100%; text-align: left; display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 8px; border: 1px solid #2a3140; background: #171b23; color: #e2e8f0; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+.fl-card ul.choices button:hover { border-color: rgba(0,229,255,.5); background: #1d2331; }
+.fl-card ul.choices button small { color: #64748b; font-family: Inter, sans-serif; }
+.fl-spinner { width: 34px; height: 34px; border: 3px solid #1f2937; border-top-color: #00e5ff; border-radius: 50%; animation: flspin .9s linear infinite; }
+@keyframes flspin { to { transform: rotate(360deg); } }
+.fl-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; border: 1px solid transparent; }
+.fl-badge.static { color: #7ff3ff; background: rgba(0,229,255,.1); border-color: rgba(0,229,255,.3); }
+.fl-badge.managed { color: #c4b5fd; background: rgba(139,92,246,.15); border-color: rgba(139,92,246,.4); }
+.fl-badge.external { color: #fdba74; background: rgba(249,115,22,.15); border-color: rgba(249,115,22,.4); }
+.fl-badge.state-ready { color: #86efac; background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.35); }
+.fl-badge.state-starting, .fl-badge.state-queued { color: #fde047; background: rgba(234,179,8,.12); border-color: rgba(234,179,8,.35); }
+.fl-badge.state-failed, .fl-badge.state-stopped { color: #fca5a5; background: rgba(248,113,113,.12); border-color: rgba(248,113,113,.35); }
+.fl-badge.build { color: #fdba74; background: rgba(249,115,22,.12); border-color: rgba(249,115,22,.35); }
+.fl-details { width: 380px; max-width: 45vw; background: #10131a; border-left: 1px solid #1f2430; overflow-y: auto; font-size: 12px; }
+.fl-details section { padding: 14px 16px; border-bottom: 1px solid #1a1f2a; }
+.fl-details h4 { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #64748b; margin: 0 0 8px; font-weight: 600; }
+.fl-details dl { display: grid; grid-template-columns: 90px 1fr; gap: 4px 10px; margin: 0; }
+.fl-details dt { color: #64748b; }
+.fl-details dd { margin: 0; color: #cbd5e1; word-break: break-all; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.fl-details ul.why { margin: 0; padding-left: 16px; color: #94a3b8; line-height: 1.5; }
+.fl-details input[type=text], .fl-details select, .fl-details input[type=number] { width: 100%; background: #0b0d11; border: 1px solid #2a3140; border-radius: 6px; padding: 6px 8px; color: #e2e8f0; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+.fl-details input:focus, .fl-details select:focus { outline: none; border-color: #00e5ff; }
+.fl-details label { display: block; color: #94a3b8; margin: 8px 0 4px; font-size: 11px; }
+.fl-log { background: #06080b; border: 1px solid #1f2430; border-radius: 8px; padding: 8px; max-height: 220px; overflow: auto; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.45; color: #94a3b8; white-space: pre-wrap; word-break: break-all; }
+.fl-log .err { color: #fca5a5; }
+.fl-kbd { display: inline-block; padding: 1px 5px; border: 1px solid #334155; border-bottom-width: 2px; border-radius: 4px; font-size: 10px; color: #94a3b8; font-family: 'JetBrains Mono', monospace; }
+@media (max-width: 900px) {
+  .fl-details { position: absolute; right: 0; top: 0; bottom: 0; max-width: 92vw; width: 340px; z-index: 5; box-shadow: -10px 0 40px rgba(0,0,0,.5); }
+  #flipperView .fl-bar .fl-hide-narrow { display: none; }
+}
+/* The flipper sits beside a fixed 320px sidebar, so its own width is what matters. */
+@container flipper (max-width: 640px) {
+  #flipperView .fl-bar { height: auto; min-height: 3.5rem; flex-wrap: wrap; row-gap: 8px; padding: 8px 12px; }
+  #flipperView .fl-bar .fl-title { flex-basis: 100%; order: -1; }
+  #flipperView .fl-bar #flPosition { display: inline; }
+}
+#flipperView { container-type: inline-size; container-name: flipper; }
+
+/* ---------- list-item hooks ---------- */
+.proj-thumb { width: 100%; height: 64px; object-fit: cover; object-position: top; border-radius: 6px; border: 1px solid #1f2430; background: #0b0d11; margin-bottom: 6px; display: block; }
+.proj-preview-btn { opacity: 0; transition: opacity .15s; }
+.group:hover .proj-preview-btn, .proj-preview-btn:focus-visible { opacity: 1; }
+
+/* ---------- contact sheet ---------- */
+#sheetView { background: #0f1115; }
+.sheet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.sheet-card { background: #13161c; border: 1px solid #1f2430; border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color .15s, transform .15s; text-align: left; padding: 0; }
+.sheet-card:hover, .sheet-card:focus-visible { border-color: rgba(0,229,255,.5); transform: translateY(-2px); outline: none; }
+.sheet-card .thumb { aspect-ratio: 1440 / 1000; background: #0b0d11 center/cover no-repeat; position: relative; display: flex; align-items: center; justify-content: center; color: #334155; }
+.sheet-card .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.sheet-card .meta { padding: 8px 10px; }
+.sheet-card .name { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sheet-card .sub { font-size: 10px; color: #64748b; margin-top: 2px; display: flex; justify-content: space-between; gap: 6px; }
+.sheet-card .thumb .fl-badge { position: absolute; top: 6px; left: 6px; }
+.sheet-card.stale .thumb img { filter: saturate(.6) brightness(.85); }
+.cap-progress { height: 4px; background: #1f2430; border-radius: 2px; overflow: hidden; }
+.cap-progress > div { height: 100%; background: linear-gradient(90deg, #00e5ff, #7000ff); transition: width .3s; }
+.cap-toast { position: fixed; bottom: 16px; right: 16px; z-index: 60; background: #13161c; border: 1px solid #2a3140; border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,.5); max-width: 380px; }

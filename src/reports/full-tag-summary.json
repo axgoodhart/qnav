@@ -1,0 +1,244 @@
+{
+  "totalProjects": 504,
+  "uniqueTags": 98,
+  "topTags": [
+    [
+      "complexity:trivial",
+      204
+    ],
+    [
+      "deploymentTarget:web",
+      183
+    ],
+    [
+      "architecture:static-site",
+      179
+    ],
+    [
+      "domain:art",
+      153
+    ],
+    [
+      "domain:ai-ml",
+      151
+    ],
+    [
+      "features:ai-powered",
+      151
+    ],
+    [
+      "audience:developers",
+      144
+    ],
+    [
+      "techStyle:typescript-strict",
+      142
+    ],
+    [
+      "purpose:entertainment",
+      138
+    ],
+    [
+      "purpose:utility",
+      137
+    ],
+    [
+      "contentType:interactive",
+      137
+    ],
+    [
+      "features:webgl",
+      136
+    ],
+    [
+      "architecture:pwa",
+      136
+    ],
+    [
+      "monetization:open-source",
+      135
+    ],
+    [
+      "purpose:portfolio",
+      132
+    ],
+    [
+      "domain:devtools",
+      132
+    ],
+    [
+      "features:websocket",
+      132
+    ],
+    [
+      "purpose:creative-tools",
+      131
+    ],
+    [
+      "purpose:photography",
+      130
+    ],
+    [
+      "features:authentication",
+      130
+    ],
+    [
+      "features:canvas",
+      128
+    ],
+    [
+      "purpose:productivity",
+      127
+    ],
+    [
+      "stage:production",
+      126
+    ],
+    [
+      "stage:prototype",
+      78
+    ],
+    [
+      "complexity:simple",
+      26
+    ],
+    [
+      "stage:beta",
+      23
+    ],
+    [
+      "purpose:music",
+      18
+    ],
+    [
+      "features:3d-graphics",
+      18
+    ],
+    [
+      "architecture:spa",
+      16
+    ],
+    [
+      "techStyle:component-based",
+      16
+    ]
+  ],
+  "categoryCounts": {
+    "complexity": 248,
+    "stage": 248,
+    "domain": 193,
+    "features": 189,
+    "architecture": 184,
+    "deploymentTarget": 183,
+    "purpose": 168,
+    "audience": 155,
+    "techStyle": 148,
+    "contentType": 144,
+    "monetization": 139,
+    "uiParadigm": 63,
+    "scaleTarget": 10,
+    "integrationType": 7,
+    "dataHandling": 6,
+    "interactionModel": 3
+  },
+  "allTagCounts": {
+    "complexity:trivial": 204,
+    "stage:prototype": 78,
+    "domain:ai-ml": 151,
+    "features:ai-powered": 151,
+    "architecture:static-site": 179,
+    "deploymentTarget:web": 183,
+    "deploymentTarget:desktop": 4,
+    "complexity:simple": 26,
+    "purpose:portfolio": 132,
+    "purpose:productivity": 127,
+    "purpose:entertainment": 138,
+    "purpose:utility": 137,
+    "purpose:creative-tools": 131,
+    "purpose:photography": 130,
+    "audience:developers": 144,
+    "domain:devtools": 132,
+    "domain:art": 153,
+    "features:authentication": 130,
+    "features:webgl": 136,
+    "features:canvas": 128,
+    "features:websocket": 132,
+    "architecture:pwa": 136,
+    "contentType:interactive": 137,
+    "monetization:open-source": 135,
+    "techStyle:typescript-strict": 142,
+    "stage:production": 126,
+    "purpose:gaming": 4,
+    "uiParadigm:game-ui": 5,
+    "uiParadigm:os-interface": 12,
+    "scaleTarget:personal": 10,
+    "purpose:analytics": 6,
+    "purpose:data-visualization": 7,
+    "features:charts": 7,
+    "architecture:spa": 16,
+    "architecture:ssr": 8,
+    "uiParadigm:blog": 10,
+    "uiParadigm:carousel": 8,
+    "integrationType:api-provider": 3,
+    "techStyle:component-based": 16,
+    "complexity:complex": 5,
+    "stage:beta": 23,
+    "stage:legacy": 6,
+    "purpose:music": 18,
+    "audience:musicians": 12,
+    "domain:music": 16,
+    "features:audio": 8,
+    "uiParadigm:audio-player": 7,
+    "contentType:media-rich": 2,
+    "uiParadigm:portfolio-site": 7,
+    "features:realtime": 4,
+    "features:3d-graphics": 18,
+    "dataHandling:real-time-sync": 5,
+    "uiParadigm:gallery": 4,
+    "purpose:video": 7,
+    "domain:video": 7,
+    "features:video-playback": 6,
+    "uiParadigm:video-player": 6,
+    "purpose:education": 4,
+    "features:midi": 6,
+    "complexity:moderate": 12,
+    "audience:artists": 10,
+    "architecture:serverless": 1,
+    "interactionModel:collaborative": 2,
+    "interactionModel:single-user": 3,
+    "monetization:free": 4,
+    "uiParadigm:dashboard": 4,
+    "dataHandling:file-based": 1,
+    "purpose:developer-tools": 8,
+    "uiParadigm:editor": 9,
+    "contentType:code-focused": 6,
+    "contentType:tutorial": 6,
+    "stage:demo": 3,
+    "purpose:communication": 2,
+    "domain:communication": 1,
+    "stage:template": 1,
+    "features:animations": 4,
+    "stage:experimental": 10,
+    "audience:internal-tools": 2,
+    "integrationType:embeddable": 3,
+    "purpose:food-app": 4,
+    "purpose:automation": 2,
+    "uiParadigm:kanban": 2,
+    "uiParadigm:cli": 2,
+    "deploymentTarget:cli-tool": 1,
+    "integrationType:api-consumer": 2,
+    "purpose:design": 1,
+    "audience:consumers": 3,
+    "purpose:writing": 2,
+    "purpose:social": 3,
+    "audience:creators": 2,
+    "stage:archived": 1,
+    "uiParadigm:calendar-view": 2,
+    "uiParadigm:chat-interface": 1,
+    "audience:enterprise": 1,
+    "features:drag-drop": 1,
+    "uiParadigm:terminal": 1,
+    "complexity:enterprise-grade": 1,
+    "audience:gamers": 1
+  }
+}

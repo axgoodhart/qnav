@@ -1,0 +1,740 @@
+{
+  "generatedAt": "2026-01-02T00:23:45.438Z",
+  "totalProjects": 504,
+  "batchesAnalyzed": 8,
+  "overallTagDistribution": {
+    "domain:ai-ml": 222,
+    "features:ai-powered": 222,
+    "architecture:static-site": 298,
+    "deploymentTarget:web": 294,
+    "complexity:trivial": 335,
+    "stage:prototype": 190,
+    "features:3d-graphics": 29,
+    "stage:legacy": 21,
+    "stage:archived": 9,
+    "purpose:developer-tools": 14,
+    "domain:devtools": 135,
+    "stage:experimental": 12,
+    "purpose:food-app": 5,
+    "purpose:portfolio": 136,
+    "scaleTarget:personal": 16,
+    "complexity:simple": 47,
+    "purpose:photography": 133,
+    "uiParadigm:gallery": 5,
+    "uiParadigm:carousel": 14,
+    "purpose:music": 23,
+    "audience:musicians": 16,
+    "domain:music": 21,
+    "features:audio": 12,
+    "features:webgl": 138,
+    "uiParadigm:audio-player": 13,
+    "audience:artists": 12,
+    "domain:art": 166,
+    "uiParadigm:os-interface": 19,
+    "audience:consumers": 7,
+    "monetization:open-source": 139,
+    "stage:beta": 42,
+    "purpose:entertainment": 143,
+    "audience:developers": 155,
+    "deploymentTarget:desktop": 8,
+    "contentType:interactive": 142,
+    "techStyle:component-based": 28,
+    "purpose:analytics": 10,
+    "purpose:data-visualization": 11,
+    "features:charts": 11,
+    "architecture:spa": 25,
+    "architecture:ssr": 13,
+    "uiParadigm:blog": 16,
+    "dataHandling:real-time-sync": 10,
+    "techStyle:typescript-strict": 150,
+    "complexity:complex": 7,
+    "features:authentication": 131,
+    "architecture:pwa": 142,
+    "dataHandling:file-based": 3,
+    "contentType:media-rich": 3,
+    "purpose:automation": 4,
+    "purpose:writing": 6,
+    "domain:automation": 2,
+    "uiParadigm:editor": 16,
+    "purpose:utility": 142,
+    "features:websocket": 135,
+    "dataHandling:local-storage": 5,
+    "features:drag-drop": 2,
+    "integrationType:embeddable": 4,
+    "interactionModel:collaborative": 3,
+    "monetization:free": 5,
+    "purpose:content-management": 1,
+    "purpose:design": 4,
+    "contentType:text-heavy": 3,
+    "uiParadigm:cli": 3,
+    "deploymentTarget:cli-tool": 2,
+    "contentType:code-focused": 9,
+    "purpose:social": 4,
+    "uiParadigm:portfolio-site": 9,
+    "purpose:education": 6,
+    "domain:education": 2,
+    "integrationType:standalone": 2,
+    "techStyle:vanilla-js": 3,
+    "uiParadigm:calendar-view": 6,
+    "purpose:gaming": 6,
+    "uiParadigm:game-ui": 9,
+    "complexity:moderate": 16,
+    "contentType:tutorial": 8,
+    "stage:demo": 4,
+    "purpose:productivity": 130,
+    "purpose:creative-tools": 134,
+    "features:canvas": 129,
+    "stage:production": 127,
+    "integrationType:api-provider": 5,
+    "features:realtime": 5,
+    "purpose:video": 11,
+    "domain:video": 11,
+    "features:video-playback": 10,
+    "uiParadigm:video-player": 10,
+    "features:midi": 6,
+    "architecture:serverless": 1,
+    "interactionModel:single-user": 3,
+    "uiParadigm:dashboard": 4,
+    "architecture:ssg": 1,
+    "deploymentTarget:static-hosting": 1,
+    "audience:gamers": 3,
+    "audience:internal-tools": 3,
+    "audience:creators": 4,
+    "uiParadigm:admin-panel": 1,
+    "purpose:communication": 2,
+    "uiParadigm:kanban": 2,
+    "stage:template": 1,
+    "domain:communication": 1,
+    "features:animations": 4,
+    "integrationType:api-consumer": 2,
+    "uiParadigm:chat-interface": 1,
+    "audience:enterprise": 1,
+    "uiParadigm:terminal": 1,
+    "complexity:enterprise-grade": 1
+  },
+  "categoryDistribution": {
+    "domain": 560,
+    "features": 834,
+    "architecture": 480,
+    "deploymentTarget": 305,
+    "complexity": 406,
+    "stage": 406,
+    "purpose": 925,
+    "scaleTarget": 16,
+    "uiParadigm": 129,
+    "audience": 201,
+    "monetization": 144,
+    "contentType": 165,
+    "techStyle": 181,
+    "dataHandling": 18,
+    "integrationType": 13,
+    "interactionModel": 6
+  },
+  "top20Tags": [
+    {
+      "tag": "complexity:trivial",
+      "count": 335,
+      "percentage": "66.5%"
+    },
+    {
+      "tag": "architecture:static-site",
+      "count": 298,
+      "percentage": "59.1%"
+    },
+    {
+      "tag": "deploymentTarget:web",
+      "count": 294,
+      "percentage": "58.3%"
+    },
+    {
+      "tag": "domain:ai-ml",
+      "count": 222,
+      "percentage": "44.0%"
+    },
+    {
+      "tag": "features:ai-powered",
+      "count": 222,
+      "percentage": "44.0%"
+    },
+    {
+      "tag": "stage:prototype",
+      "count": 190,
+      "percentage": "37.7%"
+    },
+    {
+      "tag": "domain:art",
+      "count": 166,
+      "percentage": "32.9%"
+    },
+    {
+      "tag": "audience:developers",
+      "count": 155,
+      "percentage": "30.8%"
+    },
+    {
+      "tag": "techStyle:typescript-strict",
+      "count": 150,
+      "percentage": "29.8%"
+    },
+    {
+      "tag": "purpose:entertainment",
+      "count": 143,
+      "percentage": "28.4%"
+    },
+    {
+      "tag": "contentType:interactive",
+      "count": 142,
+      "percentage": "28.2%"
+    },
+    {
+      "tag": "architecture:pwa",
+      "count": 142,
+      "percentage": "28.2%"
+    },
+    {
+      "tag": "purpose:utility",
+      "count": 142,
+      "percentage": "28.2%"
+    },
+    {
+      "tag": "monetization:open-source",
+      "count": 139,
+      "percentage": "27.6%"
+    },
+    {
+      "tag": "features:webgl",
+      "count": 138,
+      "percentage": "27.4%"
+    },
+    {
+      "tag": "purpose:portfolio",
+      "count": 136,
+      "percentage": "27.0%"
+    },
+    {
+      "tag": "domain:devtools",
+      "count": 135,
+      "percentage": "26.8%"
+    },
+    {
+      "tag": "features:websocket",
+      "count": 135,
+      "percentage": "26.8%"
+    },
+    {
+      "tag": "purpose:creative-tools",
+      "count": 134,
+      "percentage": "26.6%"
+    },
+    {
+      "tag": "purpose:photography",
+      "count": 133,
+      "percentage": "26.4%"
+    }
+  ],
+  "tagCategoryBreakdown": {
+    "domain": {
+      "tagCount": 560,
+      "topTags": [
+        {
+          "tag": "ai-ml",
+          "count": 222
+        },
+        {
+          "tag": "art",
+          "count": 166
+        },
+        {
+          "tag": "devtools",
+          "count": 135
+        },
+        {
+          "tag": "music",
+          "count": 21
+        },
+        {
+          "tag": "video",
+          "count": 11
+        },
+        {
+          "tag": "automation",
+          "count": 2
+        },
+        {
+          "tag": "education",
+          "count": 2
+        },
+        {
+          "tag": "communication",
+          "count": 1
+        }
+      ]
+    },
+    "features": {
+      "tagCount": 834,
+      "topTags": [
+        {
+          "tag": "ai-powered",
+          "count": 222
+        },
+        {
+          "tag": "webgl",
+          "count": 138
+        },
+        {
+          "tag": "websocket",
+          "count": 135
+        },
+        {
+          "tag": "authentication",
+          "count": 131
+        },
+        {
+          "tag": "canvas",
+          "count": 129
+        },
+        {
+          "tag": "3d-graphics",
+          "count": 29
+        },
+        {
+          "tag": "audio",
+          "count": 12
+        },
+        {
+          "tag": "charts",
+          "count": 11
+        },
+        {
+          "tag": "video-playback",
+          "count": 10
+        },
+        {
+          "tag": "midi",
+          "count": 6
+        }
+      ]
+    },
+    "architecture": {
+      "tagCount": 480,
+      "topTags": [
+        {
+          "tag": "static-site",
+          "count": 298
+        },
+        {
+          "tag": "pwa",
+          "count": 142
+        },
+        {
+          "tag": "spa",
+          "count": 25
+        },
+        {
+          "tag": "ssr",
+          "count": 13
+        },
+        {
+          "tag": "serverless",
+          "count": 1
+        },
+        {
+          "tag": "ssg",
+          "count": 1
+        }
+      ]
+    },
+    "deploymentTarget": {
+      "tagCount": 305,
+      "topTags": [
+        {
+          "tag": "web",
+          "count": 294
+        },
+        {
+          "tag": "desktop",
+          "count": 8
+        },
+        {
+          "tag": "cli-tool",
+          "count": 2
+        },
+        {
+          "tag": "static-hosting",
+          "count": 1
+        }
+      ]
+    },
+    "complexity": {
+      "tagCount": 406,
+      "topTags": [
+        {
+          "tag": "trivial",
+          "count": 335
+        },
+        {
+          "tag": "simple",
+          "count": 47
+        },
+        {
+          "tag": "moderate",
+          "count": 16
+        },
+        {
+          "tag": "complex",
+          "count": 7
+        },
+        {
+          "tag": "enterprise-grade",
+          "count": 1
+        }
+      ]
+    },
+    "stage": {
+      "tagCount": 406,
+      "topTags": [
+        {
+          "tag": "prototype",
+          "count": 190
+        },
+        {
+          "tag": "production",
+          "count": 127
+        },
+        {
+          "tag": "beta",
+          "count": 42
+        },
+        {
+          "tag": "legacy",
+          "count": 21
+        },
+        {
+          "tag": "experimental",
+          "count": 12
+        },
+        {
+          "tag": "archived",
+          "count": 9
+        },
+        {
+          "tag": "demo",
+          "count": 4
+        },
+        {
+          "tag": "template",
+          "count": 1
+        }
+      ]
+    },
+    "purpose": {
+      "tagCount": 925,
+      "topTags": [
+        {
+          "tag": "entertainment",
+          "count": 143
+        },
+        {
+          "tag": "utility",
+          "count": 142
+        },
+        {
+          "tag": "portfolio",
+          "count": 136
+        },
+        {
+          "tag": "creative-tools",
+          "count": 134
+        },
+        {
+          "tag": "photography",
+          "count": 133
+        },
+        {
+          "tag": "productivity",
+          "count": 130
+        },
+        {
+          "tag": "music",
+          "count": 23
+        },
+        {
+          "tag": "developer-tools",
+          "count": 14
+        },
+        {
+          "tag": "data-visualization",
+          "count": 11
+        },
+        {
+          "tag": "video",
+          "count": 11
+        }
+      ]
+    },
+    "scaleTarget": {
+      "tagCount": 16,
+      "topTags": [
+        {
+          "tag": "personal",
+          "count": 16
+        }
+      ]
+    },
+    "uiParadigm": {
+      "tagCount": 129,
+      "topTags": [
+        {
+          "tag": "os-interface",
+          "count": 19
+        },
+        {
+          "tag": "blog",
+          "count": 16
+        },
+        {
+          "tag": "editor",
+          "count": 16
+        },
+        {
+          "tag": "carousel",
+          "count": 14
+        },
+        {
+          "tag": "audio-player",
+          "count": 13
+        },
+        {
+          "tag": "video-player",
+          "count": 10
+        },
+        {
+          "tag": "portfolio-site",
+          "count": 9
+        },
+        {
+          "tag": "game-ui",
+          "count": 9
+        },
+        {
+          "tag": "calendar-view",
+          "count": 6
+        },
+        {
+          "tag": "gallery",
+          "count": 5
+        }
+      ]
+    },
+    "audience": {
+      "tagCount": 201,
+      "topTags": [
+        {
+          "tag": "developers",
+          "count": 155
+        },
+        {
+          "tag": "musicians",
+          "count": 16
+        },
+        {
+          "tag": "artists",
+          "count": 12
+        },
+        {
+          "tag": "consumers",
+          "count": 7
+        },
+        {
+          "tag": "creators",
+          "count": 4
+        },
+        {
+          "tag": "gamers",
+          "count": 3
+        },
+        {
+          "tag": "internal-tools",
+          "count": 3
+        },
+        {
+          "tag": "enterprise",
+          "count": 1
+        }
+      ]
+    },
+    "monetization": {
+      "tagCount": 144,
+      "topTags": [
+        {
+          "tag": "open-source",
+          "count": 139
+        },
+        {
+          "tag": "free",
+          "count": 5
+        }
+      ]
+    },
+    "contentType": {
+      "tagCount": 165,
+      "topTags": [
+        {
+          "tag": "interactive",
+          "count": 142
+        },
+        {
+          "tag": "code-focused",
+          "count": 9
+        },
+        {
+          "tag": "tutorial",
+          "count": 8
+        },
+        {
+          "tag": "media-rich",
+          "count": 3
+        },
+        {
+          "tag": "text-heavy",
+          "count": 3
+        }
+      ]
+    },
+    "techStyle": {
+      "tagCount": 181,
+      "topTags": [
+        {
+          "tag": "typescript-strict",
+          "count": 150
+        },
+        {
+          "tag": "component-based",
+          "count": 28
+        },
+        {
+          "tag": "vanilla-js",
+          "count": 3
+        }
+      ]
+    },
+    "dataHandling": {
+      "tagCount": 18,
+      "topTags": [
+        {
+          "tag": "real-time-sync",
+          "count": 10
+        },
+        {
+          "tag": "local-storage",
+          "count": 5
+        },
+        {
+          "tag": "file-based",
+          "count": 3
+        }
+      ]
+    },
+    "integrationType": {
+      "tagCount": 13,
+      "topTags": [
+        {
+          "tag": "api-provider",
+          "count": 5
+        },
+        {
+          "tag": "embeddable",
+          "count": 4
+        },
+        {
+          "tag": "standalone",
+          "count": 2
+        },
+        {
+          "tag": "api-consumer",
+          "count": 2
+        }
+      ]
+    },
+    "interactionModel": {
+      "tagCount": 6,
+      "topTags": [
+        {
+          "tag": "collaborative",
+          "count": 3
+        },
+        {
+          "tag": "single-user",
+          "count": 3
+        }
+      ]
+    }
+  },
+  "coverageStatistics": {
+    "projectsWithTags": 504,
+    "projectsWithNoTags": 0,
+    "averageTagsPerProject": 9.501984126984127,
+    "medianTagsPerProject": 10,
+    "minTags": 0,
+    "maxTags": 30,
+    "tagCoverage": "100.0%"
+  },
+  "batchSummaries": [
+    {
+      "batch": 1,
+      "range": "Batch 1",
+      "projectCount": 64,
+      "totalTags": 408,
+      "averageTagsPerProject": 6.375
+    },
+    {
+      "batch": 2,
+      "range": "65-128",
+      "projectCount": 64,
+      "totalTags": 88,
+      "averageTagsPerProject": 1.375
+    },
+    {
+      "batch": 3,
+      "range": "129-192",
+      "projectCount": 64,
+      "totalTags": 1152,
+      "averageTagsPerProject": 18
+    },
+    {
+      "batch": 4,
+      "range": "193-256",
+      "projectCount": 64,
+      "totalTags": 409,
+      "averageTagsPerProject": 6.390625
+    },
+    {
+      "batch": 5,
+      "range": "Projects 257-320 (Maize through Omneon)",
+      "projectCount": 64,
+      "totalTags": 74,
+      "averageTagsPerProject": 1.15625
+    },
+    {
+      "batch": 6,
+      "range": "321-384",
+      "projectCount": 64,
+      "totalTags": 316,
+      "averageTagsPerProject": 4.9375
+    },
+    {
+      "batch": 7,
+      "range": "[object Object]",
+      "projectCount": 49,
+      "totalTags": 947,
+      "averageTagsPerProject": 19.3265306122449
+    },
+    {
+      "batch": 8,
+      "range": "449-519",
+      "projectCount": 71,
+      "totalTags": 1395,
+      "averageTagsPerProject": 19.64788732394366
+    }
+  ]
+}

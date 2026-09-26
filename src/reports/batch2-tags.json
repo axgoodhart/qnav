@@ -1,0 +1,1003 @@
+{
+  "batch": 2,
+  "batchRange": "65-128",
+  "generatedAt": "2026-01-02T00:19:29.954Z",
+  "summary": {
+    "totalProjects": 64,
+    "analyzedDirectories": 16,
+    "nonDirectoryItems": 48,
+    "projectsWithZeroTags": 0,
+    "totalUniqueTagTypes": 38,
+    "totalTagInstances": 88,
+    "averageTagsPerProject": "5.50"
+  },
+  "tagDistribution": {
+    "complexity:trivial": 14,
+    "architecture:static-site": 12,
+    "stage:prototype": 11,
+    "deploymentTarget:web": 10,
+    "stage:beta": 4,
+    "domain:art": 2,
+    "uiParadigm:editor": 2,
+    "purpose:gaming": 2,
+    "uiParadigm:game-ui": 2,
+    "purpose:education": 1,
+    "audience:developers": 1,
+    "domain:education": 1,
+    "dataHandling:local-storage": 1,
+    "integrationType:standalone": 1,
+    "techStyle:vanilla-js": 1,
+    "complexity:simple": 1,
+    "uiParadigm:calendar-view": 1,
+    "purpose:developer-tools": 1,
+    "contentType:code-focused": 1,
+    "monetization:open-source": 1,
+    "purpose:portfolio": 1,
+    "uiParadigm:portfolio-site": 1,
+    "domain:ai-ml": 1,
+    "features:ai-powered": 1,
+    "uiParadigm:os-interface": 1,
+    "purpose:analytics": 1,
+    "purpose:data-visualization": 1,
+    "features:charts": 1,
+    "architecture:spa": 1,
+    "architecture:ssr": 1,
+    "uiParadigm:blog": 1,
+    "uiParadigm:carousel": 1,
+    "dataHandling:real-time-sync": 1,
+    "techStyle:typescript-strict": 1,
+    "techStyle:component-based": 1,
+    "complexity:moderate": 1,
+    "contentType:tutorial": 1,
+    "stage:demo": 1
+  },
+  "topTags": [
+    {
+      "tag": "complexity:trivial",
+      "count": 14
+    },
+    {
+      "tag": "architecture:static-site",
+      "count": 12
+    },
+    {
+      "tag": "stage:prototype",
+      "count": 11
+    },
+    {
+      "tag": "deploymentTarget:web",
+      "count": 10
+    },
+    {
+      "tag": "stage:beta",
+      "count": 4
+    },
+    {
+      "tag": "domain:art",
+      "count": 2
+    },
+    {
+      "tag": "uiParadigm:editor",
+      "count": 2
+    },
+    {
+      "tag": "purpose:gaming",
+      "count": 2
+    },
+    {
+      "tag": "uiParadigm:game-ui",
+      "count": 2
+    },
+    {
+      "tag": "purpose:education",
+      "count": 1
+    },
+    {
+      "tag": "audience:developers",
+      "count": 1
+    },
+    {
+      "tag": "domain:education",
+      "count": 1
+    },
+    {
+      "tag": "dataHandling:local-storage",
+      "count": 1
+    },
+    {
+      "tag": "integrationType:standalone",
+      "count": 1
+    },
+    {
+      "tag": "techStyle:vanilla-js",
+      "count": 1
+    },
+    {
+      "tag": "complexity:simple",
+      "count": 1
+    },
+    {
+      "tag": "uiParadigm:calendar-view",
+      "count": 1
+    },
+    {
+      "tag": "purpose:developer-tools",
+      "count": 1
+    },
+    {
+      "tag": "contentType:code-focused",
+      "count": 1
+    },
+    {
+      "tag": "monetization:open-source",
+      "count": 1
+    }
+  ],
+  "projectsWithMostTags": [
+    {
+      "name": "Habitrack",
+      "tagCount": 13,
+      "tags": [
+        "purpose:analytics",
+        "purpose:data-visualization",
+        "domain:art",
+        "features:charts",
+        "architecture:spa",
+        "architecture:ssr",
+        "uiParadigm:blog",
+        "uiParadigm:carousel",
+        "dataHandling:real-time-sync",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:moderate",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "CaseChronicle1",
+      "tagCount": 11,
+      "tags": [
+        "purpose:education",
+        "audience:developers",
+        "domain:education",
+        "domain:art",
+        "architecture:static-site",
+        "dataHandling:local-storage",
+        "deploymentTarget:web",
+        "integrationType:standalone",
+        "techStyle:vanilla-js",
+        "complexity:simple",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "GPTglos",
+      "tagCount": 7,
+      "tags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "JUSTRISDEMO",
+      "tagCount": 7,
+      "tags": [
+        "purpose:gaming",
+        "architecture:static-site",
+        "uiParadigm:game-ui",
+        "deploymentTarget:web",
+        "contentType:tutorial",
+        "complexity:trivial",
+        "stage:demo"
+      ]
+    },
+    {
+      "name": "Codepens",
+      "tagCount": 6,
+      "tags": [
+        "purpose:developer-tools",
+        "uiParadigm:editor",
+        "contentType:code-focused",
+        "monetization:open-source",
+        "complexity:trivial",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "Folio",
+      "tagCount": 6,
+      "tags": [
+        "purpose:portfolio",
+        "architecture:static-site",
+        "uiParadigm:portfolio-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Justris",
+      "tagCount": 6,
+      "tags": [
+        "purpose:gaming",
+        "architecture:static-site",
+        "uiParadigm:game-ui",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "ClassTimer",
+      "tagCount": 5,
+      "tags": [
+        "architecture:static-site",
+        "uiParadigm:calendar-view",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Claude",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Frontend",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    }
+  ],
+  "projectsWithFewestTags": [
+    {
+      "name": "KNOWLEDGE",
+      "tagCount": 2,
+      "tags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Lorca",
+      "tagCount": 3,
+      "tags": [
+        "architecture:static-site",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Github",
+      "tagCount": 3,
+      "tags": [
+        "architecture:static-site",
+        "complexity:trivial",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "Divided",
+      "tagCount": 3,
+      "tags": [
+        "uiParadigm:editor",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Lorcanto",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Gradia",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Frontend",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Claude",
+      "tagCount": 4,
+      "tags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "ClassTimer",
+      "tagCount": 5,
+      "tags": [
+        "architecture:static-site",
+        "uiParadigm:calendar-view",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Justris",
+      "tagCount": 6,
+      "tags": [
+        "purpose:gaming",
+        "architecture:static-site",
+        "uiParadigm:game-ui",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    }
+  ],
+  "projectsWithZeroTags": [],
+  "projectDetails": [
+    {
+      "name": "Camera.js",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "CameraModule.js",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Cardlings.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "CaseChronicle1",
+      "isDirectory": true,
+      "tagCount": 11,
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "tags": {
+        "purpose": [
+          "education"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "education",
+          "art"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "dataHandling": [
+          "local-storage"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "integrationType": [
+          "standalone"
+        ],
+        "techStyle": [
+          "vanilla-js"
+        ],
+        "complexity": "simple",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "Chooseyourclass.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "ClassTimer",
+      "isDirectory": true,
+      "tagCount": 5,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "calendar-view"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "ClassTimer copy.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Claude",
+      "isDirectory": true,
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Clubhouse.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Codepens",
+      "isDirectory": true,
+      "tagCount": 6,
+      "techStack": [],
+      "tags": {
+        "purpose": [
+          "developer-tools"
+        ],
+        "uiParadigm": [
+          "editor"
+        ],
+        "contentType": [
+          "code-focused"
+        ],
+        "monetization": "open-source",
+        "complexity": "trivial",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "Codex.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "CodexPrincess.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "ComputerUse.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Cufolio.code-workspace",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "CufolioNavigator-original.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "CufolioNavigator.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Cursive.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Cursive2.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "DELETEMEUntitled-1.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Dashy.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "DemoKybd.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Divided",
+      "isDirectory": true,
+      "tagCount": 3,
+      "techStack": [],
+      "tags": {
+        "uiParadigm": [
+          "editor"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Dreamscape.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "ENHANCEMENT_SUMMARY.md",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Experiments.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Folio",
+      "isDirectory": true,
+      "tagCount": 6,
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "tags": {
+        "purpose": [
+          "portfolio"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "portfolio-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "FontFinder.py",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Frontend",
+      "isDirectory": true,
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "GPTglos",
+      "isDirectory": true,
+      "tagCount": 7,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "os-interface"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Gallery1.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Github",
+      "isDirectory": true,
+      "tagCount": 3,
+      "techStack": [],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "trivial",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "Gradia",
+      "isDirectory": true,
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Gradia.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Gridly.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Gridzy.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Habitrack",
+      "isDirectory": true,
+      "tagCount": 13,
+      "techStack": [
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Next.js"
+      ],
+      "tags": {
+        "purpose": [
+          "analytics",
+          "data-visualization"
+        ],
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "charts"
+        ],
+        "architecture": [
+          "spa",
+          "ssr"
+        ],
+        "uiParadigm": [
+          "blog",
+          "carousel"
+        ],
+        "dataHandling": [
+          "real-time-sync"
+        ],
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "Hello.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Hello.ts",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "HypoSynth.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "IDK.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "IDKactually.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "IMMERSIVE_WORKS_ANALYSIS.md",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "InversionShader.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "JSONbrowser.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "JUSTRISDEMO",
+      "isDirectory": true,
+      "tagCount": 7,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "purpose": [
+          "gaming"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "game-ui"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "tutorial"
+        ],
+        "complexity": "trivial",
+        "stage": "demo"
+      }
+    },
+    {
+      "name": "Justris",
+      "isDirectory": true,
+      "tagCount": 6,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "purpose": [
+          "gaming"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "game-ui"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Justris.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Justris.js",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Justris.py",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "KNOWLEDGE",
+      "isDirectory": true,
+      "tagCount": 2,
+      "techStack": [],
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Kapture.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "KeepTrack.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Kronicle.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "LLL.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Letsfindout.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "LionHost.css",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "LionHost.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "Lorca",
+      "isDirectory": true,
+      "tagCount": 3,
+      "techStack": [],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "Lorcanto",
+      "isDirectory": true,
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "MAIZE.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "MIDIKYBD.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "MIDIVIS.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "MIDIclean.py",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    },
+    {
+      "name": "MODELS.html",
+      "isDirectory": false,
+      "tagCount": 0,
+      "tags": {}
+    }
+  ]
+}

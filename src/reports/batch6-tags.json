@@ -1,0 +1,1967 @@
+{
+  "batchInfo": {
+    "batchNumber": 6,
+    "projectRange": "321-384",
+    "totalProjects": 64,
+    "analyzedAt": "2026-01-02T00:20:12.173Z",
+    "status": "completed"
+  },
+  "projects": [
+    {
+      "name": "codex",
+      "path": "/Users/alex/Documents/Cufolio/codex",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "developer-tools"
+        ],
+        "uiParadigm": [
+          "editor"
+        ],
+        "contentType": [
+          "code-focused"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:developer-tools",
+        "uiParadigm:editor",
+        "contentType:code-focused",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 0
+    },
+    {
+      "name": "css",
+      "path": "/Users/alex/Documents/Cufolio/css",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "CSS"
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "csstog.html",
+      "path": "/Users/alex/Documents/Cufolio/csstog.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "cua",
+      "path": "/Users/alex/Documents/Cufolio/cua",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "utility"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "art"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "monetization": "free",
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:utility",
+        "audience:developers",
+        "domain:art",
+        "deploymentTarget:web",
+        "monetization:free",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 8,
+      "techStack": [
+        "Python",
+        "Docker"
+      ],
+      "fileCount": 15
+    },
+    {
+      "name": "cube.html",
+      "path": "/Users/alex/Documents/Cufolio/cube.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered",
+          "3d-graphics"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "cubey.html",
+      "path": "/Users/alex/Documents/Cufolio/cubey.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered",
+          "3d-graphics"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "cufolio-complete-catalog.txt",
+      "path": "/Users/alex/Documents/Cufolio/cufolio-complete-catalog.txt",
+      "isDirectory": false,
+      "tags": {
+        "purpose": [
+          "portfolio"
+        ],
+        "uiParadigm": [
+          "portfolio-site"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "uiParadigm:portfolio-site",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "cunav",
+      "path": "/Users/alex/Documents/Cufolio/cunav",
+      "isDirectory": true,
+      "tags": {
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "realtime",
+          "websocket"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "integrationType": [
+          "api-provider"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "audience:developers",
+        "domain:art",
+        "features:realtime",
+        "features:websocket",
+        "deploymentTarget:web",
+        "integrationType:api-provider",
+        "contentType:interactive",
+        "techStyle:typescript-strict",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 10,
+      "techStack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "fileCount": 11
+    },
+    {
+      "name": "dagr",
+      "path": "/Users/alex/Documents/Cufolio/dagr",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 16
+    },
+    {
+      "name": "darkspace.html",
+      "path": "/Users/alex/Documents/Cufolio/darkspace.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "democells.html",
+      "path": "/Users/alex/Documents/Cufolio/democells.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "contentType": [
+          "tutorial"
+        ],
+        "complexity": "trivial",
+        "stage": "demo"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "contentType:tutorial",
+        "complexity:trivial",
+        "stage:demo"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "digitalperform",
+      "path": "/Users/alex/Documents/Cufolio/digitalperform",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "fileCount": 11
+    },
+    {
+      "name": "doesthiswork.html",
+      "path": "/Users/alex/Documents/Cufolio/doesthiswork.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "dot.html",
+      "path": "/Users/alex/Documents/Cufolio/dot.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "downloads",
+      "path": "/Users/alex/Documents/Cufolio/downloads",
+      "isDirectory": true,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [],
+      "fileCount": 0
+    },
+    {
+      "name": "emailjstemplate.html",
+      "path": "/Users/alex/Documents/Cufolio/emailjstemplate.html",
+      "isDirectory": false,
+      "tags": {
+        "purpose": [
+          "communication"
+        ],
+        "domain": [
+          "ai-ml",
+          "communication"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "template"
+      },
+      "flatTags": [
+        "purpose:communication",
+        "domain:ai-ml",
+        "domain:communication",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:template"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "emotionalVocab.js",
+      "path": "/Users/alex/Documents/Cufolio/emotionalVocab.js",
+      "isDirectory": false,
+      "tags": {
+        "features": [
+          "animations"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "features:animations",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 3,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "executive",
+      "path": "/Users/alex/Documents/Cufolio/executive",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "analytics",
+          "data-visualization"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "features": [
+          "authentication",
+          "charts"
+        ],
+        "architecture": [
+          "spa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "dashboard"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:analytics",
+        "purpose:data-visualization",
+        "audience:developers",
+        "features:authentication",
+        "features:charts",
+        "architecture:spa",
+        "architecture:static-site",
+        "uiParadigm:dashboard",
+        "deploymentTarget:web",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:moderate",
+        "stage:beta"
+      ],
+      "tagCount": 13,
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React"
+      ],
+      "fileCount": 14
+    },
+    {
+      "name": "experiment1",
+      "path": "/Users/alex/Documents/Cufolio/experiment1",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 5,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 7
+    },
+    {
+      "name": "experiment2.html",
+      "path": "/Users/alex/Documents/Cufolio/experiment2.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "experiments",
+      "path": "/Users/alex/Documents/Cufolio/experiments",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "photography"
+        ],
+        "features": [
+          "webgl"
+        ],
+        "uiParadigm": [
+          "gallery"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "purpose:photography",
+        "features:webgl",
+        "uiParadigm:gallery",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 9
+    },
+    {
+      "name": "experiments2",
+      "path": "/Users/alex/Documents/Cufolio/experiments2",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML",
+        "JavaScript"
+      ],
+      "fileCount": 4
+    },
+    {
+      "name": "experiments3",
+      "path": "/Users/alex/Documents/Cufolio/experiments3",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "experiments4",
+      "path": "/Users/alex/Documents/Cufolio/experiments4",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "experiments6",
+      "path": "/Users/alex/Documents/Cufolio/experiments6",
+      "isDirectory": true,
+      "tags": {
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "3d-graphics",
+          "webgl"
+        ],
+        "architecture": [
+          "spa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "complexity": "simple",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "domain:art",
+        "features:3d-graphics",
+        "features:webgl",
+        "architecture:spa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "complexity:simple",
+        "stage:experimental"
+      ],
+      "tagCount": 9,
+      "techStack": [
+        "HTML",
+        "JavaScript"
+      ],
+      "fileCount": 9
+    },
+    {
+      "name": "experiments7",
+      "path": "/Users/alex/Documents/Cufolio/experiments7",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:experimental"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML",
+        "JavaScript"
+      ],
+      "fileCount": 14
+    },
+    {
+      "name": "fakecpy.html",
+      "path": "/Users/alex/Documents/Cufolio/fakecpy.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "fcp.swift",
+      "path": "/Users/alex/Documents/Cufolio/fcp.swift",
+      "isDirectory": false,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "filmstrips.html",
+      "path": "/Users/alex/Documents/Cufolio/filmstrips.html",
+      "isDirectory": false,
+      "tags": {
+        "purpose": [
+          "video"
+        ],
+        "domain": [
+          "ai-ml",
+          "video"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:video",
+        "domain:ai-ml",
+        "domain:video",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "firstpages.py",
+      "path": "/Users/alex/Documents/Cufolio/firstpages.py",
+      "isDirectory": false,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "flutter",
+      "path": "/Users/alex/Documents/Cufolio/flutter",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "utility",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "internal-tools",
+          "artists"
+        ],
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "authentication"
+        ],
+        "integrationType": [
+          "embeddable"
+        ],
+        "monetization": "free",
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "simple",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:utility",
+        "purpose:photography",
+        "audience:developers",
+        "audience:internal-tools",
+        "audience:artists",
+        "domain:art",
+        "features:authentication",
+        "integrationType:embeddable",
+        "monetization:free",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:production"
+      ],
+      "tagCount": 13,
+      "techStack": [],
+      "fileCount": 20
+    },
+    {
+      "name": "frigi.html",
+      "path": "/Users/alex/Documents/Cufolio/frigi.html",
+      "isDirectory": false,
+      "tags": {
+        "purpose": [
+          "food-app"
+        ],
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:food-app",
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "frontrow.html",
+      "path": "/Users/alex/Documents/Cufolio/frontrow.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "generated_melodies.mid",
+      "path": "/Users/alex/Documents/Cufolio/generated_melodies.mid",
+      "isDirectory": false,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "glOS",
+      "path": "/Users/alex/Documents/Cufolio/glOS",
+      "isDirectory": true,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "os-interface"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 5,
+      "techStack": [
+        "HTML",
+        "JavaScript"
+      ],
+      "fileCount": 5
+    },
+    {
+      "name": "glowingcard.html",
+      "path": "/Users/alex/Documents/Cufolio/glowingcard.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "goodhart-music-com",
+      "path": "/Users/alex/Documents/Cufolio/goodhart-music-com",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "music"
+        ],
+        "audience": [
+          "musicians",
+          "artists"
+        ],
+        "domain": [
+          "music",
+          "art"
+        ],
+        "features": [
+          "audio"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "audio-player"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:music",
+        "audience:musicians",
+        "audience:artists",
+        "domain:music",
+        "domain:art",
+        "features:audio",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 10,
+      "techStack": [],
+      "fileCount": 4
+    },
+    {
+      "name": "goodhart.txt",
+      "path": "/Users/alex/Documents/Cufolio/goodhart.txt",
+      "isDirectory": false,
+      "tags": {
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "art"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "audience:artists",
+        "domain:art",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "goodhartold.html",
+      "path": "/Users/alex/Documents/Cufolio/goodhartold.html",
+      "isDirectory": false,
+      "tags": {
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "legacy"
+      },
+      "flatTags": [
+        "audience:artists",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "gpt",
+      "path": "/Users/alex/Documents/Cufolio/gpt",
+      "isDirectory": true,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 3
+    },
+    {
+      "name": "gpt5os.html",
+      "path": "/Users/alex/Documents/Cufolio/gpt5os.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "uiParadigm": [
+          "os-interface"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "uiParadigm:os-interface",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "gpthistory.html",
+      "path": "/Users/alex/Documents/Cufolio/gpthistory.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "gridgraph.html",
+      "path": "/Users/alex/Documents/Cufolio/gridgraph.html",
+      "isDirectory": false,
+      "tags": {
+        "purpose": [
+          "data-visualization"
+        ],
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered",
+          "charts"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:data-visualization",
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:charts",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "gridly2.html",
+      "path": "/Users/alex/Documents/Cufolio/gridly2.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "hasclass.html",
+      "path": "/Users/alex/Documents/Cufolio/hasclass.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "heart.html",
+      "path": "/Users/alex/Documents/Cufolio/heart.html",
+      "isDirectory": false,
+      "tags": {
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "audience:artists",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "heart2.html",
+      "path": "/Users/alex/Documents/Cufolio/heart2.html",
+      "isDirectory": false,
+      "tags": {
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "audience:artists",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "heart3.html",
+      "path": "/Users/alex/Documents/Cufolio/heart3.html",
+      "isDirectory": false,
+      "tags": {
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "audience:artists",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "hm.html",
+      "path": "/Users/alex/Documents/Cufolio/hm.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "iConHideIcons",
+      "path": "/Users/alex/Documents/Cufolio/iConHideIcons",
+      "isDirectory": true,
+      "tags": {
+        "uiParadigm": [
+          "editor"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "uiParadigm:editor",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 3,
+      "techStack": [],
+      "fileCount": 4
+    },
+    {
+      "name": "iFrame.html",
+      "path": "/Users/alex/Documents/Cufolio/iFrame.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "icon.psd",
+      "path": "/Users/alex/Documents/Cufolio/icon.psd",
+      "isDirectory": false,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "idkdkd.html",
+      "path": "/Users/alex/Documents/Cufolio/idkdkd.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "idkwat.html",
+      "path": "/Users/alex/Documents/Cufolio/idkwat.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "iframeless",
+      "path": "/Users/alex/Documents/Cufolio/iframeless",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "automation"
+        ],
+        "features": [
+          "realtime",
+          "websocket"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "integrationType": [
+          "api-provider"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:automation",
+        "features:realtime",
+        "features:websocket",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "integrationType:api-provider",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "tagCount": 8,
+      "techStack": [
+        "HTML",
+        "JavaScript"
+      ],
+      "fileCount": 4
+    },
+    {
+      "name": "init.sh",
+      "path": "/Users/alex/Documents/Cufolio/init.sh",
+      "isDirectory": false,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "insect.html",
+      "path": "/Users/alex/Documents/Cufolio/insect.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "instruments",
+      "path": "/Users/alex/Documents/Cufolio/instruments",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "entertainment"
+        ],
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "art"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "monetization": "open-source",
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "audience:artists",
+        "domain:art",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "monetization:open-source",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 8,
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "fileCount": 9
+    },
+    {
+      "name": "ipod.html",
+      "path": "/Users/alex/Documents/Cufolio/ipod.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "jupiter.html",
+      "path": "/Users/alex/Documents/Cufolio/jupiter.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "kbd.html",
+      "path": "/Users/alex/Documents/Cufolio/kbd.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "keyboard.html",
+      "path": "/Users/alex/Documents/Cufolio/keyboard.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered",
+          "midi"
+        ],
+        "uiParadigm": [
+          "kanban"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "features:midi",
+        "uiParadigm:kanban",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 6,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "kybd2.html",
+      "path": "/Users/alex/Documents/Cufolio/kybd2.html",
+      "isDirectory": false,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "name": "lessonlayer",
+      "path": "/Users/alex/Documents/Cufolio/lessonlayer",
+      "isDirectory": true,
+      "tags": {
+        "purpose": [
+          "education"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "contentType": [
+          "tutorial"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:education",
+        "architecture:static-site",
+        "contentType:tutorial",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 5,
+      "techStack": [],
+      "fileCount": 2
+    }
+  ],
+  "tagDistribution": {
+    "purpose": {
+      "developer-tools": 1,
+      "entertainment": 2,
+      "utility": 2,
+      "portfolio": 2,
+      "communication": 1,
+      "analytics": 1,
+      "data-visualization": 2,
+      "photography": 2,
+      "video": 1,
+      "food-app": 1,
+      "music": 1,
+      "automation": 1,
+      "education": 1
+    },
+    "uiParadigm": {
+      "editor": 2,
+      "portfolio-site": 1,
+      "dashboard": 1,
+      "gallery": 1,
+      "os-interface": 2,
+      "audio-player": 1,
+      "kanban": 1
+    },
+    "contentType": {
+      "code-focused": 1,
+      "interactive": 2,
+      "tutorial": 2
+    },
+    "complexity": {
+      "trivial": 54,
+      "simple": 9,
+      "moderate": 1
+    },
+    "stage": {
+      "prototype": 47,
+      "beta": 5,
+      "demo": 1,
+      "template": 1,
+      "experimental": 8,
+      "production": 1,
+      "legacy": 1
+    },
+    "architecture": {
+      "static-site": 16,
+      "spa": 2,
+      "pwa": 1
+    },
+    "deploymentTarget": {
+      "web": 15
+    },
+    "domain": {
+      "ai-ml": 34,
+      "art": 11,
+      "communication": 1,
+      "video": 1,
+      "music": 1
+    },
+    "features": {
+      "ai-powered": 34,
+      "3d-graphics": 3,
+      "realtime": 2,
+      "websocket": 2,
+      "animations": 1,
+      "authentication": 2,
+      "charts": 2,
+      "webgl": 2,
+      "audio": 1,
+      "midi": 1
+    },
+    "audience": {
+      "developers": 4,
+      "internal-tools": 1,
+      "artists": 8,
+      "musicians": 1
+    },
+    "monetization": {
+      "free": 2,
+      "open-source": 1
+    },
+    "integrationType": {
+      "api-provider": 2,
+      "embeddable": 1
+    },
+    "techStyle": {
+      "typescript-strict": 2,
+      "component-based": 2
+    }
+  },
+  "summary": {
+    "totalProjectsAnalyzed": 64,
+    "projectsWithTags": 64,
+    "projectsWithoutTags": 0,
+    "averageTagsPerProject": 4.94,
+    "mostCommonTags": [
+      {
+        "tag": "complexity:trivial",
+        "count": 54
+      },
+      {
+        "tag": "stage:prototype",
+        "count": 47
+      },
+      {
+        "tag": "domain:ai-ml",
+        "count": 34
+      },
+      {
+        "tag": "features:ai-powered",
+        "count": 34
+      },
+      {
+        "tag": "architecture:static-site",
+        "count": 16
+      },
+      {
+        "tag": "deploymentTarget:web",
+        "count": 15
+      },
+      {
+        "tag": "domain:art",
+        "count": 11
+      },
+      {
+        "tag": "complexity:simple",
+        "count": 9
+      },
+      {
+        "tag": "stage:experimental",
+        "count": 8
+      },
+      {
+        "tag": "audience:artists",
+        "count": 8
+      },
+      {
+        "tag": "stage:beta",
+        "count": 5
+      },
+      {
+        "tag": "audience:developers",
+        "count": 4
+      },
+      {
+        "tag": "features:3d-graphics",
+        "count": 3
+      },
+      {
+        "tag": "purpose:entertainment",
+        "count": 2
+      },
+      {
+        "tag": "purpose:utility",
+        "count": 2
+      },
+      {
+        "tag": "purpose:portfolio",
+        "count": 2
+      },
+      {
+        "tag": "purpose:data-visualization",
+        "count": 2
+      },
+      {
+        "tag": "purpose:photography",
+        "count": 2
+      },
+      {
+        "tag": "uiParadigm:editor",
+        "count": 2
+      },
+      {
+        "tag": "uiParadigm:os-interface",
+        "count": 2
+      }
+    ],
+    "categoryDistribution": {
+      "purpose": 18,
+      "uiParadigm": 9,
+      "contentType": 5,
+      "complexity": 64,
+      "stage": 64,
+      "architecture": 19,
+      "deploymentTarget": 15,
+      "domain": 48,
+      "features": 50,
+      "audience": 14,
+      "monetization": 3,
+      "integrationType": 3,
+      "techStyle": 4
+    }
+  }
+}

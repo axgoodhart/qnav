@@ -1,0 +1,1006 @@
+{
+  "batchNumber": 5,
+  "range": "Projects 257-320 (Maize through Omneon)",
+  "analyzedAt": "2026-01-02T00:20:23.591Z",
+  "totalProjects": 64,
+  "directoriesAnalyzed": 14,
+  "filesSkipped": 50,
+  "tagDistribution": {
+    "architecture:static-site": 10,
+    "complexity:simple": 6,
+    "stage:prototype": 12,
+    "deploymentTarget:web": 4,
+    "complexity:trivial": 6,
+    "domain:ai-ml": 3,
+    "features:ai-powered": 3,
+    "deploymentTarget:desktop": 1,
+    "complexity:moderate": 1,
+    "purpose:music": 1,
+    "audience:developers": 1,
+    "audience:musicians": 1,
+    "domain:music": 1,
+    "features:audio": 1,
+    "features:3d-graphics": 1,
+    "features:websocket": 1,
+    "architecture:spa": 2,
+    "uiParadigm:audio-player": 1,
+    "contentType:interactive": 1,
+    "techStyle:component-based": 2,
+    "stage:production": 1,
+    "scaleTarget:personal": 1,
+    "architecture:pwa": 2,
+    "purpose:analytics": 1,
+    "purpose:data-visualization": 1,
+    "domain:art": 1,
+    "features:charts": 1,
+    "architecture:ssr": 1,
+    "uiParadigm:blog": 1,
+    "uiParadigm:carousel": 1,
+    "integrationType:api-provider": 1,
+    "techStyle:typescript-strict": 1,
+    "complexity:complex": 1,
+    "stage:beta": 1
+  },
+  "categoryDistribution": {
+    "architecture": {
+      "static-site": 10,
+      "spa": 2,
+      "pwa": 2,
+      "ssr": 1
+    },
+    "complexity": {
+      "simple": 6,
+      "trivial": 6,
+      "moderate": 1,
+      "complex": 1
+    },
+    "stage": {
+      "prototype": 12,
+      "production": 1,
+      "beta": 1
+    },
+    "deploymentTarget": {
+      "web": 4,
+      "desktop": 1
+    },
+    "domain": {
+      "ai-ml": 3,
+      "music": 1,
+      "art": 1
+    },
+    "features": {
+      "ai-powered": 3,
+      "audio": 1,
+      "3d-graphics": 1,
+      "websocket": 1,
+      "charts": 1
+    },
+    "purpose": {
+      "music": 1,
+      "analytics": 1,
+      "data-visualization": 1
+    },
+    "audience": {
+      "developers": 1,
+      "musicians": 1
+    },
+    "uiParadigm": {
+      "audio-player": 1,
+      "blog": 1,
+      "carousel": 1
+    },
+    "contentType": {
+      "interactive": 1
+    },
+    "techStyle": {
+      "component-based": 2,
+      "typescript-strict": 1
+    },
+    "scaleTarget": {
+      "personal": 1
+    },
+    "integrationType": {
+      "api-provider": 1
+    }
+  },
+  "projectsWithNoTags": [],
+  "projectsWithMostTags": [
+    {
+      "name": "NeonFlow",
+      "count": 15
+    },
+    {
+      "name": "musical-cube",
+      "count": 14
+    },
+    {
+      "name": "Mai",
+      "count": 6
+    },
+    {
+      "name": "Maize",
+      "count": 6
+    },
+    {
+      "name": "nanogpt",
+      "count": 6
+    },
+    {
+      "name": "Lorcanto",
+      "count": 4
+    },
+    {
+      "name": "mixer",
+      "count": 4
+    },
+    {
+      "name": "NewWorld",
+      "count": 4
+    },
+    {
+      "name": "Lorca",
+      "count": 3
+    },
+    {
+      "name": "MothersDay",
+      "count": 3
+    }
+  ],
+  "results": [
+    {
+      "name": "LionHost.html",
+      "path": "/Users/alex/Documents/Cufolio/LionHost.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "LLL.html",
+      "path": "/Users/alex/Documents/Cufolio/LLL.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "loglog.html",
+      "path": "/Users/alex/Documents/Cufolio/loglog.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Lorca",
+      "path": "/Users/alex/Documents/Cufolio/Lorca",
+      "isDirectory": true,
+      "techStack": [
+        "Unknown"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "tagCount": 3,
+      "flatTags": [
+        "architecture:static-site",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "lorca.html",
+      "path": "/Users/alex/Documents/Cufolio/lorca.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Lorcanto",
+      "path": "/Users/alex/Documents/Cufolio/Lorcanto",
+      "isDirectory": true,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "tagCount": 4,
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "MageTransfer",
+      "path": "/Users/alex/Documents/Cufolio/MageTransfer",
+      "isDirectory": true,
+      "techStack": [
+        "Unknown"
+      ],
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "tagCount": 2,
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Mai",
+      "path": "/Users/alex/Documents/Cufolio/Mai",
+      "isDirectory": true,
+      "techStack": [
+        "Electron"
+      ],
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "desktop"
+        ],
+        "complexity": "moderate",
+        "stage": "prototype"
+      },
+      "tagCount": 6,
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:desktop",
+        "complexity:moderate",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Maize",
+      "path": "/Users/alex/Documents/Cufolio/Maize",
+      "isDirectory": true,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "tagCount": 6,
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "MAIZE.html",
+      "path": "/Users/alex/Documents/Cufolio/MAIZE.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MaritimeMom.html",
+      "path": "/Users/alex/Documents/Cufolio/MaritimeMom.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Maze.html",
+      "path": "/Users/alex/Documents/Cufolio/Maze.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Maze4o.html",
+      "path": "/Users/alex/Documents/Cufolio/Maze4o.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Mazeo1mini.html",
+      "path": "/Users/alex/Documents/Cufolio/Mazeo1mini.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Mazeo1pro.html",
+      "path": "/Users/alex/Documents/Cufolio/Mazeo1pro.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "melodies.flutes.mid",
+      "path": "/Users/alex/Documents/Cufolio/melodies.flutes.mid",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "melodies.mid",
+      "path": "/Users/alex/Documents/Cufolio/melodies.mid",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "menu-component.css",
+      "path": "/Users/alex/Documents/Cufolio/menu-component.css",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "menu-component.html",
+      "path": "/Users/alex/Documents/Cufolio/menu-component.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "menu-component.js",
+      "path": "/Users/alex/Documents/Cufolio/menu-component.js",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "menu-demo.html",
+      "path": "/Users/alex/Documents/Cufolio/menu-demo.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "menu-integration-guide.md",
+      "path": "/Users/alex/Documents/Cufolio/menu-integration-guide.md",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "menu.html",
+      "path": "/Users/alex/Documents/Cufolio/menu.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "metronome.html",
+      "path": "/Users/alex/Documents/Cufolio/metronome.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MIDIclean.py",
+      "path": "/Users/alex/Documents/Cufolio/MIDIclean.py",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MIDIKYBD.html",
+      "path": "/Users/alex/Documents/Cufolio/MIDIKYBD.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MIDIVIS.html",
+      "path": "/Users/alex/Documents/Cufolio/MIDIVIS.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "miFridg copy.html",
+      "path": "/Users/alex/Documents/Cufolio/miFridg copy.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "miFridg.html",
+      "path": "/Users/alex/Documents/Cufolio/miFridg.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "mixer",
+      "path": "/Users/alex/Documents/Cufolio/mixer",
+      "isDirectory": true,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "tagCount": 4,
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "mnt.html",
+      "path": "/Users/alex/Documents/Cufolio/mnt.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "mobileindex.html",
+      "path": "/Users/alex/Documents/Cufolio/mobileindex.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MODELS.html",
+      "path": "/Users/alex/Documents/Cufolio/MODELS.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MomBdayCandle.html",
+      "path": "/Users/alex/Documents/Cufolio/MomBdayCandle.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MomXmas.html",
+      "path": "/Users/alex/Documents/Cufolio/MomXmas.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MomXmas2.html",
+      "path": "/Users/alex/Documents/Cufolio/MomXmas2.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "moonwrite.html",
+      "path": "/Users/alex/Documents/Cufolio/moonwrite.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "MothersDay",
+      "path": "/Users/alex/Documents/Cufolio/MothersDay",
+      "isDirectory": true,
+      "techStack": [
+        "Unknown"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "tagCount": 3,
+      "flatTags": [
+        "architecture:static-site",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "mothersday_sequence.html",
+      "path": "/Users/alex/Documents/Cufolio/mothersday_sequence.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "mothersdaygrid.html",
+      "path": "/Users/alex/Documents/Cufolio/mothersdaygrid.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "mothersdaypics.html",
+      "path": "/Users/alex/Documents/Cufolio/mothersdaypics.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Mousecape.psd",
+      "path": "/Users/alex/Documents/Cufolio/Mousecape.psd",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "movieFrame",
+      "path": "/Users/alex/Documents/Cufolio/movieFrame",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "multi_instrument_intervals.mid",
+      "path": "/Users/alex/Documents/Cufolio/multi_instrument_intervals.mid",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "musical-cube",
+      "path": "/Users/alex/Documents/Cufolio/musical-cube",
+      "isDirectory": true,
+      "techStack": [
+        "React",
+        "Tailwind"
+      ],
+      "tags": {
+        "purpose": [
+          "music"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "music"
+        ],
+        "features": [
+          "audio",
+          "3d-graphics",
+          "websocket"
+        ],
+        "architecture": [
+          "spa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "audio-player"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "simple",
+        "stage": "production"
+      },
+      "tagCount": 14,
+      "flatTags": [
+        "purpose:music",
+        "audience:developers",
+        "audience:musicians",
+        "domain:music",
+        "features:audio",
+        "features:3d-graphics",
+        "features:websocket",
+        "architecture:spa",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "contentType:interactive",
+        "techStyle:component-based",
+        "complexity:simple",
+        "stage:production"
+      ]
+    },
+    {
+      "name": "musicalintro.html",
+      "path": "/Users/alex/Documents/Cufolio/musicalintro.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "Myelin",
+      "path": "/Users/alex/Documents/Cufolio/Myelin",
+      "isDirectory": true,
+      "techStack": [
+        "Swift",
+        "Xcode"
+      ],
+      "tags": {
+        "scaleTarget": "personal",
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "tagCount": 3,
+      "flatTags": [
+        "scaleTarget:personal",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "MyOS.html",
+      "path": "/Users/alex/Documents/Cufolio/MyOS.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "mysite.html",
+      "path": "/Users/alex/Documents/Cufolio/mysite.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "mysite2.html",
+      "path": "/Users/alex/Documents/Cufolio/mysite2.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "nanogpt",
+      "path": "/Users/alex/Documents/Cufolio/nanogpt",
+      "isDirectory": true,
+      "techStack": [
+        "Unknown"
+      ],
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "tagCount": 6,
+      "flatTags": [
+        "domain:ai-ml",
+        "features:ai-powered",
+        "architecture:pwa",
+        "architecture:static-site",
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "NeonFlow",
+      "path": "/Users/alex/Documents/Cufolio/NeonFlow",
+      "isDirectory": true,
+      "techStack": [
+        "React",
+        "Next.js",
+        "Express",
+        "TypeScript",
+        "Tailwind"
+      ],
+      "tags": {
+        "purpose": [
+          "analytics",
+          "data-visualization"
+        ],
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "charts"
+        ],
+        "architecture": [
+          "spa",
+          "ssr",
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "blog",
+          "carousel"
+        ],
+        "integrationType": [
+          "api-provider"
+        ],
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "complex",
+        "stage": "beta"
+      },
+      "tagCount": 15,
+      "flatTags": [
+        "purpose:analytics",
+        "purpose:data-visualization",
+        "domain:art",
+        "features:charts",
+        "architecture:spa",
+        "architecture:ssr",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:blog",
+        "uiParadigm:carousel",
+        "integrationType:api-provider",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:complex",
+        "stage:beta"
+      ]
+    },
+    {
+      "name": "neuralnetworkbackground.html",
+      "path": "/Users/alex/Documents/Cufolio/neuralnetworkbackground.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "newnav.html",
+      "path": "/Users/alex/Documents/Cufolio/newnav.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "NewSong.html",
+      "path": "/Users/alex/Documents/Cufolio/NewSong.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "NewWorld",
+      "path": "/Users/alex/Documents/Cufolio/NewWorld",
+      "isDirectory": true,
+      "techStack": [
+        "HTML"
+      ],
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "tagCount": 4,
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Nightlandia",
+      "path": "/Users/alex/Documents/Cufolio/Nightlandia",
+      "isDirectory": true,
+      "techStack": [
+        "Swift",
+        "Xcode"
+      ],
+      "tags": {
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "tagCount": 2,
+      "flatTags": [
+        "complexity:simple",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "Nightlandia.swift",
+      "path": "/Users/alex/Documents/Cufolio/Nightlandia.swift",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "noisyweb.html",
+      "path": "/Users/alex/Documents/Cufolio/noisyweb.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "NOtation.html",
+      "path": "/Users/alex/Documents/Cufolio/NOtation.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "notsure.html",
+      "path": "/Users/alex/Documents/Cufolio/notsure.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "nuseum",
+      "path": "/Users/alex/Documents/Cufolio/nuseum",
+      "isDirectory": true,
+      "techStack": [
+        "Unknown"
+      ],
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "tagCount": 2,
+      "flatTags": [
+        "complexity:trivial",
+        "stage:prototype"
+      ]
+    },
+    {
+      "name": "oai.html",
+      "path": "/Users/alex/Documents/Cufolio/oai.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    },
+    {
+      "name": "OHHHHH.html",
+      "path": "/Users/alex/Documents/Cufolio/OHHHHH.html",
+      "isDirectory": false,
+      "techStack": [],
+      "tags": {},
+      "tagCount": 0,
+      "flatTags": []
+    }
+  ]
+}

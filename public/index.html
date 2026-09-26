@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cufolio Navigator</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<link rel="stylesheet" href="/flipper.css"/>
+<style>
+    body{border:11.5px rgb(255, 115, 0);}
+    header {
+        animation:bgflow 30s infinite linear;
+        box-shadow:0 0 210px rgb(195, 148, 243);
+        margin-bottom:20px;
+        background:linear-gradient(130deg, black, teal) !important;
+    }
+
+@keyframes bgflow {
+    0% {background-size:600% 100% !important}
+    56%{background-size:100% 600% ;opacity:1 !important}
+    60% {opacity:0;}
+64% {opacity:1;}
+    100%{background-size:200%}
+}
+
+    :root { --bg-dark: #190020; --bg-panel: #000; --accent-primary: #00e5ff; --accent-secondary: #7000ff; --text-main: #e2e8f0; --text-muted: #94a3b8; }
+    body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow: hidden; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); border-color: rgba(0, 229, 255, 0.5); }
+    .glass { background: black}
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { animation: fadeIn 0.3s ease-out forwards; }
+</style>
+</head>
+<body class="h-screen flex flex-col">
+<!-- Header -->
+<header class="glass h-16 flex items-center justify-between px-6 z-20 shrink-0 border-b border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400 text-3xl">terminal</span>
+<div>
+<h1 class="font-bold text-xl tracking-tight text-white"><span class="text-cyan-400">CUFOLIO</span> NAVIGATOR</h1>
+<div class="text-[10px] text-slate-400 tracking-wider mono uppercase">Digital Archive Intelligence System</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button id="sheetViewToggle" class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-cyan-400/50 hover:bg-cyan-900/20 transition-all group" title="Visual catalog (captures)">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-cyan-400 text-sm">grid_view</span>
+<span class="text-xs text-slate-400 group-hover:text-cyan-400 hidden md:inline">Captures</span>
+</button>
+<button id="sessionsIndicator" class="hidden items-center gap-2 px-3 py-1.5 bg-purple-900/20 rounded-lg border border-purple-500/40 text-xs text-purple-300 hover:border-purple-400 transition-all" title="Running dev servers owned by qnav">
+<span class="material-symbols-outlined text-sm">dns</span><span id="sessionsCount">0</span>
+</button>
+<button id="graphViewToggle" class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-cyan-400/50 hover:bg-cyan-900/20 transition-all group" title="Toggle Graph View">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-cyan-400 text-sm">hub</span>
+<span class="text-xs text-slate-400 group-hover:text-cyan-400 hidden md:inline">Graph</span>
+</button>
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none outline-none text-sm w-64 text-white placeholder-slate-500" id="globalSearch" placeholder="Search projects, tech..." type="text"/>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+<div class="w-2 h-2 rounded-full bg-gray-500" id="connectionStatus" title="Connecting..."></div>
+<span class="text-xs text-slate-400 mono" id="connectionText">OFFLINE</span>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<aside class="w-80 bg-[#13161c] border-r border-slate-800 flex flex-col shrink-0 transition-all duration-300 z-10" id="sidebar">
+<div class="p-4 border-b border-slate-800 bg-gradient-to-br from-slate-900 to-slate-800">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-semibold text-slate-400 uppercase">System Status</span>
+<span class="text-xs text-cyan-400 font-mono" id="totalCount">Loading...</span>
+</div>
+<div class="h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-cyan-400 w-[85%] shadow-[0_0_10px_#00e5ff]"></div>
+</div>
+</div>
+<!-- My Tags Section -->
+<div id="myTagsSection" class="hidden p-3 border-b border-slate-800 bg-slate-900/50">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-pink-400 uppercase flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span>My Tags</span>
+<button id="clearTagFilter" class="hidden text-xs text-slate-500 hover:text-slate-300 transition-colors">Clear</button>
+</div>
+<div class="flex flex-wrap gap-1" id="myTagsList"></div>
+</div>
+<!-- Tech Filter Banner -->
+<div id="techFilterBanner" class="hidden p-3 border-b border-slate-800 bg-cyan-900/20">
+<div class="flex items-center justify-between">
+<span class="text-xs text-cyan-400 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+Filtered by: <span id="techFilterName" class="font-bold"></span>
+</span>
+<button id="clearTechFilter" class="text-slate-400 hover:text-white transition-colors" title="Clear filter">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+
+<!-- Faceted Search Filters Section -->
+<div id="facetedFiltersSection" class="border-b border-slate-800">
+<!-- Filters Header (Collapsible Toggle) -->
+<button id="filtersToggle" class="w-full p-3 flex items-center justify-between bg-gradient-to-r from-slate-900/80 to-slate-800/50 hover:from-slate-800/80 hover:to-slate-700/50 transition-colors">
+<span class="text-xs font-semibold text-slate-300 uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-sm">tune</span>
+Filters
+<span id="activeFilterCount" class="hidden bg-cyan-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold min-w-[18px] text-center">0</span>
+</span>
+<span class="material-symbols-outlined text-slate-500 text-sm transition-transform" id="filtersChevron">expand_more</span>
+</button>
+
+<!-- Collapsible Filters Content -->
+<div id="filtersContent" class="p-3 space-y-4 bg-slate-900/30">
+
+<!-- Clear All Filters Button -->
+<button id="clearAllFilters" class="hidden w-full py-1.5 px-3 text-xs bg-slate-800 hover:bg-red-900/50 text-slate-400 hover:text-red-300 rounded border border-slate-700 hover:border-red-500/50 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_alt_off</span>
+Clear All Filters
+</button>
+
+<!-- Purpose (What it does) -->
+<div class="space-y-2">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Purpose</div>
+<div id="purposeFilters" class="flex flex-wrap gap-1.5">
+<!-- Purpose tags will be populated dynamically -->
+</div>
+</div>
+
+<!-- Domain (What field/industry) -->
+<div class="space-y-2">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Domain</div>
+<div id="domainFilters" class="flex flex-wrap gap-1.5">
+<!-- Domain tags will be populated dynamically -->
+</div>
+</div>
+
+<!-- Activity Level Radio Buttons -->
+<div class="space-y-2">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Activity Level</div>
+<div id="activityFilters" class="flex flex-wrap gap-1.5">
+<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-cyan-500/50 cursor-pointer transition-colors activity-filter-label" data-activity="all">
+<input type="radio" name="activityLevel" value="all" class="hidden" checked>
+<span class="w-2 h-2 rounded-full bg-slate-500 activity-indicator"></span>
+<span class="text-xs text-cyan-400">All</span>
+</label>
+<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-slate-700 cursor-pointer hover:border-green-500/50 transition-colors activity-filter-label" data-activity="active">
+<input type="radio" name="activityLevel" value="active" class="hidden">
+<span class="w-2 h-2 rounded-full bg-green-500 activity-indicator"></span>
+<span class="text-xs text-slate-300">Active</span>
+</label>
+<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-slate-700 cursor-pointer hover:border-yellow-500/50 transition-colors activity-filter-label" data-activity="moderate">
+<input type="radio" name="activityLevel" value="moderate" class="hidden">
+<span class="w-2 h-2 rounded-full bg-yellow-500 activity-indicator"></span>
+<span class="text-xs text-slate-300">Moderate</span>
+</label>
+<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-slate-700 cursor-pointer hover:border-gray-500/50 transition-colors activity-filter-label" data-activity="dormant">
+<input type="radio" name="activityLevel" value="dormant" class="hidden">
+<span class="w-2 h-2 rounded-full bg-gray-500 activity-indicator"></span>
+<span class="text-xs text-slate-300">Dormant</span>
+</label>
+</div>
+</div>
+
+<!-- Tech Tags Pills -->
+<div class="space-y-2">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold flex items-center justify-between">
+<span>Technologies</span>
+<span id="selectedTechCount" class="hidden text-cyan-400">0 selected</span>
+</div>
+<div id="techTagFilters" class="flex flex-wrap gap-1.5">
+<!-- Tech tags will be populated dynamically from facets -->
+</div>
+</div>
+
+<!-- Maturity Dropdown -->
+<div class="space-y-2">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Maturity</div>
+<div id="maturityFilters" class="flex flex-wrap gap-1.5">
+<!-- Maturity options will be populated dynamically -->
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="flex-1 overflow-y-auto p-2 space-y-1" id="projectList"></div>
+</aside>
+<main class="flex-1 flex flex-col bg-[#0f1115] relative overflow-hidden">
+<div class="absolute inset-0 overflow-y-auto p-8 animate-in" id="dashboardView">
+<div class="max-w-6xl mx-auto space-y-8">
+<div class="relative rounded-2xl overflow-hidden border border-slate-800 h-48 group">
+<div class="absolute inset-0 bg-slate-900">
+    <!-- Using CSS gradient instead of image for standalone reliability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-cyan-900/20"></div>
+    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(0,229,255,0.1) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.5;"></div>
+</div>
+<div class="absolute inset-0 flex flex-col justify-center p-8">
+<h2 class="text-3xl font-bold text-white mb-2">Project Archive Online</h2>
+<p class="text-slate-400 max-w-xl">Welcome to the Cufolio digital navigator. Accessing 160+ project records. Orchestration complete. System ready for analysis.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass p-5 rounded-xl border border-slate-800 card-hover">
+<h3 class="text-sm font-semibold text-slate-400 mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-purple-400 text-lg">pie_chart</span> Project Types</h3>
+<div class="h-40 relative"><canvas id="typeChart"></canvas></div>
+</div>
+<div class="glass p-5 rounded-xl border border-slate-800 card-hover">
+<h3 class="text-sm font-semibold text-slate-400 mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-lg">code</span> Top Technologies</h3>
+<div class="flex flex-wrap gap-2" id="topTechTags"></div>
+</div>
+<div class="glass p-5 rounded-xl border border-slate-800 card-hover flex flex-col justify-center items-center text-center">
+<div class="text-4xl font-bold text-white mb-1" id="activeProjectsCount">0</div>
+<div class="text-sm text-green-400 mb-4">Active Projects</div>
+<div class="text-2xl font-bold text-slate-400 mb-1" id="archivedProjectsCount">0</div>
+<div class="text-sm text-slate-600">Archived</div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-cyan-400">bolt</span> Featured Projects</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="featuredGrid"></div>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 bg-[#0f1115] z-20 translate-x-full transition-transform duration-300 flex flex-col" id="detailView">
+<div class="h-14 border-b border-slate-800 flex items-center justify-between px-6 bg-[#13161c]">
+<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" id="closeDetailBtn">
+<span class="material-symbols-outlined">arrow_back</span><span class="text-sm font-medium">Back to Dashboard</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto">
+<div class="max-w-5xl mx-auto p-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<div class="lg:w-1/3 space-y-6">
+<div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
+<div class="w-16 h-16 rounded-lg bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center mb-4 text-2xl">📁</div>
+<h1 class="text-2xl font-bold text-white mb-2 leading-tight" id="detailName">...</h1>
+<div class="flex flex-wrap gap-2 mb-3">
+<button id="detailPreviewBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-400/50 text-cyan-200 text-xs font-semibold hover:bg-cyan-500/25 transition-colors"><span class="material-symbols-outlined text-base">play_arrow</span>Preview</button>
+<button id="detailCaptureBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold hover:border-purple-400/60 hover:text-purple-200 transition-colors"><span class="material-symbols-outlined text-base">photo_camera</span>Capture</button>
+</div>
+<div id="detailCapture" class="hidden mb-3 rounded-lg overflow-hidden border border-slate-800 bg-slate-950"></div>
+<div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-cyan-400 border border-cyan-400/30 mb-4" id="detailStatus">Active</div>
+<div class="space-y-4 pt-4 border-t border-slate-800">
+<div><div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Type</div><div class="text-sm text-slate-300" id="detailType">...</div></div>
+<div><div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Stack</div><div class="flex flex-wrap gap-1.5" id="detailTech"></div></div>
+<div><div class="text-xs text-slate-500 uppercase tracking-wider mb-1 flex items-center justify-between"><span>My Tags</span><button id="addTagBtn" class="text-pink-400 hover:text-pink-300 transition-colors" title="Add custom tag"><span class="material-symbols-outlined text-sm">add_circle</span></button></div>
+<div class="flex flex-wrap gap-1.5" id="detailCustomTags"></div>
+<div id="addTagForm" class="hidden mt-2">
+<div class="flex gap-1">
+<input type="text" id="newTagInput" class="flex-1 bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-pink-400" placeholder="Enter tag name..." maxlength="30">
+<button id="confirmAddTagBtn" class="bg-pink-500 hover:bg-pink-400 text-white px-2 py-1 rounded text-xs transition-colors">Add</button>
+<button id="cancelAddTagBtn" class="bg-slate-700 hover:bg-slate-600 text-slate-300 px-2 py-1 rounded text-xs transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
+<div class="text-xs text-slate-500 uppercase tracking-wider mb-3">Key Files</div>
+<ul class="space-y-2 text-sm text-slate-400 font-mono" id="detailFiles"></ul>
+</div>
+</div>
+<div class="lg:w-2/3 space-y-8">
+<div><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-cyan-400 pl-3">Purpose</h2><p class="text-slate-300 leading-relaxed text-lg" id="detailPurpose">...</p></div>
+<div><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-purple-500 pl-3">Description & Notes</h2><div class="prose prose-invert max-w-none text-slate-400 bg-slate-900/50 p-6 rounded-xl border border-slate-800/50" id="detailDescription">...</div></div>
+<div id="detailTimeline" class="hidden"><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-green-500 pl-3">Activity Timeline</h2><div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800/50"><canvas id="timelineChart" height="100"></canvas></div></div>
+<div id="detailMedia" class="hidden"><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-orange-500 pl-3">Media Gallery</h2><div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800/50" id="mediaGallery"></div></div>
+<div id="detailRelated"><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-pink-500 pl-3">Related Projects</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="relatedProjectsGrid"><div class="text-sm text-slate-500 animate-pulse">Finding similar projects...</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Graph View -->
+<div class="absolute inset-0 bg-[#0f1115] z-30 hidden flex-col" id="graphView">
+<div class="h-14 border-b border-slate-800 flex items-center justify-between px-6 bg-[#13161c]">
+<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" id="closeGraphBtn">
+<span class="material-symbols-outlined">arrow_back</span><span class="text-sm font-medium">Back to Dashboard</span>
+</button>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-400">Clustering:</span>
+<select id="graphClusterMode" class="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white">
+<option value="none">None</option>
+<option value="domain">By Domain</option>
+<option value="tech">By Technology</option>
+</select>
+</div>
+<div class="text-xs text-slate-500 mono" id="graphStats">0 nodes, 0 edges</div>
+</div>
+</div>
+<div class="flex-1 relative" id="graphContainer"></div>
+<!-- Graph Legend -->
+<div class="absolute bottom-4 left-4 bg-slate-900/90 border border-slate-700 rounded-lg p-3 z-10">
+<div class="text-xs font-semibold text-slate-400 mb-2">Domains</div>
+<div class="grid grid-cols-2 gap-1 text-[10px]" id="graphLegend"></div>
+</div>
+</div>
+<!-- Live flipper -->
+<div class="absolute inset-0 z-40 hidden flex-col" id="flipperView" tabindex="-1" aria-label="Live preview flipper">
+<div class="fl-bar h-14 flex items-center gap-3 px-4 shrink-0">
+<button class="fl-btn" id="flCloseBtn" title="Back to catalog (Esc)"><span class="material-symbols-outlined">arrow_back</span><span class="fl-hide-narrow">Catalog</span></button>
+<div class="min-w-0 flex-1 flex items-center gap-2 fl-title">
+<span class="font-mono font-bold text-sm text-white truncate" id="flName">…</span>
+<span class="fl-badge static hidden" id="flModeBadge">static</span>
+<span class="fl-badge hidden" id="flStateBadge"></span>
+<span class="fl-badge build hidden" id="flBuildBadge" title="Existing build output, not current source">build</span>
+</div>
+<span class="text-xs text-slate-400 mono tabular-nums fl-hide-narrow" id="flPosition">0 / 0</span>
+<div class="flex items-center gap-1.5">
+<button class="fl-btn" id="flPrevBtn" title="Previous (←)"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="fl-btn" id="flNextBtn" title="Next (→)"><span class="material-symbols-outlined">chevron_right</span></button>
+<button class="fl-btn" id="flReloadBtn" title="Reload preview (R)"><span class="material-symbols-outlined">refresh</span></button>
+<a class="fl-btn" id="flOpenBtn" target="_blank" rel="noopener" href="#" title="Open in new tab"><span class="material-symbols-outlined">open_in_new</span></a>
+<button class="fl-btn" id="flCaptureBtn" title="Capture screenshot"><span class="material-symbols-outlined">photo_camera</span></button>
+<button class="fl-btn" id="flDetailsBtn" title="Technical details (D)" aria-expanded="false"><span class="material-symbols-outlined">tune</span><span class="fl-hide-narrow">Details</span></button>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 bg-[#0f1216] border-b border-slate-800/80 shrink-0">
+<input type="range" class="fl-range" id="flScrubber" min="0" max="0" value="0" step="1" aria-label="Position in selection"/>
+<span class="text-[11px] text-slate-500 mono whitespace-nowrap">Focus here, then <span class="fl-kbd">←</span> <span class="fl-kbd">→</span></span>
+</div>
+<div class="flex flex-1 min-h-0 relative">
+<div class="fl-stage" id="flStage"></div>
+<aside class="fl-details hidden" id="flDetails" aria-label="Preview details"></aside>
+</div>
+</div>
+<!-- Contact sheet / capture worker -->
+<div class="absolute inset-0 z-30 hidden flex-col" id="sheetView">
+<div class="h-14 border-b border-slate-800 flex items-center justify-between px-6 bg-[#13161c] gap-4">
+<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" id="closeSheetBtn"><span class="material-symbols-outlined">arrow_back</span><span class="text-sm font-medium">Back to Dashboard</span></button>
+<div class="flex items-center gap-2 flex-wrap justify-end" id="sheetToolbar"></div>
+</div>
+<div class="px-6 py-2 bg-[#0f1216] border-b border-slate-800/80 hidden" id="sheetProgressWrap"><div class="flex items-center justify-between text-[11px] text-slate-400 mb-1"><span id="sheetProgressText"></span><span id="sheetProgressCounts"></span></div><div class="cap-progress"><div id="sheetProgressBar" style="width:0%"></div></div></div>
+<div class="flex-1 overflow-y-auto p-6" id="sheetBody"></div>
+</div>
+</main>
+</div>
+<script>
+// Custom Tag Manager - handles localStorage operations for user-defined tags
+class CustomTagManager {
+    constructor() {
+        this.storageKey = 'cufolio-custom-tags';
+    }
+
+    // Get all custom tags for all projects
+    getAll() {
+        try {
+            const data = localStorage.getItem(this.storageKey);
+            return data ? JSON.parse(data) : {};
+        } catch (e) {
+            console.error('Failed to load custom tags:', e);
+            return {};
+        }
+    }
+
+    // Get custom tags for a specific project (by path/name)
+    getForProject(projectPath) {
+        const all = this.getAll();
+        return all[projectPath] || [];
+    }
+
+    // Add a tag to a project
+    addTag(projectPath, tag) {
+        const all = this.getAll();
+        if (!all[projectPath]) {
+            all[projectPath] = [];
+        }
+        const normalizedTag = tag.trim();
+        if (normalizedTag && !all[projectPath].some(t => t.toLowerCase() === normalizedTag.toLowerCase())) {
+            all[projectPath].push(normalizedTag);
+            this.save(all);
+            return true;
+        }
+        return false;
+    }
+
+    // Remove a tag from a project
+    removeTag(projectPath, tag) {
+        const all = this.getAll();
+        if (all[projectPath]) {
+            all[projectPath] = all[projectPath].filter(t => t.toLowerCase() !== tag.toLowerCase());
+            if (all[projectPath].length === 0) {
+                delete all[projectPath];
+            }
+            this.save(all);
+            return true;
+        }
+        return false;
+    }
+
+    // Get all unique tags with counts across all projects
+    getAllTagsWithCounts() {
+        const all = this.getAll();
+        const tagCounts = {};
+        Object.values(all).forEach(tags => {
+            tags.forEach(tag => {
+                const lower = tag.toLowerCase();
+                if (!tagCounts[lower]) {
+                    tagCounts[lower] = { name: tag, count: 0 };
+                }
+                tagCounts[lower].count++;
+            });
+        });
+        return Object.values(tagCounts).sort((a, b) => b.count - a.count);
+    }
+
+    // Get all projects that have a specific tag
+    getProjectsWithTag(tag) {
+        const all = this.getAll();
+        const projects = [];
+        Object.entries(all).forEach(([projectPath, tags]) => {
+            if (tags.some(t => t.toLowerCase() === tag.toLowerCase())) {
+                projects.push(projectPath);
+            }
+        });
+        return projects;
+    }
+
+    // Save to localStorage
+    save(data) {
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(data));
+        } catch (e) {
+            console.error('Failed to save custom tags:', e);
+        }
+    }
+}
+
+// Initialize custom tag manager
+const customTagManager = new CustomTagManager();
+
+// WebSocket connection for real-time updates
+let ws = null;
+let reconnectInterval = null;
+
+function connectWebSocket() {
+    const wsUrl = `ws://${window.location.hostname}:3030`;
+
+    try {
+        ws = new WebSocket(wsUrl);
+
+        ws.onopen = () => {
+            console.log('🔌 Connected to Cufolio Navigator server');
+            if (reconnectInterval) {
+                clearInterval(reconnectInterval);
+                reconnectInterval = null;
+            }
+
+            // Update connection status
+            const status = document.getElementById('connectionStatus');
+            const text = document.getElementById('connectionText');
+            if (status) {
+                status.className = 'w-2 h-2 rounded-full bg-green-500 animate-pulse';
+                status.title = 'Connected - Live updates enabled';
+            }
+            if (text) {
+                text.textContent = 'LIVE';
+                text.className = 'text-xs text-green-400 mono font-bold';
+            }
+            // Register this tab's preview consumer so the server can release
+            // its sessions if the tab disappears without saying goodbye.
+            if (window.Flipper) ws.send(JSON.stringify({ type: 'consumer', id: window.Flipper.consumerId }));
+        };
+
+        ws.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+
+            if (message.type === 'projects') {
+                console.log(`📊 Received ${message.data.length} projects`);
+                App.updateData(message.data);
+            } else if (message.type === 'preview-session') {
+                if (window.Flipper) window.Flipper.onSession(message.data);
+            } else if (message.type === 'preview-log') {
+                if (window.Flipper) window.Flipper.onLog(message.data);
+            } else if (message.type === 'capture-update') {
+                if (window.Captures) window.Captures.onUpdate(message.data);
+            }
+        };
+
+        ws.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+
+        ws.onclose = () => {
+            console.log('🔌 Disconnected from server. Attempting to reconnect...');
+
+            // Update connection status
+            const status = document.getElementById('connectionStatus');
+            const text = document.getElementById('connectionText');
+            if (status) {
+                status.className = 'w-2 h-2 rounded-full bg-orange-500';
+                status.title = 'Disconnected - Reconnecting...';
+            }
+            if (text) {
+                text.textContent = 'DISCONNECTED';
+                text.className = 'text-xs text-orange-400 mono';
+            }
+
+            if (!reconnectInterval) {
+                reconnectInterval = setInterval(connectWebSocket, 5000);
+            }
+        };
+    } catch (error) {
+        console.error('Failed to connect to WebSocket:', error);
+        if (!reconnectInterval) {
+            reconnectInterval = setInterval(connectWebSocket, 5000);
+        }
+    }
+}
+
+// Helper functions for enriched data
+function getRelativeTime(isoDate) {
+    if (!isoDate) return 'Unknown';
+    const now = Date.now();
+    const then = new Date(isoDate).getTime();
+    const diff = now - then;
+
+    const minute = 60 * 1000;
+    const hour = 60 * minute;
+    const day = 24 * hour;
+
+    if (diff < minute) return 'Just now';
+    if (diff < hour) return `${Math.floor(diff / minute)}m ago`;
+    if (diff < day) return `${Math.floor(diff / hour)}h ago`;
+    if (diff < 7 * day) return `${Math.floor(diff / day)}d ago`;
+    if (diff < 30 * day) return `${Math.floor(diff / 7 / day)}w ago`;
+    return new Date(isoDate).toLocaleDateString();
+}
+
+function getActivityLevel(project) {
+    const activity = project.fileActivity || [];
+    if (activity.length === 0) {
+        return { level: 'dormant', icon: '⚫', color: 'text-gray-500', text: 'Dormant' };
+    }
+
+    const recentActivity = activity.filter(a => {
+        const date = new Date(a.date);
+        const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+        return date.getTime() > weekAgo;
+    });
+
+    if (recentActivity.length > 0) {
+        return { level: 'active', icon: '🟢', color: 'text-green-400', text: 'Active' };
+    }
+
+    const monthAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    const hasRecentActivity = activity.some(a => new Date(a.date).getTime() > monthAgo);
+
+    if (hasRecentActivity) {
+        return { level: 'moderate', icon: '🟡', color: 'text-yellow-400', text: 'Moderate' };
+    }
+
+    return { level: 'dormant', icon: '⚫', color: 'text-gray-500', text: 'Dormant' };
+}
+
+// URL Router for hash-based navigation
+const Router = {
+    // Parse the current location.hash into a route object
+    parseRoute() {
+        const hash = window.location.hash.slice(1); // Remove leading #
+        if (!hash || hash === '/') {
+            return { type: 'dashboard' };
+        }
+
+        const parts = hash.split('/').filter(p => p);
+
+        if (parts[0] === 'project' && parts[1]) {
+            // Decode project name (handles spaces and special chars)
+            return { type: 'project', name: decodeURIComponent(parts.slice(1).join('/')) };
+        }
+
+        if (parts[0] === 'filter' && parts[1]) {
+            // Decode filter value
+            return { type: 'filter', tech: decodeURIComponent(parts.slice(1).join('/')) };
+        }
+
+        if (parts[0] === 'preview' && parts[1]) {
+            return { type: 'preview', id: decodeURIComponent(parts[1]) };
+        }
+
+        return { type: 'dashboard' };
+    },
+
+    // Navigate to a route by updating the hash
+    navigateTo(route) {
+        let hash = '#/';
+
+        if (route.type === 'project' && route.name) {
+            hash = `#/project/${encodeURIComponent(route.name)}`;
+        } else if (route.type === 'filter' && route.tech) {
+            hash = `#/filter/${encodeURIComponent(route.tech)}`;
+        }
+
+        // While the flipper is open the URL belongs to it; remember the catalog
+        // route so closing the flipper restores it.
+        if (window.Flipper && window.Flipper.isOpen) {
+            if (window.Flipper.saved) window.Flipper.saved.hash = hash;
+            return;
+        }
+        // Only update if different to avoid extra history entries
+        if (window.location.hash !== hash) {
+            window.location.hash = hash;
+        }
+    },
+
+    // Handle the current route
+    handleRoute() {
+        const route = this.parseRoute();
+
+        switch (route.type) {
+            case 'project':
+                const project = App.data.find(p => p.name === route.name);
+                if (project) {
+                    App.openDetail(project, false); // false = don't update URL again
+                } else {
+                    // Project not found, go to dashboard
+                    console.warn(`Project "${route.name}" not found`);
+                    this.navigateTo({ type: 'dashboard' });
+                }
+                break;
+
+            case 'filter':
+                App.setFilter(route.tech, false); // false = don't update URL again
+                break;
+
+            case 'preview':
+                if (window.Flipper && App.byId(route.id)) window.Flipper.open(route.id);
+                else this.navigateTo({ type: 'dashboard' });
+                break;
+
+            case 'dashboard':
+            default:
+                App.showDashboard(false); // false = don't update URL again
+                break;
+        }
+    },
+
+    // Initialize router with hashchange listener
+    init() {
+        window.addEventListener('hashchange', () => {
+            if (window.Flipper && window.Flipper.isOpen) {
+                // Leaving the preview hash (e.g. browser Back) closes the flipper
+                // and restores the catalog context without re-routing.
+                if (!window.location.hash.startsWith('#/preview/')) window.Flipper.close({ fromHistory: true });
+                return;
+            }
+            this.handleRoute();
+        });
+
+        // Handle initial route after data is loaded
+        // Will be called from App.init() after WebSocket data arrives
+    }
+};
+
+const App = {
+    data: [],
+    filter: '',
+    customTagFilter: null,
+    currentProject: null,
+    routerInitialized: false,
+    // Faceted filter state
+    facetedFilters: {
+        purpose: [],          // What the app does (portfolio, productivity, etc.)
+        domain: [],           // What field/industry (ai-ml, gaming, finance, etc.)
+        activityLevel: 'all', // all, active, moderate, dormant
+        techTags: [],         // Selected tech tag filters
+        maturity: []          // Selected maturity levels
+    },
+    facets: null,             // Cached facet counts from API
+    filtersExpanded: true,    // Collapsible state (start expanded)
+    init() {
+        this.renderStats();
+        this.renderList();
+        this.renderMyTags();
+        this.setupListeners();
+        this.setupCustomTagListeners();
+        this.setupFacetedFilterListeners();
+        this.setupGraphListeners();
+        document.getElementById('dashboardView').classList.remove('hidden');
+
+        // Initialize router
+        Router.init();
+
+        // Connect to WebSocket server
+        connectWebSocket();
+    },
+    updateData(newData) {
+        // Add IDs if not present
+        this.data = newData.map((project, index) => ({
+            ...project,
+            id: project.id || index + 1
+        }));
+
+        // Re-render everything with new data
+        this.renderStats();
+        this.renderList();
+        this.renderCharts();
+        this.renderFeatured();
+        this.renderMyTags();
+        this.computeLocalFacets(); // Compute facets from local data
+        this.renderFacetedFilters();
+
+        console.log(`✅ UI updated with ${this.data.length} projects`);
+        console.log(`📊 Projects with screenshots: ${this.data.filter(p => p.screenshot).length}`);
+        console.log(`📊 Projects with media: ${this.data.filter(p => p.mediaAssets && p.mediaAssets.length > 0).length}`);
+
+        // Handle initial route once data is available
+        if (!this.routerInitialized && this.data.length > 0) {
+            this.routerInitialized = true;
+            Router.handleRoute();
+        }
+        if (window.Flipper) window.Flipper.onCatalogUpdate();
+        if (window.Sheet) window.Sheet.refresh();
+    },
+    setupListeners() {
+        let searchTimeout = null;
+        document.getElementById('globalSearch').addEventListener('input', (e) => {
+            const value = e.target.value;
+            this.filter = value.toLowerCase();
+            this.renderList();
+
+            // Debounce URL updates to avoid too many history entries
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                if (value.trim()) {
+                    Router.navigateTo({ type: 'filter', tech: value.trim() });
+                } else {
+                    Router.navigateTo({ type: 'dashboard' });
+                }
+            }, 500);
+        });
+        document.getElementById('closeDetailBtn').addEventListener('click', () => {
+            this.showDashboard(true);
+        });
+        document.getElementById('detailPreviewBtn').addEventListener('click', () => {
+            if (this.currentProject && window.Flipper) window.Flipper.open(this.currentProject.id);
+        });
+        document.getElementById('detailCaptureBtn').addEventListener('click', () => {
+            if (this.currentProject && window.Captures) window.Captures.captureOne(this.currentProject.id);
+        });
+
+        // Clear tech filter button
+        document.getElementById('clearTechFilter').addEventListener('click', () => {
+            this.clearFilter();
+        });
+    },
+    renderList() {
+        const list = document.getElementById('projectList');
+        list.innerHTML = '';
+        let filtered = this.data.filter(p => {
+            if (!this.filter) return true;
+            const f = this.filter.toLowerCase();
+            // Search in name, tech, type
+            if (p.name.toLowerCase().includes(f)) return true;
+            if (p.tech.some(t => t.toLowerCase().includes(f))) return true;
+            if (p.type.toLowerCase().includes(f)) return true;
+            if (p.desc.toLowerCase().includes(f)) return true;
+            // Search in semantic tags (purpose, domain)
+            const purposes = p.semanticTags?.purpose || [];
+            const domains = p.semanticTags?.domain || [];
+            if (purposes.some(t => t.toLowerCase().includes(f))) return true;
+            if (domains.some(t => t.toLowerCase().includes(f))) return true;
+            return false;
+        });
+
+        // Also filter by custom tag if active
+        if (this.customTagFilter) {
+            const projectsWithTag = customTagManager.getProjectsWithTag(this.customTagFilter);
+            filtered = filtered.filter(p => projectsWithTag.includes(p.name));
+        }
+
+        // Apply faceted filters
+        filtered = this.applyFacetedFilters(filtered);
+        this.lastFiltered = filtered;
+
+        filtered.forEach(p => {
+            const el = document.createElement('div');
+            el.className = "p-3 rounded-lg hover:bg-slate-800 cursor-pointer group transition-colors border border-transparent hover:border-slate-700";
+            el.onclick = () => this.openDetail(p);
+            el.dataset.projectId = p.id;
+
+            const techBadges = p.tech.slice(0, 2).map(t => `<span class="text-[10px] bg-slate-700 text-slate-300 px-1 rounded cursor-pointer hover:bg-cyan-700 hover:text-white transition-colors" onclick="event.stopPropagation(); App.setFilter('${this.escapeHtml(t)}')">${t}</span>`).join('');
+            const activity = getActivityLevel(p);
+            const lastMod = getRelativeTime(p.lastModified);
+            const fileCount = p.fileCount ? `${p.fileCount} files` : '';
+            const mediaCount = p.mediaAssets && p.mediaAssets.length > 0 ? `${p.mediaAssets.length} media` : '';
+
+            const cap = window.Captures ? window.Captures.thumbFor(p.id) : null;
+            el.innerHTML = `
+                ${cap ? `<img class="proj-thumb" loading="lazy" src="${cap.src}" alt="" title="${cap.title}"/>` : ''}
+                <div class="flex justify-between items-start mb-1">
+                    <div class="flex items-center gap-1.5 flex-1 min-w-0">
+                        <span class="text-xs ${activity.color}" title="${activity.text}">${activity.icon}</span>
+                        <span class="font-mono font-bold text-sm text-slate-200 group-hover:text-cyan-400 truncate">${p.name}</span>
+                    </div>
+                    <button class="proj-preview-btn text-cyan-400 hover:text-white mr-1" title="Preview live" aria-label="Preview ${this.escapeHtml(p.name)}" onclick="event.stopPropagation(); Flipper.open('${p.id}')"><span class="material-symbols-outlined text-base align-middle">play_circle</span></button>
+                    <span class="text-[10px] ${this.getStatusColor(p.state)} px-1.5 py-0.5 rounded uppercase font-bold">${this.shortStatus(p.state)}</span>
+                </div>
+                <div class="text-xs text-slate-500 mb-2 truncate">${p.type}</div>
+                <div class="flex gap-1 mb-2">${techBadges}</div>
+                <div class="flex gap-2 text-[10px] text-slate-600">
+                    ${fileCount ? `<span>📄 ${fileCount}</span>` : ''}
+                    ${mediaCount ? `<span>🖼️ ${mediaCount}</span>` : ''}
+                    ${p.hasHistory ? '<span>📜</span>' : ''}
+                </div>
+                <div class="text-[10px] text-slate-600 mt-1">${lastMod}</div>
+            `;
+            list.appendChild(el);
+        });
+    },
+    // Set the filter and optionally update the URL
+    setFilter(tech, updateUrl = true) {
+        this.filter = tech.toLowerCase();
+        document.getElementById('globalSearch').value = tech;
+
+        // Show/hide tech filter banner
+        const banner = document.getElementById('techFilterBanner');
+        const nameSpan = document.getElementById('techFilterName');
+        if (tech.trim()) {
+            banner.classList.remove('hidden');
+            nameSpan.textContent = tech;
+        } else {
+            banner.classList.add('hidden');
+        }
+
+        this.renderList();
+
+        if (updateUrl) {
+            if (tech.trim()) {
+                Router.navigateTo({ type: 'filter', tech: tech });
+            } else {
+                Router.navigateTo({ type: 'dashboard' });
+            }
+        }
+    },
+
+    // Clear the tech filter
+    clearFilter() {
+        this.filter = '';
+        document.getElementById('globalSearch').value = '';
+        document.getElementById('techFilterBanner').classList.add('hidden');
+        this.renderList();
+        Router.navigateTo({ type: 'dashboard' });
+    },
+
+    // Show the dashboard view and optionally update the URL
+    showDashboard(updateUrl = true) {
+        this.filter = '';
+        document.getElementById('globalSearch').value = '';
+        this.renderList();
+        document.getElementById('detailView').classList.add('translate-x-full');
+
+        if (updateUrl) {
+            Router.navigateTo({ type: 'dashboard' });
+        }
+    },
+
+    openDetail(project, updateUrl = true) {
+        // Store current project for custom tag operations
+        this.currentProject = project;
+
+        // Update URL for direct linking
+        if (updateUrl) {
+            Router.navigateTo({ type: 'project', name: project.name });
+        }
+
+        document.getElementById('detailName').innerText = project.name;
+        document.getElementById('detailType').innerText = project.type;
+        document.getElementById('detailPurpose').innerText = project.desc;
+
+        const activity = getActivityLevel(project);
+        const enrichedInfo = `
+            <p>${project.desc}</p>
+            <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                <div><span class="text-slate-500">Activity:</span> <span class="${activity.color}">${activity.icon} ${activity.text}</span></div>
+                <div><span class="text-slate-500">Files:</span> ${project.fileCount || 'Unknown'}</div>
+                <div><span class="text-slate-500">Last Modified:</span> ${getRelativeTime(project.lastModified)}</div>
+                <div><span class="text-slate-500">Media Assets:</span> ${project.mediaAssets ? project.mediaAssets.length : 0}</div>
+            </div>
+            ${project.hasHistory ? '<div class="mt-4 text-sm text-cyan-400">📜 Has version history</div>' : ''}
+        `;
+        document.getElementById('detailDescription').innerHTML = enrichedInfo;
+
+        document.getElementById('detailStatus').innerText = project.state;
+        document.getElementById('detailStatus').className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border mb-4 ${this.getStatusColorClasses(project.state)}`;
+
+        const techContainer = document.getElementById('detailTech');
+        techContainer.innerHTML = project.tech.map(t =>
+            `<span class="px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-cyan-400 font-mono cursor-pointer hover:bg-cyan-900 hover:border-cyan-500 transition-colors" onclick="App.setFilter('${this.escapeHtml(t)}')">${t}</span>`
+        ).join('');
+
+        const filesContainer = document.getElementById('detailFiles');
+        filesContainer.innerHTML = `<li>📂 ${project.name}/</li><li class="pl-4 text-slate-500">📄 README.md</li>`;
+
+        // Render activity timeline if available
+        this.renderProjectTimeline(project);
+
+        // Render media gallery if available
+        this.renderMediaGallery(project);
+
+        // Render custom tags for this project
+        this.renderDetailCustomTags(project);
+
+        // Render related projects
+        this.renderRelatedProjects(project);
+
+        // Existing capture (generated by qnav) if any
+        if (window.Captures) window.Captures.renderDetail(project.id);
+
+        document.getElementById('detailView').classList.remove('translate-x-full');
+    },
+    renderProjectTimeline(project) {
+        const timelineSection = document.getElementById('detailTimeline');
+        if (!project.fileActivity || project.fileActivity.length === 0) {
+            timelineSection.classList.add('hidden');
+            return;
+        }
+
+        timelineSection.classList.remove('hidden');
+
+        // Clear previous chart
+        if (window.projectTimelineChart) {
+            window.projectTimelineChart.destroy();
+        }
+
+        const ctx = document.getElementById('timelineChart').getContext('2d');
+        window.projectTimelineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: project.fileActivity.map(a => new Date(a.date).toLocaleDateString()),
+                datasets: [{
+                    label: 'Files Modified',
+                    data: project.fileActivity.map(a => a.count),
+                    backgroundColor: '#00e5ff',
+                    borderColor: '#00e5ff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#94a3b8' },
+                        grid: { color: '#1e293b' }
+                    },
+                    x: {
+                        ticks: { color: '#94a3b8' },
+                        grid: { color: '#1e293b' }
+                    }
+                }
+            }
+        });
+    },
+    renderMediaGallery(project) {
+        const mediaSection = document.getElementById('detailMedia');
+        const galleryContainer = document.getElementById('mediaGallery');
+
+        if (!project.mediaAssets || project.mediaAssets.length === 0) {
+            mediaSection.classList.add('hidden');
+            return;
+        }
+
+        mediaSection.classList.remove('hidden');
+
+        const images = project.mediaAssets.filter(a => a.type === 'image').slice(0, 12);
+        const videos = project.mediaAssets.filter(a => a.type === 'video').slice(0, 6);
+
+        let html = '';
+
+        if (images.length > 0) {
+            html += `<div class="mb-4">
+                <h3 class="text-sm text-slate-400 mb-2">Images (${images.length})</h3>
+                <div class="grid grid-cols-3 md:grid-cols-4 gap-2">
+                    ${images.map(img => `
+                        <div class="aspect-square rounded overflow-hidden bg-slate-800 group cursor-pointer">
+                            <img src="/api/media/${encodeURIComponent(project.name)}/${encodeURIComponent(img.relativePath)}"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                                 alt="${img.filename}"
+                                 title="${img.filename}"
+                                 onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-slate-600\\'>🖼️</div>'" />
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
+        }
+
+        if (videos.length > 0) {
+            html += `<div>
+                <h3 class="text-sm text-slate-400 mb-2">Videos (${videos.length})</h3>
+                <div class="space-y-2">
+                    ${videos.map(vid => `
+                        <div class="text-xs text-slate-500 flex items-center gap-2">
+                            <span>🎬</span>
+                            <span class="truncate">${vid.filename}</span>
+                            <span class="text-slate-600">(${Math.round(vid.size / 1024)}KB)</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
+        }
+
+        galleryContainer.innerHTML = html;
+    },
+    // Render related projects panel with similarity scores
+    renderRelatedProjects(project) {
+        const grid = document.getElementById('relatedProjectsGrid');
+
+        // Calculate similarity scores with all other projects
+        const similarities = this.data
+            .filter(p => p.name !== project.name)
+            .map(p => {
+                const score = this.calculateSimilarity(project, p);
+                return { project: p, score: score.score, sharedTech: score.sharedTech };
+            })
+            .filter(s => s.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 5); // Top 5 most similar
+
+        if (similarities.length === 0) {
+            grid.innerHTML = '<div class="text-sm text-slate-500 col-span-full">No similar projects found based on shared technologies or categories.</div>';
+            return;
+        }
+
+        grid.innerHTML = similarities.map(({ project: p, score, sharedTech }) => {
+            const activity = getActivityLevel(p);
+            const similarityPercent = Math.round(score * 100);
+            const similarityColor = similarityPercent >= 70 ? 'text-green-400 bg-green-900/30' :
+                                   similarityPercent >= 40 ? 'text-yellow-400 bg-yellow-900/30' :
+                                   'text-slate-400 bg-slate-800';
+
+            return `
+                <div class="glass rounded-lg border border-slate-700 hover:border-pink-500/50 transition-all cursor-pointer group p-4"
+                     onclick="App.openDetail(App.data.find(x => x.name === '${this.escapeHtml(p.name)}'))">
+                    <div class="flex items-start justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm ${activity.color}" title="${activity.text}">${activity.icon}</span>
+                            <span class="font-mono font-bold text-sm text-slate-200 group-hover:text-pink-400 truncate">${p.name}</span>
+                        </div>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded ${similarityColor}">${similarityPercent}%</span>
+                    </div>
+                    <p class="text-xs text-slate-500 line-clamp-2 mb-3">${p.desc || p.type}</p>
+                    <div class="space-y-2">
+                        <div class="text-[10px] text-slate-600 uppercase tracking-wide">Shared Tech:</div>
+                        <div class="flex flex-wrap gap-1">
+                            ${sharedTech.slice(0, 4).map(t => `<span class="text-[10px] bg-pink-900/30 text-pink-400 px-1.5 py-0.5 rounded border border-pink-500/20">${t}</span>`).join('')}
+                            ${sharedTech.length > 4 ? `<span class="text-[10px] text-slate-500">+${sharedTech.length - 4}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    },
+
+    // Calculate similarity score between two projects (0-1)
+    calculateSimilarity(project1, project2) {
+        let score = 0;
+        const sharedTech = [];
+
+        // Tech overlap (weighted most heavily - 60%)
+        const tech1Set = new Set(project1.tech.map(t => t.toLowerCase()));
+        project2.tech.forEach(t => {
+            if (tech1Set.has(t.toLowerCase())) {
+                sharedTech.push(t);
+            }
+        });
+
+        const totalTech = new Set([...project1.tech, ...project2.tech]).size;
+        if (totalTech > 0) {
+            score += (sharedTech.length / totalTech) * 0.6;
+        }
+
+        // Same category (20%)
+        if (project1.category && project2.category &&
+            project1.category.toLowerCase() === project2.category.toLowerCase()) {
+            score += 0.2;
+        }
+
+        // Same project type (10%)
+        const type1 = (project1.type || '').split(' ')[0].toLowerCase();
+        const type2 = (project2.type || '').split(' ')[0].toLowerCase();
+        if (type1 && type2 && type1 === type2) {
+            score += 0.1;
+        }
+
+        // Same maturity level (10%)
+        if (project1.maturity && project2.maturity &&
+            project1.maturity === project2.maturity) {
+            score += 0.1;
+        }
+
+        return { score, sharedTech };
+    },
+    renderStats() {
+        // Show total plus folder/file split so the loose-file scan is visible at a glance
+        const folders = this.data.filter(p => !p.kind || p.kind === 'folder').length;
+        const files = this.data.filter(p => p.kind === 'file').length;
+        const totalEl = document.getElementById('totalCount');
+        totalEl.innerText = files > 0
+            ? `${this.data.length}  (${folders} folders · ${files} files)`
+            : `${this.data.length}`;
+        document.getElementById('activeProjectsCount').innerText = this.data.filter(p => p.state.includes('Active')).length;
+        document.getElementById('archivedProjectsCount').innerText = this.data.filter(p => p.state.includes('Archive') || p.state.includes('Legacy')).length;
+    },
+    // Score a project for featured-project rotation.
+    // Weights media-richness, polish, recency, and presence of a screenshot.
+    featuredScore(p) {
+        const now = Date.now();
+        const mediaCount = (p.mediaAssets && p.mediaAssets.length) || 0;
+        const mediaScore = Math.min(10, mediaCount * 1.5);          // 0..10
+        const screenshotScore = p.screenshot ? 5 : 0;                // 0 or 5
+        const polishScore = ((p.signals && p.signals.polish) || 0) * 10; // 0..10
+        let recencyScore = 0;
+        if (p.lastModified) {
+            const ageDays = (now - new Date(p.lastModified).getTime()) / 86400000;
+            recencyScore = Math.max(0, 10 - ageDays / 7); // 10 this week → 0 after ~10 weeks
+        }
+        const stubPenalty = (p.signals && p.signals.isStub) ? -20 : 0;
+        return mediaScore + screenshotScore + polishScore + recencyScore + stubPenalty;
+    },
+    renderFeatured() {
+        const container = document.getElementById('featuredGrid');
+
+        // Score every project, keep only ones with positive scores, sort desc.
+        const scored = this.data
+            .map(p => ({ p, score: this.featuredScore(p) }))
+            .filter(s => s.score > 0)
+            .sort((a, b) => b.score - a.score);
+
+        // Rotate through a top pool so the same three don't always show up.
+        // Offset by day-of-year so the set changes every 24h without being random.
+        const pool = scored.slice(0, 15).map(s => s.p);
+        const dayOfYear = Math.floor(Date.now() / 86400000);
+        let featured = [];
+        if (pool.length > 0) {
+            for (let i = 0; i < 3 && i < pool.length; i++) {
+                featured.push(pool[(dayOfYear + i) % pool.length]);
+            }
+        }
+        // Fallback: if scoring found nothing, show first 3 (shouldn't happen once signals land)
+        if (featured.length === 0) {
+            featured = this.data.slice(0, 3);
+        }
+
+        container.innerHTML = featured.map(p => {
+            const activity = getActivityLevel(p);
+            const hasScreenshot = p.screenshot;
+
+            return `
+                <div class="glass rounded-xl border border-slate-800 hover:border-cyan-400/50 transition-all cursor-pointer group overflow-hidden"
+                     onclick="App.openById('${p.id}')">
+                    ${hasScreenshot ?
+                        `<div class="h-32 overflow-hidden bg-slate-900">
+                            <img src="/api/media/${encodeURIComponent(p.name)}/${encodeURIComponent(p.screenshot)}"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                                 onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full bg-slate-800 flex items-center justify-center text-4xl\\'>📁</div>'" />
+                         </div>` :
+                        `<div class="h-32 bg-slate-800 flex items-center justify-center text-4xl">📁</div>`
+                    }
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-lg ${activity.color}" title="${activity.text}">${activity.icon}</span>
+                            <span class="text-[10px] bg-cyan-900/30 text-cyan-400 px-2 py-1 rounded border border-cyan-400/20">
+                                ${p.mediaAssets && p.mediaAssets.length > 3 ? 'MEDIA-RICH' : 'FEATURED'}
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">${p.name}</h3>
+                        <p class="text-xs text-slate-400 line-clamp-2 mb-3">${p.desc}</p>
+                        <div class="flex flex-wrap gap-1 mb-2">
+                            ${p.tech.slice(0,3).map(t => `<span class="text-[10px] text-slate-500 bg-slate-900 px-1 rounded">${t}</span>`).join('')}
+                        </div>
+                        <div class="text-[10px] text-slate-600">
+                            ${p.fileCount ? `📄 ${p.fileCount} files` : ''}
+                            ${p.mediaAssets && p.mediaAssets.length > 0 ? `  🖼️ ${p.mediaAssets.length} media` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    },
+    renderCharts() {
+        if (this.data.length === 0) return;
+
+        // Type chart
+        const types = {};
+        this.data.forEach(p => {
+            const mainType = p.type.split(' ')[0];
+            types[mainType] = (types[mainType] || 0) + 1;
+        });
+
+        const typeChartEl = document.getElementById('typeChart');
+        if (typeChartEl) {
+            // Clear previous chart if exists
+            if (window.typeChartInstance) {
+                window.typeChartInstance.destroy();
+            }
+
+            const ctx = typeChartEl.getContext('2d');
+            window.typeChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(types).slice(0, 5),
+                    datasets: [{
+                        data: Object.values(types).slice(0, 5),
+                        backgroundColor: ['#00e5ff', '#7000ff', '#10b981', '#f59e0b', '#64748b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'right',
+                            labels: {
+                                color: '#94a3b8',
+                                boxWidth: 10,
+                                font: { size: 10 }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Tech tags
+        const techCounts = {};
+        this.data.forEach(p => p.tech.forEach(t => techCounts[t] = (techCounts[t] || 0) + 1));
+        const sortedTech = Object.entries(techCounts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        document.getElementById('topTechTags').innerHTML = sortedTech.map(([tech, count]) =>
+            `<span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-300 border border-slate-700 flex items-center gap-2 cursor-pointer hover:bg-cyan-900 hover:border-cyan-500 hover:text-cyan-400 transition-colors" onclick="App.setFilter('${App.escapeHtml(tech)}')">
+                ${tech}
+                <span class="bg-slate-700 px-1 rounded-sm text-[10px] text-white">${count}</span>
+            </span>`
+        ).join('');
+    },
+    shortStatus(status) { if(status.includes("Active")) return "ACTV"; if(status.includes("Archive")) return "ARCH"; if(status.includes("Demo")) return "DEMO"; return "OTHR"; },
+    getStatusColor(status) { if(status.includes("Active")) return "text-green-400 bg-green-900/20"; if(status.includes("Archive")) return "text-slate-500 bg-slate-800"; if(status.includes("Demo")) return "text-purple-400 bg-purple-900/20"; return "text-orange-400 bg-orange-900/20"; },
+    getStatusColorClasses(status) { if(status.includes("Active")) return "text-green-400 bg-green-900/20 border-green-500/30"; if(status.includes("Archive")) return "text-slate-500 bg-slate-800 border-slate-600/30"; if(status.includes("Demo")) return "text-purple-400 bg-purple-900/20 border-purple-500/30"; return "text-orange-400 bg-orange-900/20 border-orange-500/30"; },
+
+    // Custom Tags Methods
+    setupCustomTagListeners() {
+        // Add tag button click
+        document.getElementById('addTagBtn').addEventListener('click', () => {
+            document.getElementById('addTagForm').classList.remove('hidden');
+            document.getElementById('newTagInput').focus();
+        });
+
+        // Cancel add tag
+        document.getElementById('cancelAddTagBtn').addEventListener('click', () => {
+            document.getElementById('addTagForm').classList.add('hidden');
+            document.getElementById('newTagInput').value = '';
+        });
+
+        // Confirm add tag
+        document.getElementById('confirmAddTagBtn').addEventListener('click', () => {
+            this.addCustomTag();
+        });
+
+        // Enter key in tag input
+        document.getElementById('newTagInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                this.addCustomTag();
+            } else if (e.key === 'Escape') {
+                document.getElementById('addTagForm').classList.add('hidden');
+                document.getElementById('newTagInput').value = '';
+            }
+        });
+
+        // Clear tag filter button
+        document.getElementById('clearTagFilter').addEventListener('click', () => {
+            this.customTagFilter = null;
+            document.getElementById('clearTagFilter').classList.add('hidden');
+            this.renderList();
+            this.renderMyTags();
+        });
+    },
+
+    addCustomTag() {
+        const input = document.getElementById('newTagInput');
+        const tagName = input.value.trim();
+
+        if (tagName && this.currentProject) {
+            const added = customTagManager.addTag(this.currentProject.name, tagName);
+            if (added) {
+                this.renderDetailCustomTags(this.currentProject);
+                this.renderMyTags();
+                input.value = '';
+                document.getElementById('addTagForm').classList.add('hidden');
+            }
+        }
+    },
+
+    removeCustomTag(projectName, tagName) {
+        customTagManager.removeTag(projectName, tagName);
+        if (this.currentProject && this.currentProject.name === projectName) {
+            this.renderDetailCustomTags(this.currentProject);
+        }
+        this.renderMyTags();
+        // If we were filtering by this tag, re-render the list
+        if (this.customTagFilter && this.customTagFilter.toLowerCase() === tagName.toLowerCase()) {
+            this.customTagFilter = null;
+            document.getElementById('clearTagFilter').classList.add('hidden');
+        }
+        this.renderList();
+    },
+
+    renderDetailCustomTags(project) {
+        const container = document.getElementById('detailCustomTags');
+        const tags = customTagManager.getForProject(project.name);
+
+        if (tags.length === 0) {
+            container.innerHTML = '<span class="text-xs text-slate-600 italic">No custom tags</span>';
+        } else {
+            container.innerHTML = tags.map(tag => `
+                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-pink-900/30 border border-pink-500/30 text-xs text-pink-400">
+                    <span class="material-symbols-outlined text-[10px]">person</span>
+                    ${this.escapeHtml(tag)}
+                    <button onclick="App.removeCustomTag('${this.escapeHtml(project.name)}', '${this.escapeHtml(tag)}')" class="ml-1 hover:text-pink-200 transition-colors" title="Remove tag">×</button>
+                </span>
+            `).join('');
+        }
+    },
+
+    renderMyTags() {
+        const section = document.getElementById('myTagsSection');
+        const container = document.getElementById('myTagsList');
+        const clearBtn = document.getElementById('clearTagFilter');
+        const tagsWithCounts = customTagManager.getAllTagsWithCounts();
+
+        if (tagsWithCounts.length === 0) {
+            section.classList.add('hidden');
+            return;
+        }
+
+        section.classList.remove('hidden');
+
+        // Show/hide clear button based on active filter
+        if (this.customTagFilter) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+
+        container.innerHTML = tagsWithCounts.map(({ name, count }) => {
+            const isActive = this.customTagFilter && this.customTagFilter.toLowerCase() === name.toLowerCase();
+            return `
+                <button onclick="App.filterByCustomTag('${this.escapeHtml(name)}')"
+                        class="inline-flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors ${isActive ? 'bg-pink-500 text-white' : 'bg-slate-800 text-pink-400 hover:bg-pink-900/30 border border-pink-500/20'}">
+                    <span class="material-symbols-outlined text-[10px]">person</span>
+                    ${this.escapeHtml(name)}
+                    <span class="bg-pink-900/50 px-1 rounded text-[10px]">${count}</span>
+                </button>
+            `;
+        }).join('');
+    },
+
+    filterByCustomTag(tagName) {
+        if (this.customTagFilter === tagName) {
+            // Toggle off if clicking the same tag
+            this.customTagFilter = null;
+            document.getElementById('clearTagFilter').classList.add('hidden');
+        } else {
+            this.customTagFilter = tagName;
+            document.getElementById('clearTagFilter').classList.remove('hidden');
+        }
+        this.renderList();
+        this.renderMyTags();
+    },
+
+    byId(id) { return this.data.find(p => p.id === id); },
+    openById(id) { const p = this.byId(id); if (p) this.openDetail(p); },
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    },
+
+    // ==================== FACETED FILTER METHODS ====================
+
+    // Setup event listeners for faceted filters
+    setupFacetedFilterListeners() {
+        // Toggle filters section
+        document.getElementById('filtersToggle').addEventListener('click', () => {
+            this.filtersExpanded = !this.filtersExpanded;
+            const content = document.getElementById('filtersContent');
+            const chevron = document.getElementById('filtersChevron');
+
+            if (this.filtersExpanded) {
+                content.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Activity level radio buttons
+        document.querySelectorAll('.activity-filter-label').forEach(label => {
+            label.addEventListener('click', () => {
+                const activity = label.dataset.activity;
+                this.facetedFilters.activityLevel = activity;
+                this.updateActivityFilterUI();
+                this.renderList();
+                this.updateActiveFilterCount();
+            });
+        });
+
+        // Clear all filters button
+        document.getElementById('clearAllFilters').addEventListener('click', () => {
+            this.clearAllFacetedFilters();
+        });
+    },
+
+    // Compute facets locally from project data
+    computeLocalFacets() {
+        const purpose = {};
+        const domain = {};
+        const techStack = {};
+        const maturity = {};
+        const activityLevel = { active: 0, moderate: 0, dormant: 0 };
+
+        this.data.forEach(project => {
+            // Extract purpose tags from semanticTags
+            if (project.semanticTags && project.semanticTags.purpose) {
+                project.semanticTags.purpose.forEach(tag => {
+                    purpose[tag] = (purpose[tag] || 0) + 1;
+                });
+            }
+
+            // Extract domain tags from semanticTags
+            if (project.semanticTags && project.semanticTags.domain) {
+                project.semanticTags.domain.forEach(tag => {
+                    domain[tag] = (domain[tag] || 0) + 1;
+                });
+            }
+
+            // Tech stack counts
+            (project.tech || []).forEach(t => {
+                techStack[t] = (techStack[t] || 0) + 1;
+            });
+
+            // Maturity counts - use maturity.classification if it's an object
+            const mat = project.maturity?.classification || project.maturity || 'unknown';
+            maturity[mat] = (maturity[mat] || 0) + 1;
+
+            // Activity level counts
+            const activity = getActivityLevel(project);
+            activityLevel[activity.level] = (activityLevel[activity.level] || 0) + 1;
+        });
+
+        this.facets = {
+            purpose: Object.entries(purpose).sort((a, b) => b[1] - a[1]).slice(0, 12),
+            domain: Object.entries(domain).sort((a, b) => b[1] - a[1]).slice(0, 12),
+            techStack: Object.entries(techStack).sort((a, b) => b[1] - a[1]).slice(0, 10),
+            maturity: Object.entries(maturity).sort((a, b) => b[1] - a[1]),
+            activityLevel: activityLevel
+        };
+    },
+
+    // Render all faceted filter UI elements
+    renderFacetedFilters() {
+        if (!this.facets) return;
+
+        this.renderPurposeFilters();
+        this.renderDomainFilters();
+        this.renderTechTagFilters();
+        this.renderMaturityFilters();
+        this.updateActiveFilterCount();
+    },
+
+    // Render purpose filter pills (what the app does)
+    renderPurposeFilters() {
+        const container = document.getElementById('purposeFilters');
+        if (!container || !this.facets || !this.facets.purpose) return;
+
+        if (this.facets.purpose.length === 0) {
+            container.innerHTML = '<span class="text-xs text-slate-600 italic">No purpose tags detected</span>';
+            return;
+        }
+
+        container.innerHTML = this.facets.purpose.map(([tag, count]) => {
+            const isSelected = this.facetedFilters.purpose.includes(tag);
+            const displayName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+            return `
+                <button class="px-2 py-0.5 rounded-full text-xs transition-colors flex items-center gap-1
+                    ${isSelected
+                        ? 'bg-purple-500 text-white border border-purple-400'
+                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-purple-500/50 hover:text-purple-400'}"
+                    data-tag="${this.escapeHtml(tag)}">
+                    ${displayName}
+                    <span class="${isSelected ? 'bg-purple-600' : 'bg-slate-700'} px-1 rounded-full text-[10px]">${count}</span>
+                </button>
+            `;
+        }).join('');
+
+        container.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.togglePurposeFilter(btn.dataset.tag);
+            });
+        });
+    },
+
+    // Toggle a purpose filter
+    togglePurposeFilter(tag) {
+        const index = this.facetedFilters.purpose.indexOf(tag);
+        if (index === -1) {
+            this.facetedFilters.purpose.push(tag);
+        } else {
+            this.facetedFilters.purpose.splice(index, 1);
+        }
+        this.renderPurposeFilters();
+        this.renderList();
+        this.updateActiveFilterCount();
+    },
+
+    // Render domain filter pills (what field/industry)
+    renderDomainFilters() {
+        const container = document.getElementById('domainFilters');
+        if (!container || !this.facets || !this.facets.domain) return;
+
+        if (this.facets.domain.length === 0) {
+            container.innerHTML = '<span class="text-xs text-slate-600 italic">No domain tags detected</span>';
+            return;
+        }
+
+        container.innerHTML = this.facets.domain.map(([tag, count]) => {
+            const isSelected = this.facetedFilters.domain.includes(tag);
+            const displayName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+            return `
+                <button class="px-2 py-0.5 rounded-full text-xs transition-colors flex items-center gap-1
+                    ${isSelected
+                        ? 'bg-green-500 text-white border border-green-400'
+                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-green-500/50 hover:text-green-400'}"
+                    data-tag="${this.escapeHtml(tag)}">
+                    ${displayName}
+                    <span class="${isSelected ? 'bg-green-600' : 'bg-slate-700'} px-1 rounded-full text-[10px]">${count}</span>
+                </button>
+            `;
+        }).join('');
+
+        container.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.toggleDomainFilter(btn.dataset.tag);
+            });
+        });
+    },
+
+    // Toggle a domain filter
+    toggleDomainFilter(tag) {
+        const index = this.facetedFilters.domain.indexOf(tag);
+        if (index === -1) {
+            this.facetedFilters.domain.push(tag);
+        } else {
+            this.facetedFilters.domain.splice(index, 1);
+        }
+        this.renderDomainFilters();
+        this.renderList();
+        this.updateActiveFilterCount();
+    },
+
+    // Render tech tag pills
+    renderTechTagFilters() {
+        const container = document.getElementById('techTagFilters');
+        const countSpan = document.getElementById('selectedTechCount');
+        if (!container || !this.facets) return;
+
+        container.innerHTML = this.facets.techStack.map(([tech, count]) => {
+            const isSelected = this.facetedFilters.techTags.includes(tech);
+
+            return `
+                <button class="px-2 py-0.5 rounded-full text-xs transition-colors flex items-center gap-1
+                    ${isSelected
+                        ? 'bg-cyan-500 text-white border border-cyan-400'
+                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-500/50 hover:text-cyan-400'}"
+                    data-tech="${this.escapeHtml(tech)}">
+                    ${tech}
+                    <span class="${isSelected ? 'bg-cyan-600' : 'bg-slate-700'} px-1 rounded-full text-[10px]">${count}</span>
+                </button>
+            `;
+        }).join('');
+
+        // Add click handlers for tech tags
+        container.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tech = btn.dataset.tech;
+                this.toggleTechTagFilter(tech);
+            });
+        });
+
+        // Update selected count
+        const selectedCount = this.facetedFilters.techTags.length;
+        if (selectedCount > 0) {
+            countSpan.textContent = `${selectedCount} selected`;
+            countSpan.classList.remove('hidden');
+        } else {
+            countSpan.classList.add('hidden');
+        }
+    },
+
+    // Toggle a tech tag filter
+    toggleTechTagFilter(tech) {
+        const index = this.facetedFilters.techTags.indexOf(tech);
+        if (index === -1) {
+            this.facetedFilters.techTags.push(tech);
+        } else {
+            this.facetedFilters.techTags.splice(index, 1);
+        }
+        this.renderTechTagFilters();
+        this.renderList();
+        this.updateActiveFilterCount();
+    },
+
+    // Render maturity filters
+    renderMaturityFilters() {
+        const container = document.getElementById('maturityFilters');
+        if (!container || !this.facets) return;
+
+        const maturityLabels = {
+            'poc': { label: 'POC', color: 'orange' },
+            'beta': { label: 'Beta', color: 'yellow' },
+            'stable': { label: 'Stable', color: 'green' },
+            'archived': { label: 'Archived', color: 'slate' },
+            'dormant': { label: 'Dormant', color: 'gray' },
+            'unknown': { label: 'Unknown', color: 'slate' }
+        };
+
+        container.innerHTML = this.facets.maturity.map(([mat, count]) => {
+            const config = maturityLabels[mat] || { label: mat, color: 'slate' };
+            const isSelected = this.facetedFilters.maturity.includes(mat);
+
+            return `
+                <button class="px-2 py-0.5 rounded text-xs transition-colors flex items-center gap-1
+                    ${isSelected
+                        ? `bg-${config.color}-500/30 text-${config.color}-400 border border-${config.color}-500/50`
+                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-600'}"
+                    data-maturity="${mat}">
+                    ${config.label}
+                    <span class="text-[10px] text-slate-500">(${count})</span>
+                </button>
+            `;
+        }).join('');
+
+        // Add click handlers for maturity buttons
+        container.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mat = btn.dataset.maturity;
+                this.toggleMaturityFilter(mat);
+            });
+        });
+    },
+
+    // Toggle a maturity filter
+    toggleMaturityFilter(maturity) {
+        const index = this.facetedFilters.maturity.indexOf(maturity);
+        if (index === -1) {
+            this.facetedFilters.maturity.push(maturity);
+        } else {
+            this.facetedFilters.maturity.splice(index, 1);
+        }
+        this.renderMaturityFilters();
+        this.renderList();
+        this.updateActiveFilterCount();
+    },
+
+    // Update activity filter UI to reflect current selection
+    updateActivityFilterUI() {
+        document.querySelectorAll('.activity-filter-label').forEach(label => {
+            const activity = label.dataset.activity;
+            const isActive = this.facetedFilters.activityLevel === activity;
+            const textSpan = label.querySelector('span:last-child');
+
+            if (isActive) {
+                label.classList.remove('border-slate-700');
+                label.classList.add('border-cyan-500/50');
+                textSpan.classList.remove('text-slate-300');
+                textSpan.classList.add('text-cyan-400');
+            } else {
+                label.classList.add('border-slate-700');
+                label.classList.remove('border-cyan-500/50');
+                textSpan.classList.add('text-slate-300');
+                textSpan.classList.remove('text-cyan-400');
+            }
+        });
+    },
+
+    // Apply all faceted filters to project list
+    applyFacetedFilters(projects) {
+        let filtered = projects;
+
+        // Filter by purpose (what it does)
+        if (this.facetedFilters.purpose.length > 0) {
+            filtered = filtered.filter(p => {
+                const purposeTags = p.semanticTags?.purpose || [];
+                return purposeTags.some(t => this.facetedFilters.purpose.includes(t));
+            });
+        }
+
+        // Filter by domain (what field/industry)
+        if (this.facetedFilters.domain.length > 0) {
+            filtered = filtered.filter(p => {
+                const domainTags = p.semanticTags?.domain || [];
+                return domainTags.some(t => this.facetedFilters.domain.includes(t));
+            });
+        }
+
+        // Filter by activity level
+        if (this.facetedFilters.activityLevel !== 'all') {
+            filtered = filtered.filter(p => {
+                const activity = getActivityLevel(p);
+                return activity.level === this.facetedFilters.activityLevel;
+            });
+        }
+
+        // Filter by tech tags (OR logic - project must have at least one selected tech)
+        if (this.facetedFilters.techTags.length > 0) {
+            filtered = filtered.filter(p =>
+                (p.tech || []).some(t => this.facetedFilters.techTags.includes(t))
+            );
+        }
+
+        // Filter by maturity
+        if (this.facetedFilters.maturity.length > 0) {
+            filtered = filtered.filter(p => {
+                const mat = p.maturity?.classification || p.maturity || 'unknown';
+                return this.facetedFilters.maturity.includes(mat);
+            });
+        }
+
+        return filtered;
+    },
+
+    // Count total active filters
+    getActiveFilterCount() {
+        let count = 0;
+        count += this.facetedFilters.purpose.length;
+        count += this.facetedFilters.domain.length;
+        count += this.facetedFilters.activityLevel !== 'all' ? 1 : 0;
+        count += this.facetedFilters.techTags.length;
+        count += this.facetedFilters.maturity.length;
+        return count;
+    },
+
+    // Update the active filter count badge
+    updateActiveFilterCount() {
+        const badge = document.getElementById('activeFilterCount');
+        const clearBtn = document.getElementById('clearAllFilters');
+        const count = this.getActiveFilterCount();
+
+        if (count > 0) {
+            badge.textContent = count;
+            badge.classList.remove('hidden');
+            clearBtn.classList.remove('hidden');
+        } else {
+            badge.classList.add('hidden');
+            clearBtn.classList.add('hidden');
+        }
+    },
+
+    // Clear all faceted filters
+    clearAllFacetedFilters() {
+        this.facetedFilters = {
+            purpose: [],
+            domain: [],
+            activityLevel: 'all',
+            techTags: [],
+            maturity: []
+        };
+
+        this.renderFacetedFilters();
+        this.updateActivityFilterUI();
+        this.renderList();
+    },
+
+    // ==================== GRAPH VIEW METHODS ====================
+
+    graphNetwork: null,
+    graphVisible: false,
+
+    // Domain colors for graph nodes (what field/industry the app is for)
+    domainColors: {
+        'ai-ml': '#ec4899',
+        'devtools': '#00e5ff',
+        'gaming': '#f97316',
+        'finance': '#10b981',
+        'music': '#a855f7',
+        'education': '#84cc16',
+        'photography': '#3b82f6',
+        'video': '#ef4444',
+        'automation': '#eab308',
+        'social': '#06b6d4',
+        'health': '#22c55e',
+        'art': '#f472b6',
+        'Unknown': '#64748b'
+    },
+
+    // Show the graph view
+    showGraph() {
+        const graphView = document.getElementById('graphView');
+        graphView.classList.remove('hidden');
+        graphView.classList.add('flex');
+        this.graphVisible = true;
+
+        // Build and render the network graph
+        this.renderGraph();
+    },
+
+    // Hide the graph view
+    hideGraph() {
+        const graphView = document.getElementById('graphView');
+        graphView.classList.add('hidden');
+        graphView.classList.remove('flex');
+        this.graphVisible = false;
+
+        // Clean up the network
+        if (this.graphNetwork) {
+            this.graphNetwork.destroy();
+            this.graphNetwork = null;
+        }
+    },
+
+    // Generic tech names that are too vague to cluster on.
+    // If a project has ANY tech outside this list, we prefer the first such tech
+    // as its "primary" clustering key — so [HTML, CSS, React, Tailwind] clusters
+    // as React rather than as HTML.
+    genericTechs: new Set(['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Unknown']),
+
+    // Pick the most distinctive tech for clustering purposes.
+    primaryTechFor(project) {
+        if (!project.tech || project.tech.length === 0) return 'Other';
+        const specific = project.tech.find(t => !this.genericTechs.has(t));
+        return specific || project.tech[0];
+    },
+
+    // Build nodes and edges for the graph
+    buildGraphData() {
+        const nodes = [];
+        const edges = [];
+        const edgeSet = new Set(); // Prevent duplicate edges
+
+        // Build nodes from projects
+        this.data.forEach((project, index) => {
+            // Get primary domain from semanticTags (first one if multiple)
+            const domains = project.semanticTags?.domain || [];
+            const domain = domains[0] || 'Unknown';
+            const color = this.domainColors[domain] || this.domainColors['Unknown'];
+
+            // Size based on file count (scaled between 15 and 50)
+            const fileCount = project.fileCount || 10;
+            const size = Math.min(50, Math.max(15, 10 + Math.log(fileCount + 1) * 8));
+
+            // Get purpose for tooltip
+            const purposes = project.semanticTags?.purpose || [];
+            const purposeStr = purposes.length > 0 ? purposes.join(', ') : 'Unknown';
+
+            // Distinctive primary tech (not HTML/CSS/JS when possible)
+            const primaryTech = this.primaryTechFor(project);
+
+            nodes.push({
+                id: index,
+                label: project.name.length > 20 ? project.name.substring(0, 18) + '...' : project.name,
+                title: `${project.name}\nPurpose: ${purposeStr}\nDomain: ${domain}\nTech: ${project.tech.join(', ')}\nFiles: ${fileCount}`,
+                color: {
+                    background: color,
+                    border: color,
+                    highlight: {
+                        background: '#ffffff',
+                        border: color
+                    },
+                    hover: {
+                        background: color,
+                        border: '#ffffff'
+                    }
+                },
+                size: size,
+                font: {
+                    color: '#e2e8f0',
+                    size: 11,
+                    face: 'Inter, sans-serif'
+                },
+                domain: domain,
+                primaryTech: primaryTech,
+                projectData: project
+            });
+        });
+
+        // Build edges based on shared technologies (>= 2 shared)
+        for (let i = 0; i < this.data.length; i++) {
+            for (let j = i + 1; j < this.data.length; j++) {
+                const project1 = this.data[i];
+                const project2 = this.data[j];
+
+                // Find shared tech
+                const tech1Set = new Set(project1.tech.map(t => t.toLowerCase()));
+                const sharedTech = project2.tech.filter(t => tech1Set.has(t.toLowerCase()));
+
+                if (sharedTech.length >= 2) {
+                    const edgeKey = `${i}-${j}`;
+                    if (!edgeSet.has(edgeKey)) {
+                        edgeSet.add(edgeKey);
+
+                        // Edge thickness based on shared tech count
+                        const width = Math.min(5, 1 + sharedTech.length * 0.5);
+
+                        edges.push({
+                            from: i,
+                            to: j,
+                            width: width,
+                            color: {
+                                color: 'rgba(100, 116, 139, 0.3)',
+                                highlight: '#00e5ff',
+                                hover: 'rgba(0, 229, 255, 0.5)'
+                            },
+                            title: `Shared: ${sharedTech.join(', ')}`,
+                            sharedTech: sharedTech
+                        });
+                    }
+                }
+            }
+        }
+
+        return { nodes, edges };
+    },
+
+    // Render the network graph
+    renderGraph() {
+        const container = document.getElementById('graphContainer');
+        const { nodes, edges } = this.buildGraphData();
+
+        // Update stats
+        document.getElementById('graphStats').textContent = `${nodes.length} nodes, ${edges.length} edges`;
+
+        // Render legend
+        this.renderGraphLegend();
+
+        // Create vis.js datasets
+        const nodesDataset = new vis.DataSet(nodes);
+        const edgesDataset = new vis.DataSet(edges);
+
+        // Graph options
+        const options = {
+            nodes: {
+                shape: 'dot',
+                borderWidth: 2,
+                shadow: {
+                    enabled: true,
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    size: 10
+                }
+            },
+            edges: {
+                smooth: {
+                    type: 'continuous',
+                    forceDirection: 'none'
+                }
+            },
+            physics: {
+                enabled: true,
+                solver: 'forceAtlas2Based',
+                forceAtlas2Based: {
+                    gravitationalConstant: -50,
+                    centralGravity: 0.01,
+                    springLength: 150,
+                    springConstant: 0.08,
+                    damping: 0.4
+                },
+                stabilization: {
+                    enabled: true,
+                    iterations: 200,
+                    updateInterval: 25
+                }
+            },
+            interaction: {
+                hover: true,
+                tooltipDelay: 200,
+                hideEdgesOnDrag: true,
+                hideEdgesOnZoom: true
+            }
+        };
+
+        // Create the network
+        this.graphNetwork = new vis.Network(container, { nodes: nodesDataset, edges: edgesDataset }, options);
+
+        // Handle node click - open project detail
+        this.graphNetwork.on('click', (params) => {
+            if (params.nodes.length > 0) {
+                const nodeId = params.nodes[0];
+                const node = nodesDataset.get(nodeId);
+                if (node && node.projectData) {
+                    this.hideGraph();
+                    this.openDetail(node.projectData);
+                }
+            }
+        });
+
+        // Handle double-click - focus on node
+        this.graphNetwork.on('doubleClick', (params) => {
+            if (params.nodes.length > 0) {
+                this.graphNetwork.focus(params.nodes[0], {
+                    scale: 1.5,
+                    animation: {
+                        duration: 500,
+                        easingFunction: 'easeInOutQuad'
+                    }
+                });
+            }
+        });
+    },
+
+    // Render the graph legend
+    renderGraphLegend() {
+        const legend = document.getElementById('graphLegend');
+        // Count projects by domain
+        const domainCounts = {};
+        this.data.forEach(p => {
+            const domains = p.semanticTags?.domain || [];
+            const domain = domains[0] || 'Unknown';
+            domainCounts[domain] = (domainCounts[domain] || 0) + 1;
+        });
+
+        // Sort by count and render
+        const sortedDomains = Object.entries(domainCounts).sort((a, b) => b[1] - a[1]);
+        legend.innerHTML = sortedDomains.map(([domain, count]) => {
+            const color = this.domainColors[domain] || this.domainColors['Unknown'];
+            const displayName = domain.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            return `
+                <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span>
+                    <span class="text-slate-300">${displayName}</span>
+                    <span class="text-slate-500">(${count})</span>
+                </div>
+            `;
+        }).join('');
+    },
+
+    // Apply clustering based on mode
+    applyGraphClustering(mode) {
+        if (!this.graphNetwork) return;
+
+        // Reset clustering first — fully rebuild so stale cluster nodes from a
+        // previous mode don't leak into the new mode.
+        this.graphNetwork.setData(this.buildGraphData());
+
+        if (mode === 'none') {
+            return;
+        }
+
+        if (mode === 'domain') {
+            // Cluster by domain (what field/industry).
+            // Skip "Unknown" — leave those projects as individual nodes rather
+            // than folding them into a giant meaningless super-cluster.
+            const domainSet = new Set();
+            this.data.forEach(p => {
+                const domains = p.semanticTags?.domain || [];
+                const domain = domains[0] || 'Unknown';
+                if (domain !== 'Unknown') domainSet.add(domain);
+            });
+
+            [...domainSet].forEach(domain => {
+                const count = this.data.filter(p => {
+                    const d = (p.semanticTags?.domain || [])[0] || 'Unknown';
+                    return d === domain;
+                }).length;
+                const displayName = domain.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                const clusterOptions = {
+                    joinCondition: (nodeOptions) => nodeOptions.domain === domain,
+                    clusterNodeProperties: {
+                        id: `cluster-domain-${domain}`,
+                        label: `${displayName} (${count})`,
+                        color: this.domainColors[domain] || this.domainColors['Unknown'],
+                        shape: 'dot',
+                        size: 40,
+                        font: { size: 14, color: '#ffffff', bold: true }
+                    }
+                };
+                this.graphNetwork.cluster(clusterOptions);
+            });
+        } else if (mode === 'tech') {
+            // Cluster by DISTINCTIVE tech (skipping generic HTML/CSS/JS when a
+            // more specific option exists on the project). Groups of 2+ get a
+            // real cluster; true singletons go into an "Other" bucket so nothing
+            // is left floating next to the cluster bubbles.
+            const techGroups = {};
+            this.data.forEach((project, index) => {
+                const topTech = this.primaryTechFor(project);
+                if (!techGroups[topTech]) techGroups[topTech] = [];
+                techGroups[topTech].push(index);
+            });
+
+            // Partition into real clusters (2+) and singletons (Other bucket)
+            const otherIds = [];
+            Object.entries(techGroups).forEach(([tech, projectIds]) => {
+                if (projectIds.length >= 2) {
+                    const clusterOptions = {
+                        joinCondition: (nodeOptions) => nodeOptions.primaryTech === tech,
+                        clusterNodeProperties: {
+                            id: `cluster-tech-${tech}`,
+                            label: `${tech} (${projectIds.length})`,
+                            color: '#7000ff',
+                            shape: 'dot',
+                            size: 35,
+                            font: { size: 12, color: '#ffffff' }
+                        }
+                    };
+                    this.graphNetwork.cluster(clusterOptions);
+                } else {
+                    otherIds.push(...projectIds);
+                }
+            });
+
+            // Fold all singletons into one "Other" bucket so the tech view
+            // shows only cluster nodes — no mixed project+tech soup.
+            if (otherIds.length > 0) {
+                const otherSet = new Set(otherIds);
+                this.graphNetwork.cluster({
+                    joinCondition: (nodeOptions) => otherSet.has(nodeOptions.id),
+                    clusterNodeProperties: {
+                        id: 'cluster-tech-other',
+                        label: `Other (${otherIds.length})`,
+                        color: '#475569',
+                        shape: 'dot',
+                        size: 30,
+                        font: { size: 12, color: '#ffffff' }
+                    }
+                });
+            }
+        }
+    },
+
+    // Setup graph view listeners
+    setupGraphListeners() {
+        // Graph toggle button
+        document.getElementById('graphViewToggle').addEventListener('click', () => {
+            if (this.graphVisible) {
+                this.hideGraph();
+            } else {
+                this.showGraph();
+            }
+        });
+
+        // Close graph button
+        document.getElementById('closeGraphBtn').addEventListener('click', () => {
+            this.hideGraph();
+        });
+
+        // Cluster mode dropdown
+        document.getElementById('graphClusterMode').addEventListener('change', (e) => {
+            this.applyGraphClustering(e.target.value);
+        });
+    }
+};
+document.addEventListener('DOMContentLoaded', () => App.init());
+</script>
+<script src="/flipper.js"></script>
+</body>
+</html>
+    

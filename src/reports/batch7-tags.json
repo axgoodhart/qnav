@@ -1,0 +1,2138 @@
+{
+  "batchId": 7,
+  "range": {
+    "start": 385,
+    "end": 448
+  },
+  "analyzedAt": "2026-01-02T00:19:56.404Z",
+  "projectCount": 49,
+  "tagDistribution": {
+    "architecture:static-site": 44,
+    "complexity:trivial": 44,
+    "deploymentTarget:web": 43,
+    "audience:developers": 39,
+    "domain:art": 38,
+    "architecture:pwa": 38,
+    "contentType:interactive": 38,
+    "techStyle:typescript-strict": 38,
+    "purpose:portfolio": 37,
+    "features:webgl": 37,
+    "purpose:entertainment": 36,
+    "purpose:utility": 36,
+    "domain:devtools": 36,
+    "domain:ai-ml": 36,
+    "features:ai-powered": 36,
+    "features:websocket": 36,
+    "monetization:open-source": 36,
+    "purpose:productivity": 35,
+    "purpose:creative-tools": 35,
+    "purpose:photography": 35,
+    "features:authentication": 35,
+    "features:canvas": 35,
+    "stage:production": 35,
+    "stage:prototype": 8,
+    "architecture:spa": 5,
+    "purpose:music": 5,
+    "stage:beta": 4,
+    "audience:musicians": 4,
+    "domain:music": 4,
+    "techStyle:component-based": 4,
+    "architecture:ssr": 3,
+    "uiParadigm:blog": 3,
+    "complexity:moderate": 3,
+    "purpose:food-app": 3,
+    "contentType:tutorial": 3,
+    "features:audio": 3,
+    "features:3d-graphics": 3,
+    "purpose:developer-tools": 2,
+    "uiParadigm:audio-player": 2,
+    "complexity:simple": 2,
+    "scaleTarget:personal": 2,
+    "uiParadigm:dashboard": 2,
+    "uiParadigm:os-interface": 2,
+    "audience:creators": 2,
+    "features:animations": 2,
+    "uiParadigm:portfolio-site": 2,
+    "uiParadigm:gallery": 2,
+    "uiParadigm:cli": 1,
+    "deploymentTarget:cli-tool": 1,
+    "integrationType:api-consumer": 1,
+    "integrationType:embeddable": 1,
+    "interactionModel:single-user": 1,
+    "purpose:design": 1,
+    "stage:demo": 1,
+    "audience:consumers": 1,
+    "purpose:writing": 1,
+    "purpose:social": 1,
+    "stage:legacy": 1,
+    "dataHandling:real-time-sync": 1,
+    "features:midi": 1,
+    "uiParadigm:carousel": 1
+  },
+  "categoryDistribution": {
+    "purpose": 227,
+    "audience": 46,
+    "domain": 114,
+    "features": 188,
+    "architecture": 90,
+    "deploymentTarget": 44,
+    "contentType": 41,
+    "monetization": 36,
+    "techStyle": 42,
+    "complexity": 49,
+    "stage": 49,
+    "uiParadigm": 15,
+    "integrationType": 2,
+    "interactionModel": 1,
+    "scaleTarget": 2,
+    "dataHandling": 1
+  },
+  "projectsWithTags": 49,
+  "projectsWithoutTags": 0,
+  "projects": [
+    {
+      "name": "letfin.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "librescore",
+      "techStack": [
+        "JavaScript",
+        "Node.js"
+      ],
+      "fileCount": 18,
+      "tagCount": 20,
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "utility",
+          "developer-tools"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "architecture": [
+          "spa",
+          "ssr",
+          "pwa"
+        ],
+        "uiParadigm": [
+          "cli",
+          "blog"
+        ],
+        "deploymentTarget": [
+          "web",
+          "cli-tool"
+        ],
+        "integrationType": [
+          "api-consumer",
+          "embeddable"
+        ],
+        "interactionModel": [
+          "single-user"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "lilgui\\.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography",
+          "design"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "linkZerver",
+      "techStack": [],
+      "fileCount": 8,
+      "tagCount": 3,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "linkZerver copy",
+      "techStack": [],
+      "fileCount": 5,
+      "tagCount": 3,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "loglog.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "lorca.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "menu-component.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography",
+          "food-app"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "menu-demo.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 25,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography",
+          "food-app"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive",
+          "tutorial"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "demo"
+      }
+    },
+    {
+      "name": "menu.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography",
+          "food-app"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "metronome.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "miFridg copy.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "miFridg.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mixer",
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 4,
+      "tagCount": 4,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "mnt.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mobileindex.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "consumers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "moonwrite.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography",
+          "writing"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mothersday_sequence.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mothersdaygrid.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mothersdaypics.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "musical-cube",
+      "techStack": [
+        "HTML",
+        "JavaScript",
+        "Node.js",
+        "React"
+      ],
+      "fileCount": 11,
+      "tagCount": 15,
+      "tags": {
+        "purpose": [
+          "music"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "music"
+        ],
+        "features": [
+          "audio",
+          "3d-graphics",
+          "websocket"
+        ],
+        "architecture": [
+          "spa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "audio-player"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "simple",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "musicalintro.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 29,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "developer-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "audio",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "audio-player"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mysite.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "scaleTarget": "personal",
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "mysite2.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "scaleTarget": "personal",
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "nanogpt",
+      "techStack": [],
+      "fileCount": 6,
+      "tagCount": 6,
+      "tags": {
+        "domain": [
+          "ai-ml"
+        ],
+        "features": [
+          "ai-powered"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "neuralnetworkbackground.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "social",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "newnav.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "noisyweb.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "notsure.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "nuseum",
+      "techStack": [],
+      "fileCount": 2,
+      "tagCount": 2,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "oai.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "oldPracticalia",
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 8,
+      "tagCount": 4,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "legacy"
+      }
+    },
+    {
+      "name": "opera",
+      "techStack": [
+        "Node.js",
+        "React"
+      ],
+      "fileCount": 7,
+      "tagCount": 6,
+      "tags": {
+        "architecture": [
+          "spa",
+          "static-site"
+        ],
+        "dataHandling": [
+          "real-time-sync"
+        ],
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "opera.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "opera2",
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 12,
+      "tagCount": 4,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "page.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "pageSYnth.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 27,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "audio",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "panelGLOS.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 25,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "dashboard",
+          "os-interface"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "pendereckisgarden.pl",
+      "techStack": [],
+      "fileCount": 5,
+      "tagCount": 2,
+      "tags": {
+        "complexity": "trivial",
+        "stage": "prototype"
+      }
+    },
+    {
+      "name": "pianospiralthing.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 29,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "midi",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "os-interface",
+          "carousel"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "portals.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "portfolio",
+      "techStack": [
+        "JavaScript",
+        "TypeScript",
+        "Node.js",
+        "React",
+        "Next.js",
+        "Three.js"
+      ],
+      "fileCount": 15,
+      "tagCount": 20,
+      "tags": {
+        "purpose": [
+          "portfolio"
+        ],
+        "audience": [
+          "developers",
+          "creators"
+        ],
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "3d-graphics",
+          "webgl",
+          "animations"
+        ],
+        "architecture": [
+          "spa",
+          "ssr",
+          "pwa"
+        ],
+        "uiParadigm": [
+          "blog",
+          "portfolio-site",
+          "gallery"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive",
+          "tutorial"
+        ],
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "portfolio-site (1)",
+      "techStack": [
+        "TypeScript",
+        "Node.js",
+        "React",
+        "Next.js",
+        "Three.js"
+      ],
+      "fileCount": 13,
+      "tagCount": 19,
+      "tags": {
+        "purpose": [
+          "portfolio"
+        ],
+        "audience": [
+          "developers",
+          "creators"
+        ],
+        "domain": [
+          "art"
+        ],
+        "features": [
+          "3d-graphics",
+          "webgl",
+          "animations"
+        ],
+        "architecture": [
+          "spa",
+          "ssr"
+        ],
+        "uiParadigm": [
+          "blog",
+          "portfolio-site",
+          "gallery"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive",
+          "tutorial"
+        ],
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "public",
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 6,
+      "tagCount": 4,
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "beta"
+      }
+    },
+    {
+      "name": "qtet2.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "qtet3.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "qtet4.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "rainbo.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 23,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    },
+    {
+      "name": "responsivepanels.html",
+      "techStack": [],
+      "fileCount": 0,
+      "tagCount": 24,
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "dashboard"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      }
+    }
+  ],
+  "coverageRate": "100.0%"
+}

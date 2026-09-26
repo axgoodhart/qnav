@@ -1,0 +1,5036 @@
+{
+  "batchNumber": 8,
+  "batchRange": "449-519",
+  "generatedAt": "2026-01-02T00:20:22.412Z",
+  "projectCount": 71,
+  "projects": [
+    {
+      "projectName": "rsi",
+      "projectPath": "/Users/alex/Documents/Cufolio/rsi",
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "HTML",
+        "Python",
+        "Go"
+      ],
+      "fileCount": 26
+    },
+    {
+      "projectName": "sandbox copy.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/sandbox copy.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "screencoder",
+      "projectPath": "/Users/alex/Documents/Cufolio/screencoder",
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "utility",
+          "developer-tools"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "blog",
+          "editor"
+        ],
+        "deploymentTarget": [
+          "web",
+          "desktop"
+        ],
+        "contentType": [
+          "code-focused"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:developer-tools",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "architecture:static-site",
+        "uiParadigm:blog",
+        "uiParadigm:editor",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "contentType:code-focused",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:moderate",
+        "stage:beta"
+      ],
+      "tagCount": 16,
+      "techStack": [
+        "JavaScript",
+        "Node.js",
+        "JSON",
+        "YAML",
+        "Markdown"
+      ],
+      "fileCount": 88
+    },
+    {
+      "projectName": "screencoder-backup",
+      "projectPath": "/Users/alex/Documents/Cufolio/screencoder-backup",
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "utility",
+          "developer-tools"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "blog",
+          "editor"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "code-focused"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "moderate",
+        "stage": "archived"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:developer-tools",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "architecture:static-site",
+        "uiParadigm:blog",
+        "uiParadigm:editor",
+        "deploymentTarget:web",
+        "contentType:code-focused",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:moderate",
+        "stage:archived"
+      ],
+      "tagCount": 15,
+      "techStack": [
+        "JavaScript",
+        "Node.js",
+        "JSON",
+        "YAML",
+        "Markdown"
+      ],
+      "fileCount": 70
+    },
+    {
+      "projectName": "screencoder.zip",
+      "projectPath": "/Users/alex/Documents/Cufolio/screencoder.zip",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "developer-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "editor"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive",
+          "code-focused"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:developer-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:editor",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "contentType:code-focused",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "Archive"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "scribdiframe.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/scribdiframe.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "scroll.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/scroll.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "scrolldemo.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/scrolldemo.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive",
+          "tutorial"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "demo"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "contentType:tutorial",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:demo"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "seasons.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/seasons.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "shift.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/shift.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "shiningwindow.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/shiningwindow.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "os-interface"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:os-interface",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "smplr",
+      "projectPath": "/Users/alex/Documents/Cufolio/smplr",
+      "tags": {
+        "purpose": [
+          "entertainment"
+        ],
+        "audience": [
+          "developers",
+          "consumers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "moderate",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "audience:developers",
+        "audience:consumers",
+        "domain:devtools",
+        "domain:art",
+        "deploymentTarget:web",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:moderate",
+        "stage:production"
+      ],
+      "tagCount": 10,
+      "techStack": [
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "JSON",
+        "Markdown"
+      ],
+      "fileCount": 42
+    },
+    {
+      "projectName": "something.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/something.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "space-synth.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/space-synth.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "audio",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:music",
+        "purpose:photography",
+        "audience:developers",
+        "audience:musicians",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:music",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:audio",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 27,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "spherorb.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/spherorb.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "3d-graphics",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "spiralpiano.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/spiralpiano.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "midi",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "carousel"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:music",
+        "purpose:photography",
+        "audience:developers",
+        "audience:musicians",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:music",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:midi",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 28,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "spiralpiano2.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/spiralpiano2.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "midi",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "carousel"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:music",
+        "purpose:photography",
+        "audience:developers",
+        "audience:musicians",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:music",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:midi",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 28,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "spiralpiano3.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/spiralpiano3.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "musicians"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "midi",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "carousel"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:music",
+        "purpose:photography",
+        "audience:developers",
+        "audience:musicians",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:music",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:midi",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 28,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "starfield.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/starfield.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "stellarOS",
+      "projectPath": "/Users/alex/Documents/Cufolio/stellarOS",
+      "tags": {
+        "uiParadigm": [
+          "os-interface"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "uiParadigm:os-interface",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 3,
+      "techStack": [],
+      "fileCount": 0
+    },
+    {
+      "projectName": "stepsequencer.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/stepsequencer.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "svelte.config.js",
+      "projectPath": "/Users/alex/Documents/Cufolio/svelte.config.js",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "JavaScript"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "svgs.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/svgs.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "sw.js",
+      "projectPath": "/Users/alex/Documents/Cufolio/sw.js",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "JavaScript"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tapZer.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/tapZer.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tasking.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/tasking.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "kanban"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:kanban",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tempsite copy.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/tempsite copy.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tempsite.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/tempsite.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "test.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/test.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "developer-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:developer-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "testypoo.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/testypoo.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "developer-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "experimental"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:developer-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:experimental"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tetrachords-master",
+      "projectPath": "/Users/alex/Documents/Cufolio/tetrachords-master",
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "fileCount": 3
+    },
+    {
+      "projectName": "text2split.txt",
+      "projectPath": "/Users/alex/Documents/Cufolio/text2split.txt",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography",
+          "writing"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "editor"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "purpose:writing",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:editor",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "Text"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "theoldbriizos",
+      "projectPath": "/Users/alex/Documents/Cufolio/theoldbriizos",
+      "tags": {
+        "uiParadigm": [
+          "os-interface"
+        ],
+        "complexity": "trivial",
+        "stage": "legacy"
+      },
+      "flatTags": [
+        "uiParadigm:os-interface",
+        "complexity:trivial",
+        "stage:legacy"
+      ],
+      "tagCount": 3,
+      "techStack": [],
+      "fileCount": 14
+    },
+    {
+      "projectName": "thing.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/thing.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "thoughtstream.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/thoughtstream.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "video",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "video",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "video-playback",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "video-player"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:video",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:video",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:video-playback",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:video-player",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 27,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "three",
+      "projectPath": "/Users/alex/Documents/Cufolio/three",
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "automation",
+          "creative-tools"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools"
+        ],
+        "features": [
+          "3d-graphics"
+        ],
+        "architecture": [
+          "spa",
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "cli"
+        ],
+        "dataHandling": [
+          "real-time-sync"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "complex",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:automation",
+        "purpose:creative-tools",
+        "audience:developers",
+        "domain:devtools",
+        "features:3d-graphics",
+        "architecture:spa",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:cli",
+        "dataHandling:real-time-sync",
+        "deploymentTarget:web",
+        "monetization:open-source",
+        "techStyle:component-based",
+        "complexity:complex",
+        "stage:production"
+      ],
+      "tagCount": 16,
+      "techStack": [
+        "JavaScript",
+        "HTML",
+        "Node.js",
+        "JSON",
+        "Markdown"
+      ],
+      "fileCount": 575
+    },
+    {
+      "projectName": "threejs-components",
+      "projectPath": "/Users/alex/Documents/Cufolio/threejs-components",
+      "tags": {
+        "purpose": [
+          "social"
+        ],
+        "features": [
+          "3d-graphics",
+          "webgl"
+        ],
+        "uiParadigm": [
+          "editor"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:social",
+        "features:3d-graphics",
+        "features:webgl",
+        "uiParadigm:editor",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "techStyle:component-based",
+        "complexity:moderate",
+        "stage:beta"
+      ],
+      "tagCount": 9,
+      "techStack": [
+        "JavaScript",
+        "Node.js",
+        "JSON",
+        "Markdown",
+        "Three.js"
+      ],
+      "fileCount": 8
+    },
+    {
+      "projectName": "threething.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/threething.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "3d-graphics",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "timer.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/timer.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "calendar-view"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:calendar-view",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "timerAPP.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/timerAPP.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "consumers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "calendar-view"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "audience:consumers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:calendar-view",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 25,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tomriddle.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/tomriddle.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tonejs-instruments-master",
+      "projectPath": "/Users/alex/Documents/Cufolio/tonejs-instruments-master",
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "music"
+        ],
+        "audience": [
+          "artists"
+        ],
+        "domain": [
+          "art"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "monetization": "open-source",
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:music",
+        "audience:artists",
+        "domain:art",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "monetization:open-source",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 9,
+      "techStack": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Markdown"
+      ],
+      "fileCount": 31
+    },
+    {
+      "projectName": "tornado.png",
+      "projectPath": "/Users/alex/Documents/Cufolio/tornado.png",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "Image"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "trichord_144_melodies.mid",
+      "projectPath": "/Users/alex/Documents/Cufolio/trichord_144_melodies.mid",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "MIDI"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "trichord_melodies",
+      "projectPath": "/Users/alex/Documents/Cufolio/trichord_melodies",
+      "tags": {
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "tagCount": 2,
+      "techStack": [
+        "MIDI"
+      ],
+      "fileCount": 144
+    },
+    {
+      "projectName": "trichordmelodies.py",
+      "projectPath": "/Users/alex/Documents/Cufolio/trichordmelodies.py",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "Python"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "tundra.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/tundra.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "typings.json",
+      "projectPath": "/Users/alex/Documents/Cufolio/typings.json",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "JSON"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "unmessenger",
+      "projectPath": "/Users/alex/Documents/Cufolio/unmessenger",
+      "tags": {
+        "purpose": [
+          "communication"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "chat-interface"
+        ],
+        "deploymentTarget": [
+          "web",
+          "desktop"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:communication",
+        "architecture:static-site",
+        "uiParadigm:chat-interface",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "complexity:moderate",
+        "stage:beta"
+      ],
+      "tagCount": 7,
+      "techStack": [
+        "JavaScript",
+        "HTML",
+        "Python",
+        "Node.js",
+        "Shell",
+        "JSON",
+        "Markdown",
+        "Electron"
+      ],
+      "fileCount": 27
+    },
+    {
+      "projectName": "update_pdf_timestamp.sh",
+      "projectPath": "/Users/alex/Documents/Cufolio/update_pdf_timestamp.sh",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "Shell"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "vanta",
+      "projectPath": "/Users/alex/Documents/Cufolio/vanta",
+      "tags": {
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:prototype"
+      ],
+      "tagCount": 4,
+      "techStack": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "fileCount": 3
+    },
+    {
+      "projectName": "vibes",
+      "projectPath": "/Users/alex/Documents/Cufolio/vibes",
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "education",
+          "utility",
+          "analytics",
+          "creative-tools",
+          "data-visualization"
+        ],
+        "audience": [
+          "developers",
+          "enterprise"
+        ],
+        "domain": [
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "ai-powered",
+          "charts",
+          "animations"
+        ],
+        "architecture": [
+          "spa",
+          "ssr",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "blog",
+          "editor",
+          "carousel"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "integrationType": [
+          "api-consumer"
+        ],
+        "contentType": [
+          "interactive",
+          "code-focused"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "complex",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:education",
+        "purpose:utility",
+        "purpose:analytics",
+        "purpose:creative-tools",
+        "purpose:data-visualization",
+        "audience:developers",
+        "audience:enterprise",
+        "domain:ai-ml",
+        "domain:art",
+        "features:ai-powered",
+        "features:charts",
+        "features:animations",
+        "architecture:spa",
+        "architecture:ssr",
+        "architecture:static-site",
+        "uiParadigm:blog",
+        "uiParadigm:editor",
+        "uiParadigm:carousel",
+        "deploymentTarget:web",
+        "integrationType:api-consumer",
+        "contentType:interactive",
+        "contentType:code-focused",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:complex",
+        "stage:production"
+      ],
+      "tagCount": 28,
+      "techStack": [
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "Node.js",
+        "JSON",
+        "Markdown",
+        "React"
+      ],
+      "fileCount": 82
+    },
+    {
+      "projectName": "viewcss.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/viewcss.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "virtualstaffsandbox.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/virtualstaffsandbox.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "vocabulary.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/vocabulary.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "waveterm-main",
+      "projectPath": "/Users/alex/Documents/Cufolio/waveterm-main",
+      "tags": {
+        "purpose": [
+          "utility",
+          "analytics",
+          "social",
+          "creative-tools",
+          "data-visualization"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "realtime",
+          "ai-powered",
+          "websocket",
+          "charts",
+          "drag-drop"
+        ],
+        "architecture": [
+          "spa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "editor",
+          "terminal"
+        ],
+        "dataHandling": [
+          "real-time-sync"
+        ],
+        "deploymentTarget": [
+          "web",
+          "desktop"
+        ],
+        "integrationType": [
+          "embeddable"
+        ],
+        "contentType": [
+          "code-focused"
+        ],
+        "interactionModel": [
+          "collaborative",
+          "single-user"
+        ],
+        "monetization": "free",
+        "techStyle": [
+          "typescript-strict",
+          "component-based"
+        ],
+        "complexity": "enterprise-grade",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:utility",
+        "purpose:analytics",
+        "purpose:social",
+        "purpose:creative-tools",
+        "purpose:data-visualization",
+        "audience:developers",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:realtime",
+        "features:ai-powered",
+        "features:websocket",
+        "features:charts",
+        "features:drag-drop",
+        "architecture:spa",
+        "architecture:static-site",
+        "uiParadigm:editor",
+        "uiParadigm:terminal",
+        "dataHandling:real-time-sync",
+        "deploymentTarget:web",
+        "deploymentTarget:desktop",
+        "integrationType:embeddable",
+        "contentType:code-focused",
+        "interactionModel:collaborative",
+        "interactionModel:single-user",
+        "monetization:free",
+        "techStyle:typescript-strict",
+        "techStyle:component-based",
+        "complexity:enterprise-grade",
+        "stage:production"
+      ],
+      "tagCount": 30,
+      "techStack": [
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "Node.js",
+        "Go",
+        "JSON",
+        "YAML",
+        "Markdown",
+        "React",
+        "Electron"
+      ],
+      "fileCount": 204
+    },
+    {
+      "projectName": "webgl_lights_rectarealight.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/webgl_lights_rectarealight.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "3d-graphics",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:3d-graphics",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 24,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "webplayer",
+      "projectPath": "/Users/alex/Documents/Cufolio/webplayer",
+      "tags": {
+        "purpose": [
+          "entertainment",
+          "video"
+        ],
+        "audience": [
+          "gamers"
+        ],
+        "domain": [
+          "video"
+        ],
+        "features": [
+          "video-playback",
+          "webgl"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "uiParadigm": [
+          "video-player",
+          "audio-player",
+          "game-ui"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "prototype"
+      },
+      "flatTags": [
+        "purpose:entertainment",
+        "purpose:video",
+        "audience:gamers",
+        "domain:video",
+        "features:video-playback",
+        "features:webgl",
+        "architecture:static-site",
+        "uiParadigm:video-player",
+        "uiParadigm:audio-player",
+        "uiParadigm:game-ui",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:prototype"
+      ],
+      "tagCount": 13,
+      "techStack": [
+        "JavaScript",
+        "HTML",
+        "WebGL"
+      ],
+      "fileCount": 32
+    },
+    {
+      "projectName": "whateva.js",
+      "projectPath": "/Users/alex/Documents/Cufolio/whateva.js",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 21,
+      "techStack": [
+        "JavaScript"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "winmac",
+      "projectPath": "/Users/alex/Documents/Cufolio/winmac",
+      "tags": {
+        "purpose": [
+          "education"
+        ],
+        "architecture": [
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "trivial",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:education",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "complexity:trivial",
+        "stage:beta"
+      ],
+      "tagCount": 5,
+      "techStack": [
+        "Markdown"
+      ],
+      "fileCount": 6
+    },
+    {
+      "projectName": "wops.js",
+      "projectPath": "/Users/alex/Documents/Cufolio/wops.js",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers",
+          "internal-tools"
+        ],
+        "domain": [
+          "devtools",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "audience:internal-tools",
+        "domain:devtools",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 22,
+      "techStack": [
+        "JavaScript"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "wordgrid.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/wordgrid.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "worldawayfromworld.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/worldawayfromworld.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "xmlTXT",
+      "projectPath": "/Users/alex/Documents/Cufolio/xmlTXT",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [],
+      "fileCount": 1
+    },
+    {
+      "projectName": "xmlTXT.py",
+      "projectPath": "/Users/alex/Documents/Cufolio/xmlTXT.py",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "Python"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "yi0a.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/yi0a.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "yt-dlp.html",
+      "projectPath": "/Users/alex/Documents/Cufolio/yt-dlp.html",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "ai-ml",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "ai-powered",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:ai-ml",
+        "domain:art",
+        "features:authentication",
+        "features:ai-powered",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "HTML"
+      ],
+      "fileCount": 1
+    },
+    {
+      "projectName": "zynth",
+      "projectPath": "/Users/alex/Documents/Cufolio/zynth",
+      "tags": {
+        "purpose": [
+          "utility",
+          "music"
+        ],
+        "domain": [
+          "music",
+          "art"
+        ],
+        "features": [
+          "audio",
+          "3d-graphics",
+          "webgl"
+        ],
+        "architecture": [
+          "spa",
+          "pwa",
+          "static-site"
+        ],
+        "uiParadigm": [
+          "audio-player"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "techStyle": [
+          "component-based"
+        ],
+        "complexity": "moderate",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:utility",
+        "purpose:music",
+        "domain:music",
+        "domain:art",
+        "features:audio",
+        "features:3d-graphics",
+        "features:webgl",
+        "architecture:spa",
+        "architecture:pwa",
+        "architecture:static-site",
+        "uiParadigm:audio-player",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "techStyle:component-based",
+        "complexity:moderate",
+        "stage:beta"
+      ],
+      "tagCount": 16,
+      "techStack": [
+        "JavaScript",
+        "Node.js",
+        "JSON",
+        "Markdown",
+        "React",
+        "Three.js",
+        "Tone.js"
+      ],
+      "fileCount": 27
+    },
+    {
+      "projectName": "zynth 2",
+      "projectPath": "/Users/alex/Documents/Cufolio/zynth 2",
+      "tags": {
+        "purpose": [
+          "music"
+        ],
+        "domain": [
+          "music"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:music",
+        "domain:music",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 5,
+      "techStack": [
+        "JavaScript",
+        "React"
+      ],
+      "fileCount": 15
+    },
+    {
+      "projectName": "zynth 3",
+      "projectPath": "/Users/alex/Documents/Cufolio/zynth 3",
+      "tags": {
+        "purpose": [
+          "music"
+        ],
+        "domain": [
+          "music"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "complexity": "simple",
+        "stage": "beta"
+      },
+      "flatTags": [
+        "purpose:music",
+        "domain:music",
+        "deploymentTarget:web",
+        "complexity:simple",
+        "stage:beta"
+      ],
+      "tagCount": 5,
+      "techStack": [
+        "JavaScript",
+        "React"
+      ],
+      "fileCount": 16
+    },
+    {
+      "projectName": "zynth.zip",
+      "projectPath": "/Users/alex/Documents/Cufolio/zynth.zip",
+      "tags": {
+        "purpose": [
+          "portfolio",
+          "productivity",
+          "entertainment",
+          "utility",
+          "creative-tools",
+          "music",
+          "photography"
+        ],
+        "audience": [
+          "developers"
+        ],
+        "domain": [
+          "devtools",
+          "music",
+          "art"
+        ],
+        "features": [
+          "authentication",
+          "webgl",
+          "canvas",
+          "websocket"
+        ],
+        "architecture": [
+          "pwa",
+          "static-site"
+        ],
+        "deploymentTarget": [
+          "web"
+        ],
+        "contentType": [
+          "interactive"
+        ],
+        "monetization": "open-source",
+        "techStyle": [
+          "typescript-strict"
+        ],
+        "complexity": "trivial",
+        "stage": "production"
+      },
+      "flatTags": [
+        "purpose:portfolio",
+        "purpose:productivity",
+        "purpose:entertainment",
+        "purpose:utility",
+        "purpose:creative-tools",
+        "purpose:music",
+        "purpose:photography",
+        "audience:developers",
+        "domain:devtools",
+        "domain:music",
+        "domain:art",
+        "features:authentication",
+        "features:webgl",
+        "features:canvas",
+        "features:websocket",
+        "architecture:pwa",
+        "architecture:static-site",
+        "deploymentTarget:web",
+        "contentType:interactive",
+        "monetization:open-source",
+        "techStyle:typescript-strict",
+        "complexity:trivial",
+        "stage:production"
+      ],
+      "tagCount": 23,
+      "techStack": [
+        "Archive"
+      ],
+      "fileCount": 1
+    }
+  ],
+  "tagDistribution": {
+    "architecture:static-site": 64,
+    "deploymentTarget:web": 68,
+    "complexity:simple": 6,
+    "stage:prototype": 6,
+    "purpose:portfolio": 51,
+    "purpose:productivity": 51,
+    "purpose:entertainment": 58,
+    "purpose:utility": 56,
+    "purpose:creative-tools": 54,
+    "purpose:photography": 51,
+    "audience:developers": 57,
+    "domain:devtools": 55,
+    "domain:ai-ml": 41,
+    "domain:art": 58,
+    "features:authentication": 52,
+    "features:ai-powered": 41,
+    "features:webgl": 54,
+    "features:canvas": 51,
+    "features:websocket": 52,
+    "architecture:pwa": 53,
+    "contentType:interactive": 54,
+    "monetization:open-source": 57,
+    "techStyle:typescript-strict": 56,
+    "complexity:trivial": 56,
+    "stage:production": 52,
+    "purpose:developer-tools": 5,
+    "uiParadigm:blog": 3,
+    "uiParadigm:editor": 7,
+    "deploymentTarget:desktop": 3,
+    "contentType:code-focused": 5,
+    "complexity:moderate": 6,
+    "stage:beta": 8,
+    "stage:archived": 1,
+    "contentType:tutorial": 1,
+    "stage:demo": 1,
+    "uiParadigm:os-interface": 3,
+    "audience:consumers": 2,
+    "purpose:music": 9,
+    "audience:musicians": 4,
+    "domain:music": 8,
+    "features:audio": 2,
+    "features:3d-graphics": 6,
+    "features:midi": 3,
+    "uiParadigm:carousel": 4,
+    "uiParadigm:kanban": 1,
+    "stage:experimental": 2,
+    "purpose:writing": 1,
+    "stage:legacy": 1,
+    "purpose:video": 2,
+    "domain:video": 2,
+    "features:video-playback": 2,
+    "uiParadigm:video-player": 2,
+    "purpose:automation": 1,
+    "architecture:spa": 4,
+    "uiParadigm:cli": 1,
+    "dataHandling:real-time-sync": 2,
+    "techStyle:component-based": 5,
+    "complexity:complex": 2,
+    "purpose:social": 2,
+    "uiParadigm:calendar-view": 2,
+    "audience:artists": 1,
+    "purpose:communication": 1,
+    "uiParadigm:chat-interface": 1,
+    "purpose:education": 2,
+    "purpose:analytics": 2,
+    "purpose:data-visualization": 2,
+    "audience:enterprise": 1,
+    "features:charts": 2,
+    "features:animations": 1,
+    "architecture:ssr": 1,
+    "integrationType:api-consumer": 1,
+    "features:realtime": 1,
+    "features:drag-drop": 1,
+    "uiParadigm:terminal": 1,
+    "integrationType:embeddable": 1,
+    "interactionModel:collaborative": 1,
+    "interactionModel:single-user": 1,
+    "monetization:free": 1,
+    "complexity:enterprise-grade": 1,
+    "audience:gamers": 1,
+    "uiParadigm:audio-player": 2,
+    "uiParadigm:game-ui": 1,
+    "audience:internal-tools": 1
+  },
+  "categoryDistribution": {
+    "architecture": 122,
+    "deploymentTarget": 71,
+    "complexity": 71,
+    "stage": 71,
+    "purpose": 348,
+    "audience": 67,
+    "domain": 164,
+    "features": 268,
+    "contentType": 60,
+    "monetization": 58,
+    "techStyle": 61,
+    "uiParadigm": 28,
+    "dataHandling": 2,
+    "integrationType": 2,
+    "interactionModel": 2
+  },
+  "topTags": [
+    {
+      "tag": "deploymentTarget:web",
+      "count": 68
+    },
+    {
+      "tag": "architecture:static-site",
+      "count": 64
+    },
+    {
+      "tag": "purpose:entertainment",
+      "count": 58
+    },
+    {
+      "tag": "domain:art",
+      "count": 58
+    },
+    {
+      "tag": "audience:developers",
+      "count": 57
+    },
+    {
+      "tag": "monetization:open-source",
+      "count": 57
+    },
+    {
+      "tag": "purpose:utility",
+      "count": 56
+    },
+    {
+      "tag": "techStyle:typescript-strict",
+      "count": 56
+    },
+    {
+      "tag": "complexity:trivial",
+      "count": 56
+    },
+    {
+      "tag": "domain:devtools",
+      "count": 55
+    },
+    {
+      "tag": "purpose:creative-tools",
+      "count": 54
+    },
+    {
+      "tag": "features:webgl",
+      "count": 54
+    },
+    {
+      "tag": "contentType:interactive",
+      "count": 54
+    },
+    {
+      "tag": "architecture:pwa",
+      "count": 53
+    },
+    {
+      "tag": "features:authentication",
+      "count": 52
+    },
+    {
+      "tag": "features:websocket",
+      "count": 52
+    },
+    {
+      "tag": "stage:production",
+      "count": 52
+    },
+    {
+      "tag": "purpose:portfolio",
+      "count": 51
+    },
+    {
+      "tag": "purpose:productivity",
+      "count": 51
+    },
+    {
+      "tag": "purpose:photography",
+      "count": 51
+    },
+    {
+      "tag": "features:canvas",
+      "count": 51
+    },
+    {
+      "tag": "domain:ai-ml",
+      "count": 41
+    },
+    {
+      "tag": "features:ai-powered",
+      "count": 41
+    },
+    {
+      "tag": "purpose:music",
+      "count": 9
+    },
+    {
+      "tag": "stage:beta",
+      "count": 8
+    },
+    {
+      "tag": "domain:music",
+      "count": 8
+    },
+    {
+      "tag": "uiParadigm:editor",
+      "count": 7
+    },
+    {
+      "tag": "complexity:simple",
+      "count": 6
+    },
+    {
+      "tag": "stage:prototype",
+      "count": 6
+    },
+    {
+      "tag": "complexity:moderate",
+      "count": 6
+    }
+  ],
+  "averageTagsPerProject": 19.64788732394366,
+  "projectsWithNoTags": 0
+}
