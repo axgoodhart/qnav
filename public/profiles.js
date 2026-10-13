@@ -1,4 +1,5 @@
 const Profiles = {
+    cooldownDays: 14,
     saved: {}, status: {}, staticSnapshot: false, initialized: false, pair: [],
     escape(value) { return String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); },
     replaceContent(target, html) {
@@ -138,8 +139,8 @@ const Profiles = {
             const duplicate = remaining.findIndex(p => chosen.some(other => p.family && p.family === other.family));
             if (duplicate >= 0) { remaining.splice(duplicate, 1); continue; }
             remaining.sort((a, b) => {
-                const recentA = day - (history[a.id] ?? -100000) < 14;
-                const recentB = day - (history[b.id] ?? -100000) < 14;
+                const recentA = day - (history[a.id] ?? -100000) < this.cooldownDays;
+                const recentB = day - (history[b.id] ?? -100000) < this.cooldownDays;
                 if (recentA !== recentB) return Number(recentA) - Number(recentB);
                 if (recentA && history[a.id] !== history[b.id]) return history[a.id] - history[b.id];
                 const rank = p => Meaning.featured(p).score - chosen.reduce((n, selected) => n + Meaning.compare(p, selected).score * 4 + Number(p.profile.kind === selected.profile.kind), 0);
@@ -160,10 +161,10 @@ const Profiles = {
         const history = this.history();
         const day = Math.floor(Date.now() / 86400000);
         const candidates = App.data.map(p => ({ p, ...Meaning.featured(p) })).sort((a, b) => b.score - a.score || a.p.name.localeCompare(b.p.name));
-        const visible = candidates.filter(c => `${c.p.name} ${c.p.profile?.summary || ''} ${c.reasons.join(' ')}`.toLowerCase().includes(query)).slice(0, 50);
+        const visible = candidates.filter(c => `${c.p.name} ${c.p.profile?.summary || ''} ${c.reasons.join(' ')}`.toLowerCase().includes(query));
         document.getElementById('profileCandidates').innerHTML = visible.length ? visible.map(c => {
             const seen = history[c.p.id];
-            const decision = !c.score ? 'Outside selection' : seen === day ? 'Featured today' : day - (seen ?? -100000) < 14 ? `Cooldown · ${day - seen} days since shown` : 'Eligible';
+            const decision = !c.score ? 'Outside selection' : seen === day ? 'Featured today' : day - (seen ?? -100000) < this.cooldownDays ? `Cooldown · ${day - seen} days since shown` : 'Eligible';
             return `<tr><td><button class="link-btn" data-profile-open="${this.escape(c.p.id)}">${this.escape(c.p.name)}</button></td><td>${c.reasons.map(r => this.escape(r)).join(' · ')}</td><td>${decision}</td></tr>`;
         }).join('') : '<tr><td colspan="3">No candidates match this search.</td></tr>';
     }
