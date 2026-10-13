@@ -1,4 +1,4 @@
-import { ProjectMetadata } from './metadataDetector';
+import { ProjectMetadata, ProjectCategory } from './metadataDetector';
 
 /**
  * Represents a related project with similarity metrics
