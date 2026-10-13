@@ -3,6 +3,7 @@ import * as path from 'path';
 import { ProjectMetadata } from './metadataDetector';
 import { SemanticTags } from './tagTaxonomy';
 import { TagDetector } from './tagDetector';
+import type { ProjectProfile } from './profiles';
 
 export interface FileActivity {
   date: string; // ISO date
@@ -36,6 +37,9 @@ export interface MaturityDetails {
 }
 
 export interface EnrichedProjectMetadata extends ProjectMetadata {
+  profile?: ProjectProfile;
+  profileState?: string;
+  profileError?: string;
   fileActivity?: FileActivity[];
   mediaAssets?: MediaAsset[];
   screenshot?: string; // relative path to thumbnail/screenshot

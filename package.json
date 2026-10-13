@@ -4,6 +4,7 @@
   "description": "Dynamic project navigator with real-time file watching",
   "main": "dist/server.js",
   "scripts": {
+    "profiles": "tsx src/readProfiles.ts",
     "dev": "tsx watch src/server.ts",
     "build": "tsc --ignoreDeprecations 5.0",
     "clean": "rm -rf dist",

@@ -54,6 +54,23 @@ export class ProjectScanner {
 
         enriched.id = projectIdFor(projectPath, this.scanPath);
         projects.push(enriched);
+
+        const rootFiles = await fs.readdir(projectPath);
+        const manifests = ['package.json', 'pyproject.toml', 'Cargo.toml', 'go.mod', 'pubspec.yaml'];
+        if (!rootFiles.some(file => manifests.includes(file))) {
+          const children = await fs.readdir(projectPath, { withFileTypes: true });
+          for (const child of children) {
+            if (!child.isDirectory() || child.name.startsWith('.') || ['node_modules', 'dist', 'build', 'vendor', 'data'].includes(child.name)) continue;
+            const childPath = path.join(projectPath, child.name);
+            if (this.ignoreMatcher.shouldIgnore(childPath, this.scanPath)) continue;
+            const childFiles = await fs.readdir(childPath).catch(() => [] as string[]);
+            if (!childFiles.some(file => manifests.includes(file))) continue;
+            const childMetadata = await this.metadataDetector.detectMetadata(childPath);
+            const childProject = this.enableEnrichment ? await this.enricher.enrichMetadata(childMetadata) : childMetadata;
+            childProject.id = projectIdFor(childPath, this.scanPath);
+            projects.push(childProject);
+          }
+        }
       }
 
       // ---------- Loose-file projects ----------

@@ -14,6 +14,7 @@ import { DataStore } from './preview/dataStore';
 import { PreviewService, PreviewUnavailableError } from './preview/previewService';
 import { PreviewSession } from './preview/types';
 import { CaptureWorker } from './preview/captureWorker';
+import { ProfileService } from './profiles';
 
 /**
  * Advanced query filter for project search
@@ -62,6 +63,7 @@ class CufolioServer {
   private preview!: PreviewService;
   private captures!: CaptureWorker;
   private dataStore!: DataStore;
+  private profiles!: ProfileService;
   /** WebSocket connection -> consumer ids registered by that browser tab. */
   private wsConsumers = new Map<WebSocket, Set<string>>();
 
@@ -166,6 +168,20 @@ class CufolioServer {
     // Get all projects
     this.app.get('/api/projects', (req, res) => {
       res.json(this.projects);
+    });
+
+    this.app.get('/api/profiles', (req, res) => {
+      res.json({ ...this.profiles.status(), profiles: Object.fromEntries(this.projects.filter(p => p.profile).map(p => [p.path, p.profile])) });
+    });
+    this.app.post('/api/profiles/control', async (req, res) => {
+      if (typeof req.body?.enabled !== 'boolean') return res.status(400).json({ error: 'enabled must be true or false' });
+      try { await this.profiles.setEnabled(req.body.enabled); res.json(this.profiles.status()); }
+      catch (err: any) { res.status(500).json({ error: err.message }); }
+    });
+    this.app.post('/api/profiles/prioritize', (req, res) => {
+      if (typeof req.body?.id !== 'string' || !this.projects.some(p => p.id === req.body.id)) return res.status(404).json({ error: 'Project not found' });
+      this.profiles.prioritize(req.body.id);
+      res.json(this.profiles.status());
     });
 
     // Get configuration
@@ -346,7 +362,8 @@ class CufolioServer {
       results = results.filter(p =>
         p.name.toLowerCase().includes(query) ||
         p.desc.toLowerCase().includes(query) ||
-        p.tech.some(t => t.toLowerCase().includes(query))
+        p.tech.some(t => t.toLowerCase().includes(query)) ||
+        (p.profile?.tags.some(t => t.label.includes(query) || t.label.replace(/-/g, ' ').includes(query)) ?? false)
       );
     }
 
@@ -547,6 +564,7 @@ class CufolioServer {
       (projects: ProjectMetadata[]) => {
         console.log(`📊 Detected ${projects.length} projects`);
         this.projects = projects;
+        this.profiles.setProjects(this.projects);
 
         // Broadcast update to all connected clients
         this.broadcast({
@@ -569,6 +587,12 @@ class CufolioServer {
       // Load configuration
       await this.config.load();
       const config = this.config.get();
+
+      this.profiles = new ProfileService(path.resolve(__dirname, '..', 'data', 'meaning'), () => {
+        this.broadcast({ type: 'projects', data: this.projects });
+        this.broadcast({ type: 'profile-status', data: this.profiles.status() });
+      });
+      await this.profiles.init();
 
       // Preview service (static listeners + managed dev servers) with its own data dir
       const previewConfig = resolvePreviewConfig(config.preview);

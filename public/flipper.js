@@ -43,7 +43,6 @@
       const n = [...this.map.values()].filter(s => s.state === 'ready' || s.state === 'starting' || s.state === 'queued').length;
       $('sessionsCount').textContent = n;
       btn.classList.toggle('hidden', n === 0);
-      btn.classList.toggle('flex', n > 0);
       const pop = $('sessionsPopover');
       if (pop && !pop.classList.contains('hidden')) this.renderPopover();
     },
@@ -52,7 +51,7 @@
       if (!pop) {
         pop = document.createElement('div');
         pop.id = 'sessionsPopover';
-        pop.className = 'absolute right-4 top-16 z-50 w-96 bg-[#13161c] border border-slate-700 rounded-xl shadow-2xl p-3 text-xs';
+        pop.className = 'popover';
         document.body.appendChild(pop);
       }
       pop.classList.toggle('hidden');
@@ -61,15 +60,15 @@
     renderPopover() {
       const pop = $('sessionsPopover'); if (!pop) return;
       const list = [...this.map.values()];
-      pop.innerHTML = `<div class="flex items-center justify-between mb-2"><span class="font-semibold text-slate-300 uppercase tracking-wider text-[10px]">Dev servers owned by qnav</span><button class="text-slate-500 hover:text-white" onclick="document.getElementById('sessionsPopover').classList.add('hidden')"><span class="material-symbols-outlined text-sm">close</span></button></div>` +
+      pop.innerHTML = `<div class="popover-head"><span class="title">Dev servers owned by qnav</span><button onclick="document.getElementById('sessionsPopover').classList.add('hidden')"><span class="material-symbols-rounded">close</span></button></div>` +
         (list.length ? list.map(s => `
-          <div class="flex items-center gap-2 py-1.5 border-t border-slate-800">
+          <div class="popover-row">
             <span class="fl-badge state-${s.state}">${s.state}</span>
-            <span class="font-mono text-slate-200 truncate flex-1" title="${esc(s.url || '')}">${esc(s.projectName)}${s.external ? ' <span class="text-orange-300">(external)</span>' : ''}${s.pinned ? ' 📌' : ''}</span>
-            <span class="text-slate-500">${s.consumers.length ? s.consumers.length + ' in use' : 'idle'}</span>
-            <button class="text-slate-400 hover:text-cyan-300" title="${s.pinned ? 'Unpin' : 'Pin (protect from idle eviction)'}" onclick="Flipper.pinSession('${s.id}', ${!s.pinned})"><span class="material-symbols-outlined text-sm">${s.pinned ? 'push_pin' : 'push_pin'}</span></button>
-            ${s.external ? '<span class="text-slate-600" title="External servers are never stopped by qnav">—</span>' : `<button class="text-slate-400 hover:text-red-300" title="Stop" onclick="Flipper.stopSession('${s.id}')"><span class="material-symbols-outlined text-sm">stop_circle</span></button>`}
-          </div>`).join('') : '<div class="text-slate-500 py-2">No running dev servers.</div>');
+            <span class="name" title="${esc(s.url || '')}">${esc(s.projectName)}${s.external ? ' <span class="ext">(external)</span>' : ''}${s.pinned ? ' 📌' : ''}</span>
+            <span class="use">${s.consumers.length ? s.consumers.length + ' in use' : 'idle'}</span>
+            <button title="${s.pinned ? 'Unpin' : 'Pin (protect from idle eviction)'}" onclick="Flipper.pinSession('${s.id}', ${!s.pinned})"><span class="material-symbols-rounded">push_pin</span></button>
+            ${s.external ? '<span class="na" title="External servers are never stopped by qnav">—</span>' : `<button class="stop" title="Stop" onclick="Flipper.stopSession('${s.id}')"><span class="material-symbols-rounded">stop_circle</span></button>`}
+          </div>`).join('') : '<div class="popover-empty">No running dev servers.</div>');
     },
   };
 
@@ -141,7 +140,6 @@
         this.saved = { hash: location.hash, scrollTop: $('projectList').scrollTop, focus: document.activeElement };
         this.isOpen = true;
         this.els.flipperView.classList.remove('hidden');
-        this.els.flipperView.classList.add('flex');
         history.pushState({ flipper: true }, '', '#/preview/' + encodeURIComponent(projectId));
         this.els.flDetails.classList.toggle('hidden', !this.detailsOpen);
         this.els.flDetailsBtn.setAttribute('aria-expanded', String(this.detailsOpen));
@@ -160,7 +158,6 @@
       this.token++;
       this.isOpen = false;
       this.els.flipperView.classList.add('hidden');
-      this.els.flipperView.classList.remove('flex');
       if (!opts.fromHistory) history.replaceState(null, '', this.saved && this.saved.hash ? this.saved.hash : '#/');
       const list = $('projectList');
       if (this.saved) list.scrollTop = this.saved.scrollTop;
@@ -193,8 +190,8 @@
         if (top < list.scrollTop) list.scrollTop = top;
         else if (top + el.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = top + el.offsetHeight - list.clientHeight;
       }
-      document.querySelectorAll('#projectList .fl-active').forEach(x => x.classList.remove('fl-active', 'bg-slate-800/70', 'border-cyan-500/40'));
-      if (el) el.classList.add('fl-active', 'bg-slate-800/70', 'border-cyan-500/40');
+      document.querySelectorAll('#projectList .fl-active').forEach(x => x.classList.remove('fl-active'));
+      if (el) el.classList.add('fl-active');
     },
 
     onCatalogUpdate() {
@@ -340,7 +337,7 @@
 
     showNotice(text) {
       let n = $('flNotice');
-      if (!n) { n = document.createElement('div'); n.id = 'flNotice'; n.className = 'absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-yellow-900/80 border border-yellow-500/40 text-yellow-100 text-xs px-3 py-1.5 rounded-lg shadow-lg'; this.els.flStage.appendChild(n); }
+      if (!n) { n = document.createElement('div'); n.id = 'flNotice'; n.className = 'fl-notice'; this.els.flStage.appendChild(n); }
       n.textContent = text;
     },
     hideNotice() { const n = $('flNotice'); if (n) n.remove(); },
@@ -357,14 +354,14 @@
       const name = project ? project.name : this.current.id;
       let html = '';
       if (state === 'loading') {
-        html = `<div class="fl-overlay translucent"><div class="fl-card text-center"><div class="fl-spinner mx-auto mb-3"></div><h3 class="justify-center">${esc(name)}</h3><p id="flLoadingText">${esc(payload || 'Loading…')}</p><pre id="flLoadingTail" class="fl-log text-left hidden"></pre></div></div>`;
+        html = `<div class="fl-overlay translucent"><div class="fl-card fl-center"><div class="fl-spinner"></div><h3>${esc(name)}</h3><p id="flLoadingText">${esc(payload || 'Loading…')}</p><pre id="flLoadingTail" class="fl-log hidden"></pre></div></div>`;
       } else if (state === 'embed-blocked') {
-        html = `<div class="fl-overlay"><div class="fl-card"><h3><span class="material-symbols-outlined text-orange-400">web_asset_off</span>This app refuses to be embedded</h3><p>The server answered with <code class="font-mono text-slate-300">${esc(payload.embedBlocked)}</code>, so it cannot be shown inside the flipper. qnav does not strip headers.</p><div class="fl-actions"><a class="fl-btn primary" target="_blank" rel="noopener" href="${esc(payload.url)}"><span class="material-symbols-outlined">open_in_new</span>Open in new tab</a></div>${this.navActions()}</div></div>`;
+        html = `<div class="fl-overlay"><div class="fl-card"><h3><span class="material-symbols-rounded fl-ico fl-ico--orange">web_asset_off</span>This app refuses to be embedded</h3><p>The server answered with <code class="fl-code">${esc(payload.embedBlocked)}</code>, so it cannot be shown inside the flipper. qnav does not strip headers.</p><div class="fl-actions"><a class="fl-btn primary" target="_blank" rel="noopener" href="${esc(payload.url)}"><span class="material-symbols-rounded">open_in_new</span>Open in new tab</a></div>${this.navActions()}</div></div>`;
       } else if (state === 'removed') {
-        html = `<div class="fl-overlay"><div class="fl-card"><h3><span class="material-symbols-outlined text-orange-400">inventory_2</span>No longer in the catalog</h3><p>This entry disappeared during a rescan (moved, renamed or deleted). Your position in the selection is kept.</p>${this.navActions()}</div></div>`;
+        html = `<div class="fl-overlay"><div class="fl-card"><h3><span class="material-symbols-rounded fl-ico fl-ico--orange">inventory_2</span>No longer in the catalog</h3><p>This entry disappeared during a rescan (moved, renamed or deleted). Your position in the selection is kept.</p>${this.navActions()}</div></div>`;
       } else if (state === 'failed' || state === 'stopped') {
         const err = payload || {};
-        html = `<div class="fl-overlay"><div class="fl-card"><h3><span class="material-symbols-outlined text-red-400">error</span>${state === 'failed' ? 'Preview failed' : 'Session stopped'}</h3><p>${esc(err.message || '')}</p>${err.detail ? `<pre class="fl-log">${esc(err.detail)}</pre>` : ''}<div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.retry()"><span class="material-symbols-outlined">refresh</span>Retry</button><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-outlined">tune</span>Edit launch settings</button>${this.current.session && this.current.session.url ? `<a class="fl-btn" target="_blank" rel="noopener" href="${esc(this.current.session.url)}"><span class="material-symbols-outlined">open_in_new</span>Open in new tab</a>` : ''}</div>${this.navActions()}</div></div>`;
+        html = `<div class="fl-overlay"><div class="fl-card"><h3><span class="material-symbols-rounded fl-ico fl-ico--red">error</span>${state === 'failed' ? 'Preview failed' : 'Session stopped'}</h3><p>${esc(err.message || '')}</p>${err.detail ? `<pre class="fl-log">${esc(err.detail)}</pre>` : ''}<div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.retry()"><span class="material-symbols-rounded">refresh</span>Retry</button><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Edit launch settings</button>${this.current.session && this.current.session.url ? `<a class="fl-btn" target="_blank" rel="noopener" href="${esc(this.current.session.url)}"><span class="material-symbols-rounded">open_in_new</span>Open in new tab</a>` : ''}</div>${this.navActions()}</div></div>`;
       }
       if (html) stage.insertAdjacentHTML('beforeend', html);
       if (state === 'loading') this.renderLoadingTail();
@@ -372,7 +369,7 @@
     },
 
     navActions() {
-      return `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.go(-1)" ${this.index <= 0 ? 'disabled' : ''}><span class="material-symbols-outlined">chevron_left</span>Previous</button><button class="fl-btn" onclick="Flipper.go(1)" ${this.index >= this.order.length - 1 ? 'disabled' : ''}>Next<span class="material-symbols-outlined">chevron_right</span></button></div>`;
+      return `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.go(-1)" ${this.index <= 0 ? 'disabled' : ''}><span class="material-symbols-rounded">chevron_left</span>Previous</button><button class="fl-btn" onclick="Flipper.go(1)" ${this.index >= this.order.length - 1 ? 'disabled' : ''}>Next<span class="material-symbols-rounded">chevron_right</span></button></div>`;
     },
 
     renderLoadingTail() {
@@ -389,14 +386,14 @@
       this.current.state = plan.mode;
       let body = '';
       if (plan.mode === 'choose-entry') {
-        body = `<h3><span class="material-symbols-outlined text-cyan-400">alt_route</span>Choose an entry point</h3><p>${esc(plan.reason || '')} The choice is remembered for this project.</p><ul class="choices">${plan.candidates.filter(c => !c.requiresBundler).map(c => `<li><button onclick="Flipper.chooseEntry(${JSON.stringify(c.relPath).replace(/"/g, '&quot;')})"><span>${esc(c.relPath)}</span><small>${esc(c.kind === 'built-output' ? 'existing build' : c.kind.replace('-', ' '))}</small></button></li>`).join('')}</ul>${this.navActions()}`;
+        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--cyan">alt_route</span>Choose an entry point</h3><p>${esc(plan.reason || '')} The choice is remembered for this project.</p><ul class="choices">${plan.candidates.filter(c => !c.requiresBundler).map(c => `<li><button onclick="Flipper.chooseEntry(${JSON.stringify(c.relPath).replace(/"/g, '&quot;')})"><span>${esc(c.relPath)}</span><small>${esc(c.kind === 'built-output' ? 'existing build' : c.kind.replace('-', ' '))}</small></button></li>`).join('')}</ul>${this.navActions()}`;
       } else if (plan.mode === 'setup-required') {
         const cmd = (plan.overrides && plan.overrides.commandLine) || plan.suggestedCommandLine || (plan.launch ? `${plan.launch.command} ${plan.launch.args.join(' ')}` : '');
-        body = `<h3><span class="material-symbols-outlined text-yellow-400">build</span>Needs a development server</h3><p>${esc(plan.reason || '')}</p>${(plan.requirements || []).length ? `<ul class="why text-xs mb-2" style="color:#fbbf24">${plan.requirements.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
-          ${plan.launchStatus === 'ambiguous' || plan.launchStatus === 'ok' ? `<label class="text-[11px] text-slate-400 block mt-2 mb-1">Command to run in the project folder (use {PORT} or the PORT env var)</label><input type="text" id="flSetupCmd" class="w-full bg-[#0b0d11] border border-slate-700 rounded px-2 py-1.5 text-xs font-mono text-slate-100" value="${esc(cmd)}"/><div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.saveCommandAndLaunch()"><span class="material-symbols-outlined">play_arrow</span>Save command &amp; launch</button><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-outlined">tune</span>Details</button></div>` : `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-outlined">tune</span>Details &amp; options</button></div>`}
-          ${plan.staticAvailable ? `<p class="mt-2">A static entry also exists. <button class="underline text-cyan-300" onclick="Flipper.setMode('static')">Show the static files instead</button>.</p>` : ''}${this.navActions()}`;
+        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--yellow">build</span>Needs a development server</h3><p>${esc(plan.reason || '')}</p>${(plan.requirements || []).length ? `<ul class="why fl-warn">${plan.requirements.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
+          ${plan.launchStatus === 'ambiguous' || plan.launchStatus === 'ok' ? `<label class="fl-label">Command to run in the project folder (use {PORT} or the PORT env var)</label><input type="text" id="flSetupCmd" class="fl-input" value="${esc(cmd)}"/><div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.saveCommandAndLaunch()"><span class="material-symbols-rounded">play_arrow</span>Save command &amp; launch</button><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Details</button></div>` : `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Details &amp; options</button></div>`}
+          ${plan.staticAvailable ? `<p>A static entry also exists. <button class="fl-link" onclick="Flipper.setMode('static')">Show the static files instead</button>.</p>` : ''}${this.navActions()}`;
       } else {
-        body = `<h3><span class="material-symbols-outlined text-slate-400">block</span>No visual preview</h3><p>${esc(plan.reason || 'Nothing to show for this entry.')}</p><p class="font-mono text-[11px] text-slate-500">${esc(plan.projectPath)}</p><div class="fl-actions"><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-outlined">tune</span>Attach a running server…</button></div>${this.navActions()}`;
+        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--slate">block</span>No visual preview</h3><p>${esc(plan.reason || 'Nothing to show for this entry.')}</p><p class="fl-path">${esc(plan.projectPath)}</p><div class="fl-actions"><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Attach a running server…</button></div>${this.navActions()}`;
       }
       stage.insertAdjacentHTML('beforeend', `<div class="fl-overlay"><div class="fl-card">${body}</div></div>`);
       this.renderHeader(App.byId(this.current.id));
@@ -422,7 +419,7 @@
       if (plan && plan.buildInfo) e.flBuildBadge.title = `Existing build output (${plan.buildInfo.path}) modified ${fmtTime(plan.buildInfo.mtime)} — may not reflect current source`;
       const url = session && session.url;
       e.flOpenBtn.href = url || '#';
-      e.flOpenBtn.classList.toggle('opacity-40', !url);
+      e.flOpenBtn.classList.toggle('is-dim', !url);
       e.flCaptureBtn.disabled = !(plan && mode);
       e.flReloadBtn.disabled = !c;
     },
@@ -504,7 +501,7 @@
       const s = c.session;
       const project = App.byId(c.id);
       const root = this.els.flDetails;
-      if (!plan) { root.innerHTML = `<section><h4>Preview plan</h4><p class="text-slate-500">${c.state === 'loading' ? 'Resolving…' : 'No plan available.'}</p></section>`; return; }
+      if (!plan) { root.innerHTML = `<section><h4>Preview plan</h4><p class="fl-muted">${c.state === 'loading' ? 'Resolving…' : 'No plan available.'}</p></section>`; return; }
       const ov = plan.overrides || {};
       const isFolder = plan.kind === 'folder';
       const candidates = plan.candidates.filter(x => !x.requiresBundler);
@@ -518,18 +515,18 @@
             <dt>Project</dt><dd>${esc(plan.projectPath)}</dd>
             ${plan.servingRoot ? `<dt>Serving root</dt><dd>${esc(plan.servingRoot)}</dd>` : ''}
             ${plan.entryRelPath ? `<dt>Entry</dt><dd>${esc(plan.entryRelPath)}</dd>` : ''}
-            ${plan.buildInfo ? `<dt>Build</dt><dd class="text-orange-300">existing output, modified ${esc(fmtTime(plan.buildInfo.mtime))}</dd>` : ''}
+            ${plan.buildInfo ? `<dt>Build</dt><dd class="fl-orange">existing output, modified ${esc(fmtTime(plan.buildInfo.mtime))}</dd>` : ''}
             ${plan.launch ? `<dt>Command</dt><dd>${esc(plan.launch.command + ' ' + plan.launch.args.join(' '))}</dd><dt>Port via</dt><dd>${esc(plan.launch.portMode)}</dd>` : ''}
             ${plan.externalUrl ? `<dt>External</dt><dd>${esc(plan.externalUrl)}</dd>` : ''}
             <dt>Plan rev</dt><dd>${esc(plan.revision)}</dd>
             <dt>Project id</dt><dd>${esc(plan.id)}</dd>
           </dl>
-          <h4 class="mt-3">Why</h4>
-          <ul class="why">${plan.explanation.map(x => `<li>${esc(x)}</li>`).join('')}${plan.launchReason && plan.mode !== 'managed' ? `<li class="text-slate-500">Dev server: ${esc(plan.launchReason)}</li>` : ''}</ul>
+          <h4 class="fl-gap">Why</h4>
+          <ul class="why">${plan.explanation.map(x => `<li>${esc(x)}</li>`).join('')}${plan.launchReason && plan.mode !== 'managed' ? `<li class="fl-muted">Dev server: ${esc(plan.launchReason)}</li>` : ''}</ul>
         </section>
         ${isFolder ? `<section>
           <h4>Mode &amp; entry</h4>
-          <div class="flex gap-2 flex-wrap">
+          <div class="fl-row">
             <button class="fl-btn ${plan.mode === 'static' ? 'primary' : ''}" ${plan.staticAvailable || candidates.length ? '' : 'disabled'} onclick="Flipper.setMode('static')">Static files</button>
             <button class="fl-btn ${plan.mode === 'managed' ? 'primary' : ''}" ${canManaged ? '' : 'disabled'} onclick="Flipper.setMode('managed')">Dev server</button>
             ${ov.revision ? `<button class="fl-btn" onclick="Flipper.resetOverrides()" title="Forget saved choices for this project">Reset saved</button>` : ''}
@@ -542,10 +539,10 @@
           <input type="text" id="flDetCmd" value="${esc(cmdValue)}" placeholder="npm run dev"/>
           <label>Working directory (relative to project, optional)</label>
           <input type="text" id="flDetCwd" value="${esc(ov.commandCwd || '')}" placeholder="."/>
-          <div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.saveCommandAndLaunch()"><span class="material-symbols-outlined">play_arrow</span>Save &amp; launch</button></div>
-          ${(plan.launchRequirements || []).length ? `<ul class="why mt-2" style="color:#fbbf24">${plan.launchRequirements.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
+          <div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.saveCommandAndLaunch()"><span class="material-symbols-rounded">play_arrow</span>Save &amp; launch</button></div>
+          ${(plan.launchRequirements || []).length ? `<ul class="why fl-warn">${plan.launchRequirements.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
           <label>Or attach a server that is already running</label>
-          <div class="flex gap-2"><input type="text" id="flDetExternal" value="${esc(ov.externalUrl || '')}" placeholder="http://localhost:5173/"/><button class="fl-btn" onclick="Flipper.attachExternal()">Attach</button></div>
+          <div class="fl-row"><input type="text" id="flDetExternal" value="${esc(ov.externalUrl || '')}" placeholder="http://localhost:5173/"/><button class="fl-btn" onclick="Flipper.attachExternal()">Attach</button></div>
         </section>` : ''}
         <section>
           <h4>Capture settings</h4>
@@ -553,27 +550,27 @@
           <input type="text" id="flDetSelector" value="${esc(ov.readinessSelector || '')}" placeholder="#app canvas"/>
           <label>Extra settle time (ms)</label>
           <input type="number" id="flDetSettle" value="${ov.settleMs != null ? esc(ov.settleMs) : ''}" placeholder="2000"/>
-          <div class="fl-actions"><button class="fl-btn" onclick="Flipper.saveCaptureSettings()">Save</button><button class="fl-btn" onclick="Captures.captureOne('${esc(c.id)}')"><span class="material-symbols-outlined">photo_camera</span>Capture now</button></div>
+          <div class="fl-actions"><button class="fl-btn" onclick="Flipper.saveCaptureSettings()">Save</button><button class="fl-btn" onclick="Captures.captureOne('${esc(c.id)}')"><span class="material-symbols-rounded">photo_camera</span>Capture now</button></div>
         </section>
         <section>
           <h4>Session</h4>
           ${s ? `<dl>
             <dt>State</dt><dd><span class="fl-badge state-${esc(s.state)}">${esc(s.state)}</span>${s.pinned ? ' 📌 pinned' : ''}</dd>
-            ${s.url ? `<dt>URL</dt><dd><a class="text-cyan-300 hover:underline" target="_blank" rel="noopener" href="${esc(s.url)}">${esc(s.url)}</a></dd>` : ''}
+            ${s.url ? `<dt>URL</dt><dd><a class="fl-link" target="_blank" rel="noopener" href="${esc(s.url)}">${esc(s.url)}</a></dd>` : ''}
             ${s.port ? `<dt>Port</dt><dd>${esc(s.port)}</dd>` : ''}
             ${s.pid ? `<dt>PID</dt><dd>${esc(s.pid)}</dd>` : ''}
             ${s.httpStatus ? `<dt>HTTP</dt><dd>${esc(s.httpStatus)}</dd>` : ''}
             <dt>Consumers</dt><dd>${esc(s.consumers.join(', ') || '—')}</dd>
             <dt>Last used</dt><dd>${esc(fmtTime(s.lastUsedAt))}</dd>
-            ${s.note ? `<dt>Note</dt><dd class="text-orange-300" style="font-family:Inter,sans-serif">${esc(s.note)}</dd>` : ''}
-            ${s.error ? `<dt>Error</dt><dd class="text-red-300" style="font-family:Inter,sans-serif">${esc(s.error.message)}</dd>` : ''}
+            ${s.note ? `<dt>Note</dt><dd class="fl-orange fl-prose">${esc(s.note)}</dd>` : ''}
+            ${s.error ? `<dt>Error</dt><dd class="fl-red fl-prose">${esc(s.error.message)}</dd>` : ''}
           </dl>
           ${s.mode === 'managed' && !s.external ? `<div class="fl-actions">
-            <button class="fl-btn danger" onclick="Flipper.stopSession('${esc(s.id)}')"><span class="material-symbols-outlined">stop_circle</span>Stop</button>
-            <button class="fl-btn" onclick="Flipper.restartSession('${esc(s.id)}')"><span class="material-symbols-outlined">restart_alt</span>Restart</button>
-            <button class="fl-btn ${s.pinned ? 'primary' : ''}" onclick="Flipper.pinSession('${esc(s.id)}', ${!s.pinned})"><span class="material-symbols-outlined">push_pin</span>${s.pinned ? 'Unpin' : 'Pin'}</button>
+            <button class="fl-btn danger" onclick="Flipper.stopSession('${esc(s.id)}')"><span class="material-symbols-rounded">stop_circle</span>Stop</button>
+            <button class="fl-btn" onclick="Flipper.restartSession('${esc(s.id)}')"><span class="material-symbols-rounded">restart_alt</span>Restart</button>
+            <button class="fl-btn ${s.pinned ? 'primary' : ''}" onclick="Flipper.pinSession('${esc(s.id)}', ${!s.pinned})"><span class="material-symbols-rounded">push_pin</span>${s.pinned ? 'Unpin' : 'Pin'}</button>
           </div>` : ''}
-          ${s.mode === 'managed' && !s.external ? `<h4 class="mt-3">Log</h4><pre class="fl-log" id="flDetLog"></pre>` : ''}` : '<p class="text-slate-500">No session.</p>'}
+          ${s.mode === 'managed' && !s.external ? `<h4 class="fl-gap">Log</h4><pre class="fl-log" id="flDetLog"></pre>` : ''}` : '<p class="fl-muted">No session.</p>'}
         </section>`;
       this.renderLog();
     },
@@ -642,7 +639,7 @@
       const c = this.index[id];
       if (!c || !c.imagePath) { box.classList.add('hidden'); box.innerHTML = ''; return; }
       box.classList.remove('hidden');
-      box.innerHTML = `<img src="/api/captures/${encodeURIComponent(id)}/image?v=${encodeURIComponent(c.capturedAt || '')}" class="w-full block cursor-pointer" alt="Generated capture" onclick="Flipper.open('${esc(id)}')"/><div class="px-3 py-2 text-[10px] text-slate-500 flex justify-between gap-2"><span>Generated capture · ${esc(fmtTime(c.capturedAt))} · ${esc(c.mode)}</span><span>${c.stale ? '<span class="text-orange-300">stale</span>' : 'current'}${c.verified ? '' : ' · <span class="text-yellow-300">unverified</span>'}</span></div>`;
+      box.innerHTML = `<img src="/api/captures/${encodeURIComponent(id)}/image?v=${encodeURIComponent(c.capturedAt || '')}" class="capture-img" alt="Generated capture" onclick="Flipper.open('${esc(id)}')"/><div class="capture-meta"><span>Generated capture · ${esc(fmtTime(c.capturedAt))} · ${esc(c.mode)}</span><span>${c.stale ? '<span class="fl-orange">stale</span>' : 'current'}${c.verified ? '' : ' · <span class="fl-yellow">unverified</span>'}</span></div>`;
     },
 
     async captureOne(id) {
@@ -664,12 +661,12 @@
     visible: false,
     show() {
       const v = $('sheetView');
-      v.classList.remove('hidden'); v.classList.add('flex');
+      v.classList.remove('hidden');
       this.visible = true;
       if (!Captures.loaded) Captures.load();
       this.refresh();
     },
-    hide() { const v = $('sheetView'); v.classList.add('hidden'); v.classList.remove('flex'); this.visible = false; },
+    hide() { const v = $('sheetView'); v.classList.add('hidden'); this.visible = false; },
     toggle() { this.visible ? this.hide() : this.show(); },
 
     refresh() {
@@ -687,13 +684,13 @@
       const failed = q ? q.items.filter(i => i.state === 'failed').length : 0;
       const sel = this.selection();
       $('sheetToolbar').innerHTML = `
-        <span class="text-xs text-slate-400 mr-2">${sel.length} in current selection</span>
-        <button class="fl-btn primary" id="sheetRunBtn" onclick="Sheet.runSelection()" ${running ? 'disabled' : ''}><span class="material-symbols-outlined">photo_camera</span>Capture selection</button>
-        ${q && q.status === 'running' ? `<button class="fl-btn" onclick="Captures.control('pause')"><span class="material-symbols-outlined">pause</span>Pause</button>` : ''}
-        ${q && q.status === 'paused' ? `<button class="fl-btn" onclick="Captures.control('resume')"><span class="material-symbols-outlined">play_arrow</span>Resume</button>` : ''}
-        ${running ? `<button class="fl-btn danger" onclick="Captures.control('cancel')"><span class="material-symbols-outlined">cancel</span>Cancel</button>` : ''}
-        ${!running && failed ? `<button class="fl-btn" onclick="Captures.control('retry')"><span class="material-symbols-outlined">replay</span>Retry ${failed} failed</button>` : ''}
-        <span class="text-[10px] text-slate-500 ml-2" title="Chromium via Playwright, 1440×1000, one capture at a time">${q ? esc(q.status) : 'idle'}</span>`;
+        <span class="fl-hint">${sel.length} in current selection</span>
+        <button class="fl-btn primary" id="sheetRunBtn" onclick="Sheet.runSelection()" ${running ? 'disabled' : ''}><span class="material-symbols-rounded">photo_camera</span>Capture selection</button>
+        ${q && q.status === 'running' ? `<button class="fl-btn" onclick="Captures.control('pause')"><span class="material-symbols-rounded">pause</span>Pause</button>` : ''}
+        ${q && q.status === 'paused' ? `<button class="fl-btn" onclick="Captures.control('resume')"><span class="material-symbols-rounded">play_arrow</span>Resume</button>` : ''}
+        ${running ? `<button class="fl-btn danger" onclick="Captures.control('cancel')"><span class="material-symbols-rounded">cancel</span>Cancel</button>` : ''}
+        ${!running && failed ? `<button class="fl-btn" onclick="Captures.control('retry')"><span class="material-symbols-rounded">replay</span>Retry ${failed} failed</button>` : ''}
+        <span class="fl-hint fl-hint--small" title="Chromium via Playwright, 1440×1000, one capture at a time">${q ? esc(q.status) : 'idle'}</span>`;
       const runBtn = $('sheetRunBtn');
       if (runBtn) runBtn.className = 'fl-btn primary';
       // The sheet toolbar reuses the flipper button styling.
@@ -730,10 +727,10 @@
         else if (c && c.imagePath && !c.verified) badge = '<span class="fl-badge state-starting">unverified</span>';
         else if (c && c.imagePath) badge = '<span class="fl-badge state-ready">fresh</span>';
         return `<button class="sheet-card ${c && c.stale ? 'stale' : ''}" onclick="Flipper.open('${esc(p.id)}')" title="Open live preview">
-          <div class="thumb">${t ? `<img loading="lazy" src="${t.src}" alt=""/>` : `<span class="material-symbols-outlined text-4xl">${p.kind === 'file' ? 'description' : 'folder'}</span>`}${badge}</div>
+          <div class="thumb">${t ? `<img loading="lazy" src="${t.src}" alt=""/>` : `<span class="material-symbols-rounded">${p.kind === 'file' ? 'description' : 'folder'}</span>`}${badge}</div>
           <div class="meta"><div class="name">${esc(p.name)}</div><div class="sub"><span>${c ? esc(fmtTime(c.capturedAt)) : 'not captured'}</span><span>${c ? esc(c.mode) : esc(p.type)}</span></div></div>
         </button>`;
-      }).join('')}</div>` : '<div class="text-slate-500 text-sm">No projects in the current selection.</div>';
+      }).join('')}</div>` : '<div class="fl-muted">No projects in the current selection.</div>';
     },
 
     async runSelection() {
@@ -745,17 +742,17 @@
       const modal = document.createElement('div');
       modal.className = 'fl-overlay translucent';
       modal.style.cssText = 'position:fixed;z-index:70';
-      modal.innerHTML = `<div class="fl-card"><h3><span class="material-symbols-outlined text-cyan-400">photo_camera</span>Capture ${ids.length} project${ids.length === 1 ? '' : 's'}</h3>
+      modal.innerHTML = `<div class="fl-card"><h3><span class="material-symbols-rounded fl-ico fl-ico--cyan">photo_camera</span>Capture ${ids.length} project${ids.length === 1 ? '' : 's'}</h3>
         <p>Scope: the current filtered selection, in its current order. Each capture opens a fresh browser context and records the initial page state; nothing is clicked.</p>
-        <dl class="grid grid-cols-2 gap-y-1 text-xs mb-2">
-          <dt class="text-slate-500">Static files</dt><dd class="text-slate-200">${pre.counts.static}</dd>
-          <dt class="text-slate-500">Dev server (managed)</dt><dd class="text-slate-200">${pre.counts.managed}</dd>
-          <dt class="text-slate-500">External servers</dt><dd class="text-slate-200">${pre.counts.external}</dd>
-          <dt class="text-slate-500">Will be skipped (no preview)</dt><dd class="text-slate-200">${pre.counts.unavailable}</dd>
-          <dt class="text-slate-500">Unchanged (reused)</dt><dd class="text-slate-200">${pre.counts.unchanged}</dd>
+        <dl class="fl-facts">
+          <dt>Static files</dt><dd>${pre.counts.static}</dd>
+          <dt>Dev server (managed)</dt><dd>${pre.counts.managed}</dd>
+          <dt>External servers</dt><dd>${pre.counts.external}</dd>
+          <dt>Will be skipped (no preview)</dt><dd>${pre.counts.unavailable}</dd>
+          <dt>Unchanged (reused)</dt><dd>${pre.counts.unchanged}</dd>
         </dl>
-        <p class="text-[11px] text-slate-500">Managed projects start their dev command inside qnav's session cap (${pre.maxManagedSessions}); pinned and in-use servers are never evicted by the worker.</p>
-        <div class="fl-actions"><button class="fl-btn primary" id="capConfirm"><span class="material-symbols-outlined">play_arrow</span>Start</button><button class="fl-btn" id="capCancel">Cancel</button></div></div>`;
+        <p class="fl-muted">Managed projects start their dev command inside qnav's session cap (${pre.maxManagedSessions}); pinned and in-use servers are never evicted by the worker.</p>
+        <div class="fl-actions"><button class="fl-btn primary" id="capConfirm"><span class="material-symbols-rounded">play_arrow</span>Start</button><button class="fl-btn" id="capCancel">Cancel</button></div></div>`;
       document.body.appendChild(modal);
       modal.querySelector('#capCancel').onclick = () => modal.remove();
       modal.querySelector('#capConfirm').onclick = async () => {

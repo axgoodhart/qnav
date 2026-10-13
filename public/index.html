@@ -4,344 +4,304 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Cufolio Navigator</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script src="/meaning.js"></script>
+<script src="/profiles.js"></script>
+<link rel="stylesheet" href="/index.css"/>
 <link rel="stylesheet" href="/flipper.css"/>
-<style>
-    body{border:11.5px rgb(255, 115, 0);}
-    header {
-        animation:bgflow 30s infinite linear;
-        box-shadow:0 0 210px rgb(195, 148, 243);
-        margin-bottom:20px;
-        background:linear-gradient(130deg, black, teal) !important;
-    }
-
-@keyframes bgflow {
-    0% {background-size:600% 100% !important}
-    56%{background-size:100% 600% ;opacity:1 !important}
-    60% {opacity:0;}
-64% {opacity:1;}
-    100%{background-size:200%}
-}
-
-    :root { --bg-dark: #190020; --bg-panel: #000; --accent-primary: #00e5ff; --accent-secondary: #7000ff; --text-main: #e2e8f0; --text-muted: #94a3b8; }
-    body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow: hidden; }
-    .mono { font-family: 'JetBrains Mono', monospace; }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-dark); }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #475569; }
-    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); border-color: rgba(0, 229, 255, 0.5); }
-    .glass { background: black}
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-in { animation: fadeIn 0.3s ease-out forwards; }
-</style>
 </head>
-<body class="h-screen flex flex-col">
-<!-- Header -->
-<header class="glass h-16 flex items-center justify-between px-6 z-20 shrink-0 border-b border-slate-800">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-cyan-400 text-3xl">terminal</span>
-<div>
-<h1 class="font-bold text-xl tracking-tight text-white"><span class="text-cyan-400">CUFOLIO</span> NAVIGATOR</h1>
-<div class="text-[10px] text-slate-400 tracking-wider mono uppercase">Digital Archive Intelligence System</div>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<button id="sheetViewToggle" class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-cyan-400/50 hover:bg-cyan-900/20 transition-all group" title="Visual catalog (captures)">
-<span class="material-symbols-outlined text-slate-400 group-hover:text-cyan-400 text-sm">grid_view</span>
-<span class="text-xs text-slate-400 group-hover:text-cyan-400 hidden md:inline">Captures</span>
-</button>
-<button id="sessionsIndicator" class="hidden items-center gap-2 px-3 py-1.5 bg-purple-900/20 rounded-lg border border-purple-500/40 text-xs text-purple-300 hover:border-purple-400 transition-all" title="Running dev servers owned by qnav">
-<span class="material-symbols-outlined text-sm">dns</span><span id="sessionsCount">0</span>
-</button>
-<button id="graphViewToggle" class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-cyan-400/50 hover:bg-cyan-900/20 transition-all group" title="Toggle Graph View">
-<span class="material-symbols-outlined text-slate-400 group-hover:text-cyan-400 text-sm">hub</span>
-<span class="text-xs text-slate-400 group-hover:text-cyan-400 hidden md:inline">Graph</span>
-</button>
-<div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
-<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
-<input class="bg-transparent border-none outline-none text-sm w-64 text-white placeholder-slate-500" id="globalSearch" placeholder="Search projects, tech..." type="text"/>
-</div>
-<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
-<div class="w-2 h-2 rounded-full bg-gray-500" id="connectionStatus" title="Connecting..."></div>
-<span class="text-xs text-slate-400 mono" id="connectionText">OFFLINE</span>
-</div>
-</div>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <button class="chip" id="sidebarToggle" title="Projects" aria-label="Toggle project list"><span class="material-symbols-rounded">menu</span></button>
+        <span class="material-symbols-rounded">terminal</span>
+        <h1><span>CUFOLIO</span> NAVIGATOR</h1>
+    </div>
+    <div class="topbar-actions">
+        <button class="chip" id="sheetViewToggle" title="Visual catalog (captures)">
+            <span class="material-symbols-rounded">grid_view</span><span class="chip-label">Captures</span>
+        </button>
+        <button class="chip chip--sessions hidden" id="sessionsIndicator" title="Running dev servers owned by qnav">
+            <span class="material-symbols-rounded">dns</span><span id="sessionsCount">0</span>
+        </button>
+        <button class="chip" id="graphViewToggle" title="Toggle Graph View">
+            <span class="material-symbols-rounded">hub</span><span class="chip-label">Graph</span>
+        </button>
+        <div class="chip">
+            <div class="conn-dot" id="connectionStatus" title="Connecting..."></div>
+            <span class="mono" id="connectionText">OFFLINE</span>
+        </div>
+    </div>
 </header>
-<div class="flex flex-1 overflow-hidden">
-<aside class="w-80 bg-[#13161c] border-r border-slate-800 flex flex-col shrink-0 transition-all duration-300 z-10" id="sidebar">
-<div class="p-4 border-b border-slate-800 bg-gradient-to-br from-slate-900 to-slate-800">
-<div class="flex justify-between items-end mb-2">
-<span class="text-xs font-semibold text-slate-400 uppercase">System Status</span>
-<span class="text-xs text-cyan-400 font-mono" id="totalCount">Loading...</span>
-</div>
-<div class="h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
-<div class="h-full bg-cyan-400 w-[85%] shadow-[0_0_10px_#00e5ff]"></div>
-</div>
-</div>
-<!-- My Tags Section -->
-<div id="myTagsSection" class="hidden p-3 border-b border-slate-800 bg-slate-900/50">
-<div class="flex items-center justify-between mb-2">
-<span class="text-xs font-semibold text-pink-400 uppercase flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span>My Tags</span>
-<button id="clearTagFilter" class="hidden text-xs text-slate-500 hover:text-slate-300 transition-colors">Clear</button>
-</div>
-<div class="flex flex-wrap gap-1" id="myTagsList"></div>
-</div>
-<!-- Tech Filter Banner -->
-<div id="techFilterBanner" class="hidden p-3 border-b border-slate-800 bg-cyan-900/20">
-<div class="flex items-center justify-between">
-<span class="text-xs text-cyan-400 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">filter_alt</span>
-Filtered by: <span id="techFilterName" class="font-bold"></span>
-</span>
-<button id="clearTechFilter" class="text-slate-400 hover:text-white transition-colors" title="Clear filter">
-<span class="material-symbols-outlined text-sm">close</span>
-</button>
-</div>
-</div>
 
-<!-- Faceted Search Filters Section -->
-<div id="facetedFiltersSection" class="border-b border-slate-800">
-<!-- Filters Header (Collapsible Toggle) -->
-<button id="filtersToggle" class="w-full p-3 flex items-center justify-between bg-gradient-to-r from-slate-900/80 to-slate-800/50 hover:from-slate-800/80 hover:to-slate-700/50 transition-colors">
-<span class="text-xs font-semibold text-slate-300 uppercase flex items-center gap-2">
-<span class="material-symbols-outlined text-cyan-400 text-sm">tune</span>
-Filters
-<span id="activeFilterCount" class="hidden bg-cyan-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold min-w-[18px] text-center">0</span>
-</span>
-<span class="material-symbols-outlined text-slate-500 text-sm transition-transform" id="filtersChevron">expand_more</span>
-</button>
+<div class="workspace">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-status">
+            <div class="sidebar-status-row">
+                <span class="label">System Status</span>
+                <span class="value" id="totalCount">Loading...</span>
+            </div>
+            <div class="meter"><div></div></div>
+        </div>
 
-<!-- Collapsible Filters Content -->
-<div id="filtersContent" class="p-3 space-y-4 bg-slate-900/30">
+        <div class="sidebar-note sidebar-note--mine hidden" id="myTagsSection">
+            <div class="sidebar-note-row">
+                <span class="title"><span class="material-symbols-rounded">person</span>My Tags</span>
+                <button class="link-btn hidden" id="clearTagFilter">Clear</button>
+            </div>
+            <div class="tag-row" id="myTagsList"></div>
+        </div>
 
-<!-- Clear All Filters Button -->
-<button id="clearAllFilters" class="hidden w-full py-1.5 px-3 text-xs bg-slate-800 hover:bg-red-900/50 text-slate-400 hover:text-red-300 rounded border border-slate-700 hover:border-red-500/50 transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-sm">filter_alt_off</span>
-Clear All Filters
-</button>
+        <div class="sidebar-note sidebar-note--filter hidden" id="techFilterBanner">
+            <div class="sidebar-note-row">
+                <span class="title"><span class="material-symbols-rounded">filter_alt</span>Filtered by: <b id="techFilterName"></b></span>
+                <button class="link-btn" id="clearTechFilter" title="Clear filter"><span class="material-symbols-rounded">close</span></button>
+            </div>
+        </div>
 
-<!-- Purpose (What it does) -->
-<div class="space-y-2">
-<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Purpose</div>
-<div id="purposeFilters" class="flex flex-wrap gap-1.5">
-<!-- Purpose tags will be populated dynamically -->
-</div>
-</div>
+        <div class="filters" id="facetedFiltersSection">
+                    <div class="chip chip--search">
+                        <span class="material-symbols-rounded">search</span>
+                        <input id="globalSearch" type="text" placeholder="Search projects, tech..." />
+                    </div>
 
-<!-- Domain (What field/industry) -->
-<div class="space-y-2">
-<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Domain</div>
-<div id="domainFilters" class="flex flex-wrap gap-1.5">
-<!-- Domain tags will be populated dynamically -->
-</div>
-</div>
+            <button class="filters-toggle" id="filtersToggle" aria-expanded="false">
+                <span class="title">
+                    <span class="material-symbols-rounded">tune</span>Filters
+                    <span class="count-badge hidden" id="activeFilterCount">0</span>
+                </span>
+                <span class="material-symbols-rounded chevron" id="filtersChevron">expand_more</span>
+            </button>
+            <div class="filters-body hidden" id="filtersContent">
+                <button class="clear-all hidden" id="clearAllFilters">
+                    <span class="material-symbols-rounded">filter_alt_off</span>Clear All Filters
+                </button>
 
-<!-- Activity Level Radio Buttons -->
-<div class="space-y-2">
-<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Activity Level</div>
-<div id="activityFilters" class="flex flex-wrap gap-1.5">
-<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-cyan-500/50 cursor-pointer transition-colors activity-filter-label" data-activity="all">
-<input type="radio" name="activityLevel" value="all" class="hidden" checked>
-<span class="w-2 h-2 rounded-full bg-slate-500 activity-indicator"></span>
-<span class="text-xs text-cyan-400">All</span>
-</label>
-<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-slate-700 cursor-pointer hover:border-green-500/50 transition-colors activity-filter-label" data-activity="active">
-<input type="radio" name="activityLevel" value="active" class="hidden">
-<span class="w-2 h-2 rounded-full bg-green-500 activity-indicator"></span>
-<span class="text-xs text-slate-300">Active</span>
-</label>
-<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-slate-700 cursor-pointer hover:border-yellow-500/50 transition-colors activity-filter-label" data-activity="moderate">
-<input type="radio" name="activityLevel" value="moderate" class="hidden">
-<span class="w-2 h-2 rounded-full bg-yellow-500 activity-indicator"></span>
-<span class="text-xs text-slate-300">Moderate</span>
-</label>
-<label class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 border border-slate-700 cursor-pointer hover:border-gray-500/50 transition-colors activity-filter-label" data-activity="dormant">
-<input type="radio" name="activityLevel" value="dormant" class="hidden">
-<span class="w-2 h-2 rounded-full bg-gray-500 activity-indicator"></span>
-<span class="text-xs text-slate-300">Dormant</span>
-</label>
-</div>
-</div>
+                <div class="facet-group">
+                    <div class="facet-label">Purpose</div>
+                    <div class="tag-row" id="purposeFilters"></div>
+                </div>
 
-<!-- Tech Tags Pills -->
-<div class="space-y-2">
-<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold flex items-center justify-between">
-<span>Technologies</span>
-<span id="selectedTechCount" class="hidden text-cyan-400">0 selected</span>
-</div>
-<div id="techTagFilters" class="flex flex-wrap gap-1.5">
-<!-- Tech tags will be populated dynamically from facets -->
-</div>
-</div>
+                <div class="facet-group">
+                    <div class="facet-label">Domain</div>
+                    <div class="tag-row" id="domainFilters"></div>
+                </div>
 
-<!-- Maturity Dropdown -->
-<div class="space-y-2">
-<div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Maturity</div>
-<div id="maturityFilters" class="flex flex-wrap gap-1.5">
-<!-- Maturity options will be populated dynamically -->
-</div>
-</div>
+                <div class="facet-group">
+                    <div class="facet-label">Activity Level</div>
+                    <div class="tag-row" id="activityFilters">
+                        <label class="radio-pill is-selected activity-filter-label" data-activity="all">
+                            <input type="radio" name="activityLevel" value="all" checked>
+                            <span class="dot"></span><span>All</span>
+                        </label>
+                        <label class="radio-pill activity-filter-label" data-activity="active">
+                            <input type="radio" name="activityLevel" value="active">
+                            <span class="dot"></span><span>Active</span>
+                        </label>
+                        <label class="radio-pill activity-filter-label" data-activity="moderate">
+                            <input type="radio" name="activityLevel" value="moderate">
+                            <span class="dot"></span><span>Moderate</span>
+                        </label>
+                        <label class="radio-pill activity-filter-label" data-activity="dormant">
+                            <input type="radio" name="activityLevel" value="dormant">
+                            <span class="dot"></span><span>Dormant</span>
+                        </label>
+                    </div>
+                </div>
 
-</div>
-</div>
+                <div class="facet-group">
+                    <div class="facet-label"><span>Technologies</span><span class="selected-count hidden" id="selectedTechCount">0 selected</span></div>
+                    <div class="tag-row" id="techTagFilters"></div>
+                </div>
 
-<div class="flex-1 overflow-y-auto p-2 space-y-1" id="projectList"></div>
-</aside>
-<main class="flex-1 flex flex-col bg-[#0f1115] relative overflow-hidden">
-<div class="absolute inset-0 overflow-y-auto p-8 animate-in" id="dashboardView">
-<div class="max-w-6xl mx-auto space-y-8">
-<div class="relative rounded-2xl overflow-hidden border border-slate-800 h-48 group">
-<div class="absolute inset-0 bg-slate-900">
-    <!-- Using CSS gradient instead of image for standalone reliability -->
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-cyan-900/20"></div>
-    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(0,229,255,0.1) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.5;"></div>
-</div>
-<div class="absolute inset-0 flex flex-col justify-center p-8">
-<h2 class="text-3xl font-bold text-white mb-2">Project Archive Online</h2>
-<p class="text-slate-400 max-w-xl">Welcome to the Cufolio digital navigator. Accessing 160+ project records. Orchestration complete. System ready for analysis.</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="glass p-5 rounded-xl border border-slate-800 card-hover">
-<h3 class="text-sm font-semibold text-slate-400 mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-purple-400 text-lg">pie_chart</span> Project Types</h3>
-<div class="h-40 relative"><canvas id="typeChart"></canvas></div>
-</div>
-<div class="glass p-5 rounded-xl border border-slate-800 card-hover">
-<h3 class="text-sm font-semibold text-slate-400 mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-lg">code</span> Top Technologies</h3>
-<div class="flex flex-wrap gap-2" id="topTechTags"></div>
-</div>
-<div class="glass p-5 rounded-xl border border-slate-800 card-hover flex flex-col justify-center items-center text-center">
-<div class="text-4xl font-bold text-white mb-1" id="activeProjectsCount">0</div>
-<div class="text-sm text-green-400 mb-4">Active Projects</div>
-<div class="text-2xl font-bold text-slate-400 mb-1" id="archivedProjectsCount">0</div>
-<div class="text-sm text-slate-600">Archived</div>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-cyan-400">bolt</span> Featured Projects</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="featuredGrid"></div>
-</div>
-</div>
-</div>
-<div class="absolute inset-0 bg-[#0f1115] z-20 translate-x-full transition-transform duration-300 flex flex-col" id="detailView">
-<div class="h-14 border-b border-slate-800 flex items-center justify-between px-6 bg-[#13161c]">
-<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" id="closeDetailBtn">
-<span class="material-symbols-outlined">arrow_back</span><span class="text-sm font-medium">Back to Dashboard</span>
-</button>
-</div>
-<div class="flex-1 overflow-y-auto">
-<div class="max-w-5xl mx-auto p-8">
-<div class="flex flex-col lg:flex-row gap-8">
-<div class="lg:w-1/3 space-y-6">
-<div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-<div class="w-16 h-16 rounded-lg bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center mb-4 text-2xl">📁</div>
-<h1 class="text-2xl font-bold text-white mb-2 leading-tight" id="detailName">...</h1>
-<div class="flex flex-wrap gap-2 mb-3">
-<button id="detailPreviewBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-400/50 text-cyan-200 text-xs font-semibold hover:bg-cyan-500/25 transition-colors"><span class="material-symbols-outlined text-base">play_arrow</span>Preview</button>
-<button id="detailCaptureBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold hover:border-purple-400/60 hover:text-purple-200 transition-colors"><span class="material-symbols-outlined text-base">photo_camera</span>Capture</button>
-</div>
-<div id="detailCapture" class="hidden mb-3 rounded-lg overflow-hidden border border-slate-800 bg-slate-950"></div>
-<div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-cyan-400 border border-cyan-400/30 mb-4" id="detailStatus">Active</div>
-<div class="space-y-4 pt-4 border-t border-slate-800">
-<div><div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Type</div><div class="text-sm text-slate-300" id="detailType">...</div></div>
-<div><div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Stack</div><div class="flex flex-wrap gap-1.5" id="detailTech"></div></div>
-<div><div class="text-xs text-slate-500 uppercase tracking-wider mb-1 flex items-center justify-between"><span>My Tags</span><button id="addTagBtn" class="text-pink-400 hover:text-pink-300 transition-colors" title="Add custom tag"><span class="material-symbols-outlined text-sm">add_circle</span></button></div>
-<div class="flex flex-wrap gap-1.5" id="detailCustomTags"></div>
-<div id="addTagForm" class="hidden mt-2">
-<div class="flex gap-1">
-<input type="text" id="newTagInput" class="flex-1 bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-pink-400" placeholder="Enter tag name..." maxlength="30">
-<button id="confirmAddTagBtn" class="bg-pink-500 hover:bg-pink-400 text-white px-2 py-1 rounded text-xs transition-colors">Add</button>
-<button id="cancelAddTagBtn" class="bg-slate-700 hover:bg-slate-600 text-slate-300 px-2 py-1 rounded text-xs transition-colors">Cancel</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
-<div class="text-xs text-slate-500 uppercase tracking-wider mb-3">Key Files</div>
-<ul class="space-y-2 text-sm text-slate-400 font-mono" id="detailFiles"></ul>
-</div>
-</div>
-<div class="lg:w-2/3 space-y-8">
-<div><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-cyan-400 pl-3">Purpose</h2><p class="text-slate-300 leading-relaxed text-lg" id="detailPurpose">...</p></div>
-<div><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-purple-500 pl-3">Description & Notes</h2><div class="prose prose-invert max-w-none text-slate-400 bg-slate-900/50 p-6 rounded-xl border border-slate-800/50" id="detailDescription">...</div></div>
-<div id="detailTimeline" class="hidden"><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-green-500 pl-3">Activity Timeline</h2><div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800/50"><canvas id="timelineChart" height="100"></canvas></div></div>
-<div id="detailMedia" class="hidden"><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-orange-500 pl-3">Media Gallery</h2><div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800/50" id="mediaGallery"></div></div>
-<div id="detailRelated"><h2 class="text-lg font-bold text-white mb-3 border-l-2 border-pink-500 pl-3">Related Projects</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="relatedProjectsGrid"><div class="text-sm text-slate-500 animate-pulse">Finding similar projects...</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Graph View -->
-<div class="absolute inset-0 bg-[#0f1115] z-30 hidden flex-col" id="graphView">
-<div class="h-14 border-b border-slate-800 flex items-center justify-between px-6 bg-[#13161c]">
-<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" id="closeGraphBtn">
-<span class="material-symbols-outlined">arrow_back</span><span class="text-sm font-medium">Back to Dashboard</span>
-</button>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2">
-<span class="text-xs text-slate-400">Clustering:</span>
-<select id="graphClusterMode" class="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-<option value="none">None</option>
-<option value="domain">By Domain</option>
-<option value="tech">By Technology</option>
-</select>
-</div>
-<div class="text-xs text-slate-500 mono" id="graphStats">0 nodes, 0 edges</div>
-</div>
-</div>
-<div class="flex-1 relative" id="graphContainer"></div>
-<!-- Graph Legend -->
-<div class="absolute bottom-4 left-4 bg-slate-900/90 border border-slate-700 rounded-lg p-3 z-10">
-<div class="text-xs font-semibold text-slate-400 mb-2">Domains</div>
-<div class="grid grid-cols-2 gap-1 text-[10px]" id="graphLegend"></div>
-</div>
-</div>
-<!-- Live flipper -->
-<div class="absolute inset-0 z-40 hidden flex-col" id="flipperView" tabindex="-1" aria-label="Live preview flipper">
-<div class="fl-bar h-14 flex items-center gap-3 px-4 shrink-0">
-<button class="fl-btn" id="flCloseBtn" title="Back to catalog (Esc)"><span class="material-symbols-outlined">arrow_back</span><span class="fl-hide-narrow">Catalog</span></button>
-<div class="min-w-0 flex-1 flex items-center gap-2 fl-title">
-<span class="font-mono font-bold text-sm text-white truncate" id="flName">…</span>
-<span class="fl-badge static hidden" id="flModeBadge">static</span>
-<span class="fl-badge hidden" id="flStateBadge"></span>
-<span class="fl-badge build hidden" id="flBuildBadge" title="Existing build output, not current source">build</span>
-</div>
-<span class="text-xs text-slate-400 mono tabular-nums fl-hide-narrow" id="flPosition">0 / 0</span>
-<div class="flex items-center gap-1.5">
-<button class="fl-btn" id="flPrevBtn" title="Previous (←)"><span class="material-symbols-outlined">chevron_left</span></button>
-<button class="fl-btn" id="flNextBtn" title="Next (→)"><span class="material-symbols-outlined">chevron_right</span></button>
-<button class="fl-btn" id="flReloadBtn" title="Reload preview (R)"><span class="material-symbols-outlined">refresh</span></button>
-<a class="fl-btn" id="flOpenBtn" target="_blank" rel="noopener" href="#" title="Open in new tab"><span class="material-symbols-outlined">open_in_new</span></a>
-<button class="fl-btn" id="flCaptureBtn" title="Capture screenshot"><span class="material-symbols-outlined">photo_camera</span></button>
-<button class="fl-btn" id="flDetailsBtn" title="Technical details (D)" aria-expanded="false"><span class="material-symbols-outlined">tune</span><span class="fl-hide-narrow">Details</span></button>
-</div>
-</div>
-<div class="flex items-center gap-3 px-4 py-2 bg-[#0f1216] border-b border-slate-800/80 shrink-0">
-<input type="range" class="fl-range" id="flScrubber" min="0" max="0" value="0" step="1" aria-label="Position in selection"/>
-<span class="text-[11px] text-slate-500 mono whitespace-nowrap">Focus here, then <span class="fl-kbd">←</span> <span class="fl-kbd">→</span></span>
-</div>
-<div class="flex flex-1 min-h-0 relative">
-<div class="fl-stage" id="flStage"></div>
-<aside class="fl-details hidden" id="flDetails" aria-label="Preview details"></aside>
-</div>
-</div>
-<!-- Contact sheet / capture worker -->
-<div class="absolute inset-0 z-30 hidden flex-col" id="sheetView">
-<div class="h-14 border-b border-slate-800 flex items-center justify-between px-6 bg-[#13161c] gap-4">
-<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" id="closeSheetBtn"><span class="material-symbols-outlined">arrow_back</span><span class="text-sm font-medium">Back to Dashboard</span></button>
-<div class="flex items-center gap-2 flex-wrap justify-end" id="sheetToolbar"></div>
-</div>
-<div class="px-6 py-2 bg-[#0f1216] border-b border-slate-800/80 hidden" id="sheetProgressWrap"><div class="flex items-center justify-between text-[11px] text-slate-400 mb-1"><span id="sheetProgressText"></span><span id="sheetProgressCounts"></span></div><div class="cap-progress"><div id="sheetProgressBar" style="width:0%"></div></div></div>
-<div class="flex-1 overflow-y-auto p-6" id="sheetBody"></div>
-</div>
-</main>
+                <div class="facet-group">
+                    <div class="facet-label">Maturity</div>
+                    <div class="tag-row" id="maturityFilters"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-list" id="projectList"></div>
+    </aside>
+
+    <main class="stage">
+        <section class="view" id="dashboardView">
+            <div class="dash">
+                <div class="stat-grid">
+                    <div class="card card--chart">
+                        <h3><span class="material-symbols-rounded">pie_chart</span>Project Types</h3>
+                        <div class="chart-box"><canvas id="typeChart"></canvas></div>
+                    </div>
+                    <div class="card card--tech">
+                        <h3><span class="material-symbols-rounded">code</span>Top Technologies</h3>
+                        <div class="tag-row" id="topTechTags"></div>
+                    </div>
+                    <div class="card card--counts">
+                        <div class="count-big" id="activeProjectsCount">0</div>
+                        <div class="count-big-label">Active Projects</div>
+                        <div class="count-small" id="archivedProjectsCount">0</div>
+                        <div class="count-small-label">Archived</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="section-title"><span class="material-symbols-rounded">bolt</span>Featured Projects</h3>
+                    <div class="card-grid" id="featuredGrid"></div>
+                </div>
+                <section class="meaning-section" aria-labelledby="meaningHeading">
+                    <div class="meaning-header">
+                        <h2 id="meaningHeading">What’s inside your projects</h2>
+                        <button class="btn" id="profileControl">Pause analysis</button>
+                    </div>
+                    <p class="meaning-status" id="profileStatus" role="status" aria-live="polite">Loading source profiles…</p>
+                    <div class="meaning-compare" id="profileCompare"></div>
+                    <div class="meaning-connection" id="profileConnection"></div>
+                    <details class="meaning-candidates">
+                        <summary>Featured candidates &amp; reasoning</summary>
+                        <label class="meaning-search">Find a candidate <input type="search" id="candidateSearch" placeholder="Project name or capability" /></label>
+                        <div class="meaning-table-scroll"><table class="meaning-table"><thead><tr><th>Project</th><th>Selection evidence</th><th>Decision</th></tr></thead><tbody id="profileCandidates"></tbody></table></div>
+                    </details>
+                </section>
+            </div>
+        </section>
+
+        <section class="view" id="detailView">
+            <div class="view-bar">
+                <button class="back-btn" id="closeDetailBtn"><span class="material-symbols-rounded">arrow_back</span>Back to Dashboard</button>
+            </div>
+            <div class="view-body">
+                <div class="detail">
+                    <div class="detail-side">
+                        <div class="box">
+                            <div class="detail-icon">📁</div>
+                            <h1 class="detail-name" id="detailName">...</h1>
+                            <div class="btn-row">
+                                <button class="btn btn--primary" id="detailPreviewBtn"><span class="material-symbols-rounded">play_arrow</span>Preview</button>
+                                <button class="btn" id="detailCaptureBtn"><span class="material-symbols-rounded">photo_camera</span>Capture</button>
+                            </div>
+                            <div id="detailCapture" class="hidden"></div>
+                            <div class="status-pill state--active" id="detailStatus">Active</div>
+                            <div class="meta-list">
+                                <div>
+                                    <div class="meta-label">Type</div>
+                                    <div class="meta-value" id="detailType">...</div>
+                                </div>
+                                <div>
+                                    <div class="meta-label">Stack</div>
+                                    <div class="tag-row" id="detailTech"></div>
+                                </div>
+                                <div>
+                                    <div class="meta-label"><span>My Tags</span>
+                                        <button class="add-tag-btn" id="addTagBtn" title="Add custom tag"><span class="material-symbols-rounded">add_circle</span></button>
+                                    </div>
+                                    <div class="tag-row" id="detailCustomTags"></div>
+                                    <div class="add-tag-form hidden" id="addTagForm">
+                                        <input type="text" id="newTagInput" placeholder="Enter tag name..." maxlength="30">
+                                        <button class="confirm" id="confirmAddTagBtn">Add</button>
+                                        <button id="cancelAddTagBtn">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box--tight">
+                            <div class="meta-label">Key Files</div>
+                            <ul class="file-list" id="detailFiles"></ul>
+                        </div>
+                    </div>
+                    <div class="detail-main">
+                        <div>
+                            <h2 class="heading">Purpose</h2>
+                            <p class="lede" id="detailPurpose">...</p>
+                        </div>
+                        <section id="detailProfile" class="meaning-detail" aria-label="Source evidence"></section>
+                        <div>
+                            <h2 class="heading heading--purple">Description &amp; Notes</h2>
+                            <div class="prose" id="detailDescription">...</div>
+                        </div>
+                        <div class="hidden" id="detailTimeline">
+                            <h2 class="heading heading--green">Activity Timeline</h2>
+                            <div class="panel"><canvas id="timelineChart" height="100"></canvas></div>
+                        </div>
+                        <div class="hidden" id="detailMedia">
+                            <h2 class="heading heading--orange">Media Gallery</h2>
+                            <div class="panel" id="mediaGallery"></div>
+                        </div>
+                        <div id="detailRelated">
+                            <h2 class="heading heading--pink">Related Projects</h2>
+                            <div class="card-grid" id="relatedProjectsGrid">
+                                <div class="loading-note">Finding similar projects...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="view hidden" id="graphView">
+            <div class="view-bar">
+                <button class="back-btn" id="closeGraphBtn"><span class="material-symbols-rounded">arrow_back</span>Back to Dashboard</button>
+                <div class="view-bar-tools">
+                    <label class="field">Clustering:
+                        <select id="graphClusterMode">
+                            <option value="none">None</option>
+                            <option value="domain">By Domain</option>
+                            <option value="tech">By Technology</option>
+                        </select>
+                    </label>
+                    <div class="stat-text mono" id="graphStats">0 nodes, 0 edges</div>
+                </div>
+            </div>
+            <div class="graph-canvas" id="graphContainer"></div>
+            <div class="graph-legend">
+                <h4>Domains</h4>
+                <div class="graph-legend-items" id="graphLegend"></div>
+            </div>
+        </section>
+
+        <section class="view hidden" id="flipperView" tabindex="-1" aria-label="Live preview flipper">
+            <div class="fl-bar">
+                <button class="fl-btn" id="flCloseBtn" title="Back to catalog (Esc)"><span class="material-symbols-rounded">arrow_back</span><span class="fl-hide-narrow">Catalog</span></button>
+                <div class="fl-title">
+                    <span class="fl-name mono" id="flName">…</span>
+                    <span class="fl-badge static hidden" id="flModeBadge">static</span>
+                    <span class="fl-badge hidden" id="flStateBadge"></span>
+                    <span class="fl-badge build hidden" id="flBuildBadge" title="Existing build output, not current source">build</span>
+                </div>
+                <span class="fl-position mono fl-hide-narrow" id="flPosition">0 / 0</span>
+                <div class="fl-actions-bar">
+                    <button class="fl-btn" id="flPrevBtn" title="Previous (←)"><span class="material-symbols-rounded">chevron_left</span></button>
+                    <button class="fl-btn" id="flNextBtn" title="Next (→)"><span class="material-symbols-rounded">chevron_right</span></button>
+                    <button class="fl-btn" id="flReloadBtn" title="Reload preview (R)"><span class="material-symbols-rounded">refresh</span></button>
+                    <a class="fl-btn" id="flOpenBtn" target="_blank" rel="noopener" href="#" title="Open in new tab"><span class="material-symbols-rounded">open_in_new</span></a>
+                    <button class="fl-btn" id="flCaptureBtn" title="Capture screenshot"><span class="material-symbols-rounded">photo_camera</span></button>
+                    <button class="fl-btn" id="flDetailsBtn" title="Technical details (D)" aria-expanded="false"><span class="material-symbols-rounded">tune</span><span class="fl-hide-narrow">Details</span></button>
+                </div>
+            </div>
+            <div class="fl-strip">
+                <input type="range" class="fl-range" id="flScrubber" min="0" max="0" value="0" step="1" aria-label="Position in selection"/>
+                <span class="hint mono fl-hide-narrow">Focus here, then <span class="fl-kbd">←</span> <span class="fl-kbd">→</span></span>
+            </div>
+            <div class="fl-body">
+                <div class="fl-stage" id="flStage"></div>
+                <aside class="fl-details hidden" id="flDetails" aria-label="Preview details"></aside>
+            </div>
+        </section>
+
+        <section class="view hidden" id="sheetView">
+            <div class="view-bar">
+                <button class="back-btn" id="closeSheetBtn"><span class="material-symbols-rounded">arrow_back</span>Back to Dashboard</button>
+                <div class="view-bar-tools" id="sheetToolbar"></div>
+            </div>
+            <div class="sheet-progress hidden" id="sheetProgressWrap">
+                <div class="sheet-progress-row"><span id="sheetProgressText"></span><span id="sheetProgressCounts"></span></div>
+                <div class="cap-progress"><div id="sheetProgressBar"></div></div>
+            </div>
+            <div class="sheet-body" id="sheetBody"></div>
+        </section>
+    </main>
 </div>
 <script>
 // Custom Tag Manager - handles localStorage operations for user-defined tags
@@ -458,12 +418,12 @@ function connectWebSocket() {
             const status = document.getElementById('connectionStatus');
             const text = document.getElementById('connectionText');
             if (status) {
-                status.className = 'w-2 h-2 rounded-full bg-green-500 animate-pulse';
+                status.dataset.state = 'live';
                 status.title = 'Connected - Live updates enabled';
             }
             if (text) {
                 text.textContent = 'LIVE';
-                text.className = 'text-xs text-green-400 mono font-bold';
+                text.dataset.state = 'live';
             }
             // Register this tab's preview consumer so the server can release
             // its sessions if the tab disappears without saying goodbye.
@@ -482,6 +442,9 @@ function connectWebSocket() {
                 if (window.Flipper) window.Flipper.onLog(message.data);
             } else if (message.type === 'capture-update') {
                 if (window.Captures) window.Captures.onUpdate(message.data);
+            } else if (message.type === 'profile-status') {
+                Profiles.status = message.data;
+                Profiles.render();
             }
         };
 
@@ -496,12 +459,12 @@ function connectWebSocket() {
             const status = document.getElementById('connectionStatus');
             const text = document.getElementById('connectionText');
             if (status) {
-                status.className = 'w-2 h-2 rounded-full bg-orange-500';
+                status.dataset.state = 'down';
                 status.title = 'Disconnected - Reconnecting...';
             }
             if (text) {
                 text.textContent = 'DISCONNECTED';
-                text.className = 'text-xs text-orange-400 mono';
+                text.dataset.state = 'down';
             }
 
             if (!reconnectInterval) {
@@ -538,7 +501,7 @@ function getRelativeTime(isoDate) {
 function getActivityLevel(project) {
     const activity = project.fileActivity || [];
     if (activity.length === 0) {
-        return { level: 'dormant', icon: '⚫', color: 'text-gray-500', text: 'Dormant' };
+        return { level: 'dormant', icon: '⚫', color: 'lvl--dormant', text: 'Dormant' };
     }
 
     const recentActivity = activity.filter(a => {
@@ -548,17 +511,17 @@ function getActivityLevel(project) {
     });
 
     if (recentActivity.length > 0) {
-        return { level: 'active', icon: '🟢', color: 'text-green-400', text: 'Active' };
+        return { level: 'active', icon: '🟢', color: 'lvl--active', text: 'Active' };
     }
 
     const monthAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
     const hasRecentActivity = activity.some(a => new Date(a.date).getTime() > monthAgo);
 
     if (hasRecentActivity) {
-        return { level: 'moderate', icon: '🟡', color: 'text-yellow-400', text: 'Moderate' };
+        return { level: 'moderate', icon: '🟡', color: 'lvl--moderate', text: 'Moderate' };
     }
 
-    return { level: 'dormant', icon: '⚫', color: 'text-gray-500', text: 'Dormant' };
+    return { level: 'dormant', icon: '⚫', color: 'lvl--dormant', text: 'Dormant' };
 }
 
 // URL Router for hash-based navigation
@@ -645,6 +608,7 @@ const Router = {
 
     // Initialize router with hashchange listener
     init() {
+        Profiles.init();
         window.addEventListener('hashchange', () => {
             if (window.Flipper && window.Flipper.isOpen) {
                 // Leaving the preview hash (e.g. browser Back) closes the flipper
@@ -675,7 +639,7 @@ const App = {
         maturity: []          // Selected maturity levels
     },
     facets: null,             // Cached facet counts from API
-    filtersExpanded: true,    // Collapsible state (start expanded)
+    filtersExpanded: false,   // Collapsible state (start collapsed)
     init() {
         this.renderStats();
         this.renderList();
@@ -694,7 +658,7 @@ const App = {
     },
     updateData(newData) {
         // Add IDs if not present
-        this.data = newData.map((project, index) => ({
+        this.data = Profiles.enrich(newData).map((project, index) => ({
             ...project,
             id: project.id || index + 1
         }));
@@ -704,6 +668,7 @@ const App = {
         this.renderList();
         this.renderCharts();
         this.renderFeatured();
+        Profiles.render();
         this.renderMyTags();
         this.computeLocalFacets(); // Compute facets from local data
         this.renderFacetedFilters();
@@ -768,6 +733,7 @@ const App = {
             const domains = p.semanticTags?.domain || [];
             if (purposes.some(t => t.toLowerCase().includes(f))) return true;
             if (domains.some(t => t.toLowerCase().includes(f))) return true;
+            if (p.profile?.tags.some(t => t.label.replace(/-/g, ' ').includes(f) || t.label.includes(f))) return true;
             return false;
         });
 
@@ -783,11 +749,11 @@ const App = {
 
         filtered.forEach(p => {
             const el = document.createElement('div');
-            el.className = "p-3 rounded-lg hover:bg-slate-800 cursor-pointer group transition-colors border border-transparent hover:border-slate-700";
+            el.className = "proj";
             el.onclick = () => this.openDetail(p);
             el.dataset.projectId = p.id;
 
-            const techBadges = p.tech.slice(0, 2).map(t => `<span class="text-[10px] bg-slate-700 text-slate-300 px-1 rounded cursor-pointer hover:bg-cyan-700 hover:text-white transition-colors" onclick="event.stopPropagation(); App.setFilter('${this.escapeHtml(t)}')">${t}</span>`).join('');
+            const techBadges = p.tech.slice(0, 2).map(t => `<span class="pill" onclick="event.stopPropagation(); App.setFilter('${this.escapeHtml(t)}')">${t}</span>`).join('');
             const activity = getActivityLevel(p);
             const lastMod = getRelativeTime(p.lastModified);
             const fileCount = p.fileCount ? `${p.fileCount} files` : '';
@@ -796,22 +762,22 @@ const App = {
             const cap = window.Captures ? window.Captures.thumbFor(p.id) : null;
             el.innerHTML = `
                 ${cap ? `<img class="proj-thumb" loading="lazy" src="${cap.src}" alt="" title="${cap.title}"/>` : ''}
-                <div class="flex justify-between items-start mb-1">
-                    <div class="flex items-center gap-1.5 flex-1 min-w-0">
-                        <span class="text-xs ${activity.color}" title="${activity.text}">${activity.icon}</span>
-                        <span class="font-mono font-bold text-sm text-slate-200 group-hover:text-cyan-400 truncate">${p.name}</span>
+                <div class="proj-head">
+                    <div class="proj-title">
+                        <span class="lvl ${activity.color}" title="${activity.text}">${activity.icon}</span>
+                        <span class="proj-name">${p.name}</span>
                     </div>
-                    <button class="proj-preview-btn text-cyan-400 hover:text-white mr-1" title="Preview live" aria-label="Preview ${this.escapeHtml(p.name)}" onclick="event.stopPropagation(); Flipper.open('${p.id}')"><span class="material-symbols-outlined text-base align-middle">play_circle</span></button>
-                    <span class="text-[10px] ${this.getStatusColor(p.state)} px-1.5 py-0.5 rounded uppercase font-bold">${this.shortStatus(p.state)}</span>
+                    <button class="proj-preview-btn" title="Preview live" aria-label="Preview ${this.escapeHtml(p.name)}" onclick="event.stopPropagation(); Flipper.open('${p.id}')"><span class="material-symbols-rounded">play_circle</span></button>
+                    <span class="state-badge ${this.statusClass(p.state)}">${this.shortStatus(p.state)}</span>
                 </div>
-                <div class="text-xs text-slate-500 mb-2 truncate">${p.type}</div>
-                <div class="flex gap-1 mb-2">${techBadges}</div>
-                <div class="flex gap-2 text-[10px] text-slate-600">
+                <div class="proj-type">${p.type}</div>
+                <div class="proj-tech">${techBadges}</div>
+                <div class="proj-stats">
                     ${fileCount ? `<span>📄 ${fileCount}</span>` : ''}
                     ${mediaCount ? `<span>🖼️ ${mediaCount}</span>` : ''}
                     ${p.hasHistory ? '<span>📜</span>' : ''}
                 </div>
-                <div class="text-[10px] text-slate-600 mt-1">${lastMod}</div>
+                <div class="proj-time">${lastMod}</div>
             `;
             list.appendChild(el);
         });
@@ -856,7 +822,7 @@ const App = {
         this.filter = '';
         document.getElementById('globalSearch').value = '';
         this.renderList();
-        document.getElementById('detailView').classList.add('translate-x-full');
+        document.getElementById('detailView').classList.remove('open');
 
         if (updateUrl) {
             Router.navigateTo({ type: 'dashboard' });
@@ -866,6 +832,7 @@ const App = {
     openDetail(project, updateUrl = true) {
         // Store current project for custom tag operations
         this.currentProject = project;
+        Profiles.renderDetail(project);
 
         // Update URL for direct linking
         if (updateUrl) {
@@ -878,27 +845,27 @@ const App = {
 
         const activity = getActivityLevel(project);
         const enrichedInfo = `
-            <p>${project.desc}</p>
-            <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
-                <div><span class="text-slate-500">Activity:</span> <span class="${activity.color}">${activity.icon} ${activity.text}</span></div>
-                <div><span class="text-slate-500">Files:</span> ${project.fileCount || 'Unknown'}</div>
-                <div><span class="text-slate-500">Last Modified:</span> ${getRelativeTime(project.lastModified)}</div>
-                <div><span class="text-slate-500">Media Assets:</span> ${project.mediaAssets ? project.mediaAssets.length : 0}</div>
+            <p>${this.escapeHtml(project.desc)}</p>
+            <div class="facts">
+                <div><span>Activity:</span> <span class="${activity.color}">${activity.icon} ${activity.text}</span></div>
+                <div><span>Files:</span> ${project.fileCount || 'Unknown'}</div>
+                <div><span>Last Modified:</span> ${getRelativeTime(project.lastModified)}</div>
+                <div><span>Media Assets:</span> ${project.mediaAssets ? project.mediaAssets.length : 0}</div>
             </div>
-            ${project.hasHistory ? '<div class="mt-4 text-sm text-cyan-400">📜 Has version history</div>' : ''}
+            ${project.hasHistory ? '<div class="note">📜 Has version history</div>' : ''}
         `;
         document.getElementById('detailDescription').innerHTML = enrichedInfo;
 
         document.getElementById('detailStatus').innerText = project.state;
-        document.getElementById('detailStatus').className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border mb-4 ${this.getStatusColorClasses(project.state)}`;
+        document.getElementById('detailStatus').className = `status-pill ${this.statusClass(project.state)}`;
 
         const techContainer = document.getElementById('detailTech');
         techContainer.innerHTML = project.tech.map(t =>
-            `<span class="px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-cyan-400 font-mono cursor-pointer hover:bg-cyan-900 hover:border-cyan-500 transition-colors" onclick="App.setFilter('${this.escapeHtml(t)}')">${t}</span>`
+            `<span class="tag-tech" onclick="App.setFilter('${this.escapeHtml(t)}')">${t}</span>`
         ).join('');
 
         const filesContainer = document.getElementById('detailFiles');
-        filesContainer.innerHTML = `<li>📂 ${project.name}/</li><li class="pl-4 text-slate-500">📄 README.md</li>`;
+        filesContainer.innerHTML = `<li>📂 ${project.name}/</li><li class="sub">📄 README.md</li>`;
 
         // Render activity timeline if available
         this.renderProjectTimeline(project);
@@ -915,7 +882,8 @@ const App = {
         // Existing capture (generated by qnav) if any
         if (window.Captures) window.Captures.renderDetail(project.id);
 
-        document.getElementById('detailView').classList.remove('translate-x-full');
+        document.getElementById('detailView').classList.add('open');
+        document.body.classList.remove('sidebar-open');
     },
     renderProjectTimeline(project) {
         const timelineSection = document.getElementById('detailTimeline');
@@ -981,16 +949,15 @@ const App = {
         let html = '';
 
         if (images.length > 0) {
-            html += `<div class="mb-4">
-                <h3 class="text-sm text-slate-400 mb-2">Images (${images.length})</h3>
-                <div class="grid grid-cols-3 md:grid-cols-4 gap-2">
+            html += `<div class="gallery-block">
+                <h3 class="gallery-title">Images (${images.length})</h3>
+                <div class="gallery-grid">
                     ${images.map(img => `
-                        <div class="aspect-square rounded overflow-hidden bg-slate-800 group cursor-pointer">
+                        <div class="gallery-item">
                             <img src="/api/media/${encodeURIComponent(project.name)}/${encodeURIComponent(img.relativePath)}"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform"
                                  alt="${img.filename}"
                                  title="${img.filename}"
-                                 onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-slate-600\\'>🖼️</div>'" />
+                                 onerror="this.parentElement.textContent='🖼️'" />
                         </div>
                     `).join('')}
                 </div>
@@ -998,14 +965,14 @@ const App = {
         }
 
         if (videos.length > 0) {
-            html += `<div>
-                <h3 class="text-sm text-slate-400 mb-2">Videos (${videos.length})</h3>
-                <div class="space-y-2">
+            html += `<div class="gallery-block">
+                <h3 class="gallery-title">Videos (${videos.length})</h3>
+                <div>
                     ${videos.map(vid => `
-                        <div class="text-xs text-slate-500 flex items-center gap-2">
+                        <div class="gallery-video">
                             <span>🎬</span>
-                            <span class="truncate">${vid.filename}</span>
-                            <span class="text-slate-600">(${Math.round(vid.size / 1024)}KB)</span>
+                            <span class="name">${vid.filename}</span>
+                            <span class="size">(${Math.round(vid.size / 1024)}KB)</span>
                         </div>
                     `).join('')}
                 </div>
@@ -1023,40 +990,40 @@ const App = {
             .filter(p => p.name !== project.name)
             .map(p => {
                 const score = this.calculateSimilarity(project, p);
-                return { project: p, score: score.score, sharedTech: score.sharedTech };
+                return { project: p, score: score.score, sharedTech: score.sharedTech, reasons: score.reasons };
             })
-            .filter(s => s.score > 0)
+            .filter(s => s.score >= 0.22)
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Top 5 most similar
 
         if (similarities.length === 0) {
-            grid.innerHTML = '<div class="text-sm text-slate-500 col-span-full">No similar projects found based on shared technologies or categories.</div>';
+            grid.innerHTML = '<div class="loading-note loading-note--static">No meaningful connection supported yet. Connections appear as source profiles are read.</div>';
             return;
         }
 
-        grid.innerHTML = similarities.map(({ project: p, score, sharedTech }) => {
+        grid.innerHTML = similarities.map(({ project: p, score, sharedTech, reasons }) => {
             const activity = getActivityLevel(p);
             const similarityPercent = Math.round(score * 100);
-            const similarityColor = similarityPercent >= 70 ? 'text-green-400 bg-green-900/30' :
-                                   similarityPercent >= 40 ? 'text-yellow-400 bg-yellow-900/30' :
-                                   'text-slate-400 bg-slate-800';
+            const similarityColor = similarityPercent >= 70 ? 'sim--high' :
+                                   similarityPercent >= 40 ? 'sim--mid' :
+                                   'sim--low';
 
             return `
-                <div class="glass rounded-lg border border-slate-700 hover:border-pink-500/50 transition-all cursor-pointer group p-4"
-                     onclick="App.openDetail(App.data.find(x => x.name === '${this.escapeHtml(p.name)}'))">
-                    <div class="flex items-start justify-between mb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-sm ${activity.color}" title="${activity.text}">${activity.icon}</span>
-                            <span class="font-mono font-bold text-sm text-slate-200 group-hover:text-pink-400 truncate">${p.name}</span>
+                <div class="related"
+                     role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.openById('${p.id}')}"
+                     onclick="App.openById('${p.id}')">
+                    <div class="related-head">
+                        <div class="related-title">
+                            <span class="lvl ${activity.color}" title="${activity.text}">${activity.icon}</span>
+                            <span class="related-name">${this.escapeHtml(p.name)}</span>
                         </div>
-                        <span class="text-xs font-bold px-2 py-0.5 rounded ${similarityColor}">${similarityPercent}%</span>
+                        <span class="sim ${similarityColor}">Related</span>
                     </div>
-                    <p class="text-xs text-slate-500 line-clamp-2 mb-3">${p.desc || p.type}</p>
-                    <div class="space-y-2">
-                        <div class="text-[10px] text-slate-600 uppercase tracking-wide">Shared Tech:</div>
-                        <div class="flex flex-wrap gap-1">
-                            ${sharedTech.slice(0, 4).map(t => `<span class="text-[10px] bg-pink-900/30 text-pink-400 px-1.5 py-0.5 rounded border border-pink-500/20">${t}</span>`).join('')}
-                            ${sharedTech.length > 4 ? `<span class="text-[10px] text-slate-500">+${sharedTech.length - 4}</span>` : ''}
+                    <p class="clamp-2">${this.escapeHtml(p.desc || p.type)}</p>
+                    <div>
+                        <div class="related-label">Connection:</div>
+                        <div class="tag-row">
+                            ${reasons.slice(0, 3).map(t => `<span>${this.escapeHtml(t)}</span>`).join('')}
                         </div>
                     </div>
                 </div>
@@ -1066,42 +1033,7 @@ const App = {
 
     // Calculate similarity score between two projects (0-1)
     calculateSimilarity(project1, project2) {
-        let score = 0;
-        const sharedTech = [];
-
-        // Tech overlap (weighted most heavily - 60%)
-        const tech1Set = new Set(project1.tech.map(t => t.toLowerCase()));
-        project2.tech.forEach(t => {
-            if (tech1Set.has(t.toLowerCase())) {
-                sharedTech.push(t);
-            }
-        });
-
-        const totalTech = new Set([...project1.tech, ...project2.tech]).size;
-        if (totalTech > 0) {
-            score += (sharedTech.length / totalTech) * 0.6;
-        }
-
-        // Same category (20%)
-        if (project1.category && project2.category &&
-            project1.category.toLowerCase() === project2.category.toLowerCase()) {
-            score += 0.2;
-        }
-
-        // Same project type (10%)
-        const type1 = (project1.type || '').split(' ')[0].toLowerCase();
-        const type2 = (project2.type || '').split(' ')[0].toLowerCase();
-        if (type1 && type2 && type1 === type2) {
-            score += 0.1;
-        }
-
-        // Same maturity level (10%)
-        if (project1.maturity && project2.maturity &&
-            project1.maturity === project2.maturity) {
-            score += 0.1;
-        }
-
-        return { score, sharedTech };
+        return Meaning.compare(project1, project2);
     },
     renderStats() {
         // Show total plus folder/file split so the loose-file scan is visible at a glance
@@ -1114,74 +1046,55 @@ const App = {
         document.getElementById('activeProjectsCount').innerText = this.data.filter(p => p.state.includes('Active')).length;
         document.getElementById('archivedProjectsCount').innerText = this.data.filter(p => p.state.includes('Archive') || p.state.includes('Legacy')).length;
     },
-    // Score a project for featured-project rotation.
-    // Weights media-richness, polish, recency, and presence of a screenshot.
+    // Use supported capabilities from the same profile as tags and connections.
     featuredScore(p) {
-        const now = Date.now();
-        const mediaCount = (p.mediaAssets && p.mediaAssets.length) || 0;
-        const mediaScore = Math.min(10, mediaCount * 1.5);          // 0..10
-        const screenshotScore = p.screenshot ? 5 : 0;                // 0 or 5
-        const polishScore = ((p.signals && p.signals.polish) || 0) * 10; // 0..10
-        let recencyScore = 0;
-        if (p.lastModified) {
-            const ageDays = (now - new Date(p.lastModified).getTime()) / 86400000;
-            recencyScore = Math.max(0, 10 - ageDays / 7); // 10 this week → 0 after ~10 weeks
-        }
-        const stubPenalty = (p.signals && p.signals.isStub) ? -20 : 0;
-        return mediaScore + screenshotScore + polishScore + recencyScore + stubPenalty;
+        return Meaning.featured(p).score;
     },
     renderFeatured() {
         const container = document.getElementById('featuredGrid');
 
         // Score every project, keep only ones with positive scores, sort desc.
-        const scored = this.data
+        const scored = Profiles.featuredCandidates()
             .map(p => ({ p, score: this.featuredScore(p) }))
             .filter(s => s.score > 0)
             .sort((a, b) => b.score - a.score);
 
-        // Rotate through a top pool so the same three don't always show up.
-        // Offset by day-of-year so the set changes every 24h without being random.
-        const pool = scored.slice(0, 15).map(s => s.p);
-        const dayOfYear = Math.floor(Date.now() / 86400000);
-        let featured = [];
-        if (pool.length > 0) {
-            for (let i = 0; i < 3 && i < pool.length; i++) {
-                featured.push(pool[(dayOfYear + i) % pool.length]);
-            }
-        }
-        // Fallback: if scoring found nothing, show first 3 (shouldn't happen once signals land)
+        let featured = Profiles.selectFeatured(scored);
+        // Keep unexamined projects out of evidence-based selection.
         if (featured.length === 0) {
-            featured = this.data.slice(0, 3);
+            container.innerHTML = '<p class="meaning-status">Reading source to find apps with supported capabilities. Open any project to move it forward in the queue.</p>';
+            return;
         }
+        Profiles.recordFeatured(featured);
 
         container.innerHTML = featured.map(p => {
             const activity = getActivityLevel(p);
             const hasScreenshot = p.screenshot;
 
             return `
-                <div class="glass rounded-xl border border-slate-800 hover:border-cyan-400/50 transition-all cursor-pointer group overflow-hidden"
+                <div class="proj-card" role="button" tabindex="0"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.openById('${p.id}')}"
                      onclick="App.openById('${p.id}')">
-                    ${hasScreenshot ?
-                        `<div class="h-32 overflow-hidden bg-slate-900">
-                            <img src="/api/media/${encodeURIComponent(p.name)}/${encodeURIComponent(p.screenshot)}"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                                 onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full bg-slate-800 flex items-center justify-center text-4xl\\'>📁</div>'" />
-                         </div>` :
-                        `<div class="h-32 bg-slate-800 flex items-center justify-center text-4xl">📁</div>`
-                    }
-                    <div class="p-5">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="text-lg ${activity.color}" title="${activity.text}">${activity.icon}</span>
-                            <span class="text-[10px] bg-cyan-900/30 text-cyan-400 px-2 py-1 rounded border border-cyan-400/20">
-                                ${p.mediaAssets && p.mediaAssets.length > 3 ? 'MEDIA-RICH' : 'FEATURED'}
+                    <div class="proj-card-media">
+                        ${hasScreenshot ?
+                            `<img src="/api/media/${encodeURIComponent(p.name)}/${encodeURIComponent(p.screenshot)}"
+                                 alt=""
+                                 onerror="this.replaceWith(document.createTextNode('📁'))" />` :
+                            '📁'}
+                    </div>
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <span class="lvl ${activity.color}" title="${activity.text}">${activity.icon}</span>
+                            <span class="flag">
+                                ${this.escapeHtml(p.profile.kind).toUpperCase()}
                             </span>
                         </div>
-                        <h3 class="font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">${p.name}</h3>
-                        <p class="text-xs text-slate-400 line-clamp-2 mb-3">${p.desc}</p>
-                        <div class="flex flex-wrap gap-1 mb-2">
-                            ${p.tech.slice(0,3).map(t => `<span class="text-[10px] text-slate-500 bg-slate-900 px-1 rounded">${t}</span>`).join('')}
+                        <h3>${this.escapeHtml(p.name)}</h3>
+                        <p class="clamp-2">${this.escapeHtml(p.desc)}</p>
+                        <div class="tag-row">
+                            ${p.profile.tags.filter(t => t.category === 'features' && t.confidence === 'supported').slice(0,3).map(t => `<span>${this.escapeHtml(t.label.replace(/-/g, ' '))}</span>`).join('')}
                         </div>
-                        <div class="text-[10px] text-slate-600">
+                        <div class="proj-card-stats">
                             ${p.fileCount ? `📄 ${p.fileCount} files` : ''}
                             ${p.mediaAssets && p.mediaAssets.length > 0 ? `  🖼️ ${p.mediaAssets.length} media` : ''}
                         </div>
@@ -1241,15 +1154,14 @@ const App = {
         this.data.forEach(p => p.tech.forEach(t => techCounts[t] = (techCounts[t] || 0) + 1));
         const sortedTech = Object.entries(techCounts).sort((a, b) => b[1] - a[1]).slice(0, 8);
         document.getElementById('topTechTags').innerHTML = sortedTech.map(([tech, count]) =>
-            `<span class="px-2 py-1 rounded bg-slate-800 text-xs text-slate-300 border border-slate-700 flex items-center gap-2 cursor-pointer hover:bg-cyan-900 hover:border-cyan-500 hover:text-cyan-400 transition-colors" onclick="App.setFilter('${App.escapeHtml(tech)}')">
+            `<span class="tag-top" onclick="App.setFilter('${App.escapeHtml(tech)}')">
                 ${tech}
-                <span class="bg-slate-700 px-1 rounded-sm text-[10px] text-white">${count}</span>
+                <span class="n">${count}</span>
             </span>`
         ).join('');
     },
     shortStatus(status) { if(status.includes("Active")) return "ACTV"; if(status.includes("Archive")) return "ARCH"; if(status.includes("Demo")) return "DEMO"; return "OTHR"; },
-    getStatusColor(status) { if(status.includes("Active")) return "text-green-400 bg-green-900/20"; if(status.includes("Archive")) return "text-slate-500 bg-slate-800"; if(status.includes("Demo")) return "text-purple-400 bg-purple-900/20"; return "text-orange-400 bg-orange-900/20"; },
-    getStatusColorClasses(status) { if(status.includes("Active")) return "text-green-400 bg-green-900/20 border-green-500/30"; if(status.includes("Archive")) return "text-slate-500 bg-slate-800 border-slate-600/30"; if(status.includes("Demo")) return "text-purple-400 bg-purple-900/20 border-purple-500/30"; return "text-orange-400 bg-orange-900/20 border-orange-500/30"; },
+    statusClass(status) { if(status.includes("Active")) return "state--active"; if(status.includes("Archive")) return "state--archive"; if(status.includes("Demo")) return "state--demo"; return "state--other"; },
 
     // Custom Tags Methods
     setupCustomTagListeners() {
@@ -1324,13 +1236,13 @@ const App = {
         const tags = customTagManager.getForProject(project.name);
 
         if (tags.length === 0) {
-            container.innerHTML = '<span class="text-xs text-slate-600 italic">No custom tags</span>';
+            container.innerHTML = '<span class="empty-note">No custom tags</span>';
         } else {
             container.innerHTML = tags.map(tag => `
-                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-pink-900/30 border border-pink-500/30 text-xs text-pink-400">
-                    <span class="material-symbols-outlined text-[10px]">person</span>
+                <span class="tag-mine">
+                    <span class="material-symbols-rounded">person</span>
                     ${this.escapeHtml(tag)}
-                    <button onclick="App.removeCustomTag('${this.escapeHtml(project.name)}', '${this.escapeHtml(tag)}')" class="ml-1 hover:text-pink-200 transition-colors" title="Remove tag">×</button>
+                    <button onclick="App.removeCustomTag('${this.escapeHtml(project.name)}', '${this.escapeHtml(tag)}')" title="Remove tag">×</button>
                 </span>
             `).join('');
         }
@@ -1360,10 +1272,10 @@ const App = {
             const isActive = this.customTagFilter && this.customTagFilter.toLowerCase() === name.toLowerCase();
             return `
                 <button onclick="App.filterByCustomTag('${this.escapeHtml(name)}')"
-                        class="inline-flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors ${isActive ? 'bg-pink-500 text-white' : 'bg-slate-800 text-pink-400 hover:bg-pink-900/30 border border-pink-500/20'}">
-                    <span class="material-symbols-outlined text-[10px]">person</span>
+                        class="mytag ${isActive ? 'is-selected' : ''}">
+                    <span class="material-symbols-rounded">person</span>
                     ${this.escapeHtml(name)}
-                    <span class="bg-pink-900/50 px-1 rounded text-[10px]">${count}</span>
+                    <span class="n">${count}</span>
                 </button>
             `;
         }).join('');
@@ -1399,15 +1311,9 @@ const App = {
         document.getElementById('filtersToggle').addEventListener('click', () => {
             this.filtersExpanded = !this.filtersExpanded;
             const content = document.getElementById('filtersContent');
-            const chevron = document.getElementById('filtersChevron');
 
-            if (this.filtersExpanded) {
-                content.classList.remove('hidden');
-                chevron.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                chevron.style.transform = 'rotate(0deg)';
-            }
+            content.classList.toggle('hidden', !this.filtersExpanded);
+            document.getElementById('filtersToggle').setAttribute('aria-expanded', String(this.filtersExpanded));
         });
 
         // Activity level radio buttons
@@ -1490,7 +1396,7 @@ const App = {
         if (!container || !this.facets || !this.facets.purpose) return;
 
         if (this.facets.purpose.length === 0) {
-            container.innerHTML = '<span class="text-xs text-slate-600 italic">No purpose tags detected</span>';
+            container.innerHTML = '<span class="empty-note">No purpose tags detected</span>';
             return;
         }
 
@@ -1499,13 +1405,10 @@ const App = {
             const displayName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
             return `
-                <button class="px-2 py-0.5 rounded-full text-xs transition-colors flex items-center gap-1
-                    ${isSelected
-                        ? 'bg-purple-500 text-white border border-purple-400'
-                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-purple-500/50 hover:text-purple-400'}"
+                <button class="facet facet--purpose ${isSelected ? 'is-selected' : ''}"
                     data-tag="${this.escapeHtml(tag)}">
                     ${displayName}
-                    <span class="${isSelected ? 'bg-purple-600' : 'bg-slate-700'} px-1 rounded-full text-[10px]">${count}</span>
+                    <span class="n">${count}</span>
                 </button>
             `;
         }).join('');
@@ -1536,7 +1439,7 @@ const App = {
         if (!container || !this.facets || !this.facets.domain) return;
 
         if (this.facets.domain.length === 0) {
-            container.innerHTML = '<span class="text-xs text-slate-600 italic">No domain tags detected</span>';
+            container.innerHTML = '<span class="empty-note">No domain tags detected</span>';
             return;
         }
 
@@ -1545,13 +1448,10 @@ const App = {
             const displayName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
             return `
-                <button class="px-2 py-0.5 rounded-full text-xs transition-colors flex items-center gap-1
-                    ${isSelected
-                        ? 'bg-green-500 text-white border border-green-400'
-                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-green-500/50 hover:text-green-400'}"
+                <button class="facet facet--domain ${isSelected ? 'is-selected' : ''}"
                     data-tag="${this.escapeHtml(tag)}">
                     ${displayName}
-                    <span class="${isSelected ? 'bg-green-600' : 'bg-slate-700'} px-1 rounded-full text-[10px]">${count}</span>
+                    <span class="n">${count}</span>
                 </button>
             `;
         }).join('');
@@ -1586,13 +1486,10 @@ const App = {
             const isSelected = this.facetedFilters.techTags.includes(tech);
 
             return `
-                <button class="px-2 py-0.5 rounded-full text-xs transition-colors flex items-center gap-1
-                    ${isSelected
-                        ? 'bg-cyan-500 text-white border border-cyan-400'
-                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-500/50 hover:text-cyan-400'}"
+                <button class="facet facet--tech ${isSelected ? 'is-selected' : ''}"
                     data-tech="${this.escapeHtml(tech)}">
                     ${tech}
-                    <span class="${isSelected ? 'bg-cyan-600' : 'bg-slate-700'} px-1 rounded-full text-[10px]">${count}</span>
+                    <span class="n">${count}</span>
                 </button>
             `;
         }).join('');
@@ -1647,13 +1544,10 @@ const App = {
             const isSelected = this.facetedFilters.maturity.includes(mat);
 
             return `
-                <button class="px-2 py-0.5 rounded text-xs transition-colors flex items-center gap-1
-                    ${isSelected
-                        ? `bg-${config.color}-500/30 text-${config.color}-400 border border-${config.color}-500/50`
-                        : 'bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-600'}"
-                    data-maturity="${mat}">
+                <button class="facet facet--maturity ${isSelected ? 'is-selected' : ''}"
+                    data-tone="${config.color}" data-maturity="${mat}">
                     ${config.label}
-                    <span class="text-[10px] text-slate-500">(${count})</span>
+                    <span class="n">${count}</span>
                 </button>
             `;
         }).join('');
@@ -1685,19 +1579,7 @@ const App = {
         document.querySelectorAll('.activity-filter-label').forEach(label => {
             const activity = label.dataset.activity;
             const isActive = this.facetedFilters.activityLevel === activity;
-            const textSpan = label.querySelector('span:last-child');
-
-            if (isActive) {
-                label.classList.remove('border-slate-700');
-                label.classList.add('border-cyan-500/50');
-                textSpan.classList.remove('text-slate-300');
-                textSpan.classList.add('text-cyan-400');
-            } else {
-                label.classList.add('border-slate-700');
-                label.classList.remove('border-cyan-500/50');
-                textSpan.classList.add('text-slate-300');
-                textSpan.classList.remove('text-cyan-400');
-            }
+            label.classList.toggle('is-selected', isActive);
         });
     },
 
@@ -1815,7 +1697,6 @@ const App = {
     showGraph() {
         const graphView = document.getElementById('graphView');
         graphView.classList.remove('hidden');
-        graphView.classList.add('flex');
         this.graphVisible = true;
 
         // Build and render the network graph
@@ -1826,7 +1707,6 @@ const App = {
     hideGraph() {
         const graphView = document.getElementById('graphView');
         graphView.classList.add('hidden');
-        graphView.classList.remove('flex');
         this.graphVisible = false;
 
         // Clean up the network
@@ -1911,13 +1791,14 @@ const App = {
                 const tech1Set = new Set(project1.tech.map(t => t.toLowerCase()));
                 const sharedTech = project2.tech.filter(t => tech1Set.has(t.toLowerCase()));
 
-                if (sharedTech.length >= 2) {
+                const relation = Meaning.compare(project1, project2);
+                if (relation.score >= 0.22) {
                     const edgeKey = `${i}-${j}`;
                     if (!edgeSet.has(edgeKey)) {
                         edgeSet.add(edgeKey);
 
                         // Edge thickness based on shared tech count
-                        const width = Math.min(5, 1 + sharedTech.length * 0.5);
+                        const width = 1 + relation.score * 4;
 
                         edges.push({
                             from: i,
@@ -1928,7 +1809,7 @@ const App = {
                                 highlight: '#00e5ff',
                                 hover: 'rgba(0, 229, 255, 0.5)'
                             },
-                            title: `Shared: ${sharedTech.join(', ')}`,
+                            title: relation.reasons.join('\n'),
                             sharedTech: sharedTech
                         });
                     }
@@ -2041,10 +1922,10 @@ const App = {
             const color = this.domainColors[domain] || this.domainColors['Unknown'];
             const displayName = domain.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
             return `
-                <div class="flex items-center gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span>
-                    <span class="text-slate-300">${displayName}</span>
-                    <span class="text-slate-500">(${count})</span>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background-color: ${color}"></span>
+                    <span class="name">${displayName}</span>
+                    <span class="n">(${count})</span>
                 </div>
             `;
         }).join('');
@@ -2155,6 +2036,11 @@ const App = {
             }
         });
 
+        // Sidebar drawer (narrow viewports)
+        document.getElementById('sidebarToggle').addEventListener('click', () => {
+            document.querySelector('.workspace').classList.toggle('nosidebar');
+        });
+
         // Close graph button
         document.getElementById('closeGraphBtn').addEventListener('click', () => {
             this.hideGraph();
@@ -2171,4 +2057,3 @@ document.addEventListener('DOMContentLoaded', () => App.init());
 <script src="/flipper.js"></script>
 </body>
 </html>
-    

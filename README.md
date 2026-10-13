@@ -140,3 +140,13 @@ See `CUFOLIO_README.md` for complete technical documentation.
 ---
 
 **Now your Cufolio directory stays clean while enjoying real-time project tracking! 🎉**
+# Source-based project profiles
+
+qnav automatically reads project source using the installed, signed-in Codex CLI. It discovers app manifests inside collection folders, builds a bounded evidence sample, and saves generated profiles in `data/meaning/profiles.json`. Unchanged samples reuse their saved profiles; source changes queue a new reading. The reader runs without shell, browser, connector, or editing tools.
+
+The dashboard’s **What’s inside your projects** section compares purpose and capabilities. Expand a tag to see its source quotation and line number. Inferred tags are marked, and **Sources read** shows the sample’s limits. Opening an unread project moves it forward in the queue. **Pause analysis** stops additional model calls after the current reading finishes; **Resume analysis** continues saved work.
+
+Related projects and graph edges use the same supported tags and project relationships. Featured selection requires supported purpose and capability evidence, avoids sibling variants, prefers different capabilities, and records recent appearances in the browser. **Featured candidates & reasoning** exposes eligibility and cooldown decisions. The default repeat cooldown is 14 days in `public/profiles.js`; a short eligible list falls back to its least recently shown projects.
+
+The reader uses the existing Codex sign-in and consumes its usage allowance. Missing sign-in, usage limits, or invalid output stop the queue with a visible recovery message. `QNAV_CODEX_BIN` can point to the executable when `codex` is outside the server’s PATH. `npm run profiles -- <project name, id, or absolute path>` can generate saved readings against an already running catalog. After installing the server changes, restart qnav; saved readings remain visible through the static snapshot until then.
+

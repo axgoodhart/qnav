@@ -44,10 +44,13 @@ export class FileWatcher {
         '**/.next/**',
         '**/.venv/**',
         '**/venv/**',
+        '**/.history/**',
+        '**/qnav/data/**',
+        '**/qnav/public/profile-snapshot.json*',
       ],
       persistent: true,
       ignoreInitial: true, // Don't fire events for initial scan
-      depth: 2, // Only watch top-level and one level deep
+      depth: 5, // Include nested apps and feature source used by the semantic reader.
       awaitWriteFinish: {
         stabilityThreshold: 500,
         pollInterval: 100
@@ -130,7 +133,8 @@ export class FileWatcher {
 
     return (
       importantFiles.includes(filename.toLowerCase()) ||
-      filename.toLowerCase().startsWith('readme')
+      filename.toLowerCase().startsWith('readme') ||
+      /\.(tsx?|jsx?|html?|py|rs|go|swift|vue|svelte|mjs|cjs)$/i.test(filename)
     );
   }
 }
