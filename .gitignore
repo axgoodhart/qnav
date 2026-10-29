@@ -32,3 +32,5 @@ Thumbs.db
 # qnav-owned preview/capture data
 data/
 public/profile-snapshot.json*
+
+.history/
