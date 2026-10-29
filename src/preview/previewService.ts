@@ -7,7 +7,8 @@ import { PreviewConfig } from './previewConfig';
 import { StaticListenerPool } from './staticAdapter';
 import { ProcessManager } from './processManager';
 import { findEntryCandidates, selectEntry } from './entryResolver';
-import { planLaunch } from './launchPlanner';
+import { candidateForHtmlFile, listHtmlFiles, resolveHtmlFile, HtmlListing } from './htmlEnumerator';
+import { planLaunch, LaunchPlanResult } from './launchPlanner';
 import { AcquireOptions, PreviewOverrides, PreviewPlan, PreviewSession } from './types';
 
 export class PreviewUnavailableError extends Error {
@@ -104,6 +105,11 @@ export class PreviewService extends EventEmitter {
     // ---- folder ----
     const launchResult = await planLaunch(projectPath, overrides);
     const candidates = await findEntryCandidates(projectPath, launchResult.hasBundler);
+    // A saved entry pointing at a deeper HTML file is honored even though it was never auto-detected.
+    if (overrides?.entryRelPath && !candidates.some(c => c.relPath === overrides.entryRelPath)) {
+      const extra = await candidateForHtmlFile(projectPath, overrides.entryRelPath);
+      if (extra) candidates.push(extra);
+    }
     const selection = selectEntry(candidates, overrides?.entryRelPath);
     const explanation: string[] = [];
     const common = {
@@ -168,6 +174,39 @@ export class PreviewService extends EventEmitter {
 
   async acquirePreview(projectId: string, consumerId: string, options: AcquireOptions = {}): Promise<AcquireResult> {
     const plan = await this.resolvePreview(projectId);
+    // Explore: open one specific HTML file. Plain files get their own static
+    // plan so the saved entry is untouched. Bundler templates open the dev
+    // server entry instead when one exists, otherwise stay unavailable.
+    if (options.entryRelPath && (plan.kind === 'folder' || plan.kind === 'file')) {
+      if (!plan.projectPath) throw new PreviewUnavailableError(plan);
+      const base = plan.kind === 'folder' ? plan.projectPath : path.dirname(plan.projectPath);
+      const file = await resolveHtmlFile(base, options.entryRelPath);
+      if (!file) throw new PreviewUnavailableError(plan);
+      if (!file.requiresBundler) {
+        const filePlan = this.plan(plan.id, plan.name, plan.projectPath, plan.kind, {
+          mode: 'static', servingRoot: base, entryRelPath: file.relPath, entryUrlPath: file.urlPath,
+          candidates: plan.candidates, explanation: [...plan.explanation, `Explore: opening ${file.relPath} directly.`],
+          overrides: plan.overrides, readinessSelector: plan.readinessSelector, settleMs: plan.settleMs,
+          launchStatus: plan.launchStatus, launchReason: plan.launchReason, launchRequirements: plan.launchRequirements,
+          staticAvailable: true, managedAvailable: plan.managedAvailable,
+        });
+        return { plan: filePlan, session: await this.acquireStatic(filePlan, consumerId) };
+      }
+      // Bundler templates render blank over static. Open the dev server entry instead when one exists.
+      const launchResult: LaunchPlanResult = plan.kind === 'folder' ? await planLaunch(plan.projectPath, plan.overrides) : { status: 'unsupported', evidence: [], hasBundler: false };
+      if (launchResult.status === 'ok' && launchResult.launch) {
+        const managedPlan = this.plan(plan.id, plan.name, plan.projectPath, plan.kind, {
+          mode: 'managed', launch: launchResult.launch, entryUrlPath: launchResult.launch.entryUrlPath,
+          candidates: plan.candidates,
+          explanation: [...plan.explanation, `Explore: ${file.relPath} needs a bundler; opening the dev server entry instead.`],
+          overrides: plan.overrides, readinessSelector: plan.readinessSelector, settleMs: plan.settleMs,
+          launchStatus: plan.launchStatus, launchReason: plan.launchReason, launchRequirements: plan.launchRequirements,
+          staticAvailable: plan.staticAvailable, managedAvailable: true,
+        });
+        return { plan: managedPlan, session: await this.manager.acquire(managedPlan, consumerId, options) };
+      }
+      throw new PreviewUnavailableError(plan);
+    }
     switch (plan.mode) {
       case 'static':
         return { plan, session: await this.acquireStatic(plan, consumerId) };
@@ -238,6 +277,15 @@ export class PreviewService extends EventEmitter {
     const st = this.statics.get(sessionId);
     if (st) return { ...st.pub, consumers: [...st.consumers] };
     return this.manager.get(sessionId);
+  }
+
+  async listHtmlFiles(projectId: string): Promise<HtmlListing> {
+    const project = this.getProject(projectId);
+    if (!project) throw new Error('Project not found');
+    const projectPath = canonicalPath(project.path);
+    // Loose files browse their siblings; folders are walked recursively.
+    if (project.kind === 'file') return listHtmlFiles(path.dirname(projectPath), false);
+    return listHtmlFiles(projectPath, true);
   }
 
   async saveOverrides(projectId: string, patch: Partial<PreviewOverrides>): Promise<PreviewOverrides> {

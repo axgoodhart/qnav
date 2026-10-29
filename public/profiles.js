@@ -14,6 +14,14 @@ const Profiles = {
         this.initialized = true;
         document.getElementById('profileControl').addEventListener('click', () => this.control());
         document.getElementById('candidateSearch').addEventListener('input', () => this.renderCandidates());
+        document.getElementById('profileSaveSettings').addEventListener('click', () => this.saveSettings());
+        document.getElementById('readingSearch').addEventListener('input', () => this.renderReadings());
+        document.getElementById('readingFilter').addEventListener('change', () => this.renderReadings());
+        document.getElementById('profileReadingsWrap').addEventListener('toggle', (event) => { if (event.target.open) this.loadReadings(); });
+        document.getElementById('profileReadings').addEventListener('click', (event) => {
+            const button = event.target.closest('[data-profile-analyze]');
+            if (button) this.analyze(button.dataset.profileAnalyze);
+        });
         document.getElementById('profileCompare').addEventListener('change', event => {
             if (!event.target.matches('select')) return;
             this.pair[Number(event.target.dataset.side)] = event.target.value;
@@ -46,12 +54,14 @@ const Profiles = {
             if (this.staticSnapshot) response = await fetch('/profile-snapshot.json', { cache: 'no-store' });
             if (!response.ok) throw new Error('Source reader is being installed. Profiles will appear here when available.');
             const data = await response.json();
-            const revision = JSON.stringify([Object.entries(data.profiles || {}).map(([key, p]) => [key, p.fingerprint, p.analyzedAt]), data.enabled, data.active, data.queued, data.error]);
+            const revision = JSON.stringify([Object.entries(data.profiles || {}).map(([key, p]) => [key, p.fingerprint, p.analyzedAt]), data.enabled, data.active, data.queued, data.error, data.settings]);
             if (revision === this.revision) return;
             this.revision = revision;
             this.status = data;
             this.saved = data.profiles || {};
             this.extra = data.projects || [];
+            this.renderSettings();
+            if (document.getElementById('profileReadingsWrap').open) void this.loadReadings();
             App.updateData(App.data);
             if (App.currentProject) {
                 const current = App.data.find(p => p.id === App.currentProject.id);
@@ -78,9 +88,13 @@ const Profiles = {
         const status = document.getElementById('profileStatus');
         if (!status) return;
         const ready = App.data.filter(p => p.profile).length;
+        const manual = s.settings && s.settings.mode === 'manual';
+        const capped = s.rateLimitedUntil && s.rateLimitedUntil > Date.now() ? ` · hourly cap until ${new Date(s.rateLimitedUntil).toLocaleTimeString()}` : '';
         status.textContent = s.error || (this.staticSnapshot ? 'Saved source readings below. Restart qnav to continue automatic library analysis.' :
-            s.active ? `Reading ${s.active} · ${ready} projects understood · ${s.queued} waiting` :
-            s.enabled ? `${ready} projects understood${s.queued ? ` · ${s.queued} waiting` : ' · source changes are monitored'}` : `Analysis paused · ${ready} saved profiles available`);
+            s.active ? `Reading ${s.active} · ${ready} projects understood · ${s.queued} waiting${capped}` :
+            !s.enabled ? `Analysis paused · ${ready} saved profiles available` :
+            manual ? `Manual mode · ${ready} projects understood${s.queued ? ` · ${s.queued} picked` : ''}${capped}` :
+            `${ready} projects understood${s.queued ? ` · ${s.queued} waiting` : ' · source changes are monitored'}${capped}`);
         status.dataset.error = s.error ? 'true' : 'false';
         const button = document.getElementById('profileControl');
         button.textContent = s.error ? 'Retry analysis' : s.enabled ? 'Pause analysis' : 'Resume analysis';
@@ -91,6 +105,77 @@ const Profiles = {
             this.shown = true;
             document.getElementById('meaningHeading').scrollIntoView({ block: 'start' });
         }
+    },
+    renderSettings() {
+        const s = (this.status && this.status.settings) || {};
+        const wrap = document.getElementById('profileSettingsWrap');
+        if (!wrap || wrap.contains(document.activeElement)) return;
+        const mode = s.mode || 'auto';
+        for (const radio of wrap.querySelectorAll('input[name="profileMode"]')) radio.checked = radio.value === mode;
+        document.getElementById('profileMaxPerHour').value = s.maxCallsPerHour ?? 0;
+        document.getElementById('profileGapSec').value = Math.round((s.minGapMs ?? 2000) / 1000);
+        document.getElementById('profileMaxKB').value = Math.round((s.maxBytes ?? 85000) / 1024);
+        document.getElementById('profileMaxFiles').value = s.maxFiles ?? 24;
+        document.getElementById('profileIgnoreExt').value = (s.ignoreExtensions || []).join(', ');
+        document.getElementById('profileIgnorePaths').value = (s.ignorePaths || []).join('\n');
+    },
+    async saveSettings() {
+        const note = document.getElementById('profileSettingsNote');
+        const mode = document.querySelector('input[name="profileMode"]:checked');
+        const list = (value) => value.split(',').map(v => v.trim()).filter(Boolean);
+        const lines = (value) => value.split('\n').map(v => v.trim()).filter(Boolean);
+        const body = {
+            mode: mode ? mode.value : 'auto',
+            maxCallsPerHour: Number(document.getElementById('profileMaxPerHour').value || 0),
+            minGapMs: Number(document.getElementById('profileGapSec').value || 0) * 1000,
+            maxBytes: Math.round(Number(document.getElementById('profileMaxKB').value || 85) * 1024),
+            maxFiles: Number(document.getElementById('profileMaxFiles').value || 24),
+            ignoreExtensions: list(document.getElementById('profileIgnoreExt').value),
+            ignorePaths: lines(document.getElementById('profileIgnorePaths').value),
+        };
+        try {
+            const response = await fetch('/api/profiles/settings', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+            if (!response.ok) throw new Error('Settings were not saved.');
+            this.status.settings = (await response.json()).settings;
+            this.renderSettings();
+            this.render();
+            note.textContent = 'Saved.';
+        } catch (error) { note.textContent = error.message; }
+        setTimeout(() => { note.textContent = ''; }, 4000);
+    },
+    async loadReadings() {
+        try {
+            const response = await fetch('/api/profiles/readings', { cache: 'no-store' });
+            if (!response.ok) throw new Error('Readings are unavailable.');
+            this.readings = (await response.json()).readings || [];
+        } catch (error) { this.readings = []; this.readingsError = error.message; }
+        this.renderReadings();
+    },
+    renderReadings() {
+        const body = document.getElementById('profileReadings');
+        if (!body || !document.getElementById('profileReadingsWrap').open) return;
+        const query = document.getElementById('readingSearch').value.toLowerCase();
+        const filter = document.getElementById('readingFilter').value;
+        const rows = (this.readings || []).map(r => ({ ...r, display: r.state === 'error' ? 'error' : r.state === 'checking' ? 'queued' : r.state }));
+        const visible = rows.filter(r => (!filter || r.display === filter) && r.name.toLowerCase().includes(query));
+        const kb = (bytes) => bytes == null ? '—' : `${(bytes / 1024).toFixed(1)} KB`;
+        document.getElementById('profileReadingsCount').textContent = `${visible.length} of ${rows.length} projects`;
+        body.innerHTML = visible.length ? visible.map(r => {
+            const sent = r.display === 'ready' ? `${kb(r.bytesSent)}${r.truncated ? ' · sampled' : ''} · ${r.filesRead} files` : '—';
+            const state = r.display === 'ready' ? `Read ${r.analyzedAt ? new Date(r.analyzedAt).toLocaleDateString() : ''}` :
+                r.display === 'reading' ? 'Reading…' : r.display === 'queued' ? 'Queued' :
+                r.display === 'unread' ? 'Unread' : `Failed${r.error ? `: ${this.escape(r.error)}` : ''}`;
+            return `<tr><td><button class="link-btn" data-profile-open="${this.escape(r.id)}">${this.escape(r.name)}</button></td><td title="${this.escape(r.error || '')}">${state}</td><td>${this.escape(sent)}</td><td>${r.display === 'reading' ? '' : `<button class="link-btn" data-profile-analyze="${this.escape(r.id)}">Analyze</button>`}</td></tr>`;
+        }).join('') : `<tr><td colspan="4">${this.escape(this.readingsError || 'No projects match.')}</td></tr>`;
+    },
+    async analyze(id) {
+        try {
+            const response = await fetch('/api/profiles/analyze', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) });
+            if (!response.ok) throw new Error('The reading was not queued.');
+            this.status = await response.json();
+            this.loadReadings();
+            this.render();
+        } catch (error) { this.status.error = error.message; this.render(); }
     },
     profileHTML(p) {
         if (!p?.profile) return `<p class="meaning-empty">${this.escape(p?.profileError || (this.staticSnapshot ? 'Waiting for the automatic background reader to start.' : 'Queued for automatic source reading. Opening this project moves it forward in the queue.'))}</p>`;

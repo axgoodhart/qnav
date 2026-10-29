@@ -34,6 +34,12 @@ concurrent launch dedupe, capacity eviction, early exit, startup timeout).
   a button first). They are never intercepted from inside the embedded page.
   `Esc` closes, `R` reloads, `D` toggles details.
 - Closing returns to the exact search, filters, and sidebar scroll you left.
+- **Explore** (flipper bar, project detail page, and every non-preview state)
+  opens a grid of every `.html` file in the project (up to 500 files, six
+  folders deep; generated and dependency folders skipped). Plain pages are
+  served statically by qnav; files that reference source modules open through
+  the project's dev server entry instead. Each tile can launch in the flipper,
+  open in a new tab, or be remembered as the project's entry point.
 - **Details** shows the plan (mode, entry, serving root, evidence), the entry
   selector, launch settings, capture settings, the session (state, URL, port,
   PID, consumers), Stop / Restart / Pin, and the live log.
@@ -164,7 +170,8 @@ Defaults are in `src/preview/previewConfig.ts`; override any of them in
 | Route | Purpose |
 | --- | --- |
 | `GET /api/preview/plan/:id` | resolve a plan |
-| `POST /api/preview/acquire` `{projectId, consumerId}` | acquire a session (returns immediately; state arrives over WebSocket) |
+| `GET /api/preview/files/:id` | list every HTML file (Explore grid) |
+| `POST /api/preview/acquire` `{projectId, consumerId, entryRelPath?}` | acquire a session (returns immediately; state arrives over WebSocket). `entryRelPath` opens one specific HTML file without changing the saved entry |
 | `POST /api/preview/release` `{sessionId, consumerId}` | release |
 | `POST /api/preview/stop` / `restart` / `pin` / `forget` | session control |
 | `POST /api/preview/attach` `{projectId, url}` | attach an external server |

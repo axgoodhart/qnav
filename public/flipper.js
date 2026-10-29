@@ -6,6 +6,7 @@
   const $ = (id) => document.getElementById(id);
   const esc = (t) => { const d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; };
   const fmtTime = (iso) => { if (!iso) return '—'; const d = new Date(iso); return isNaN(d) ? iso : d.toLocaleString(); };
+  const fmtSize = (n) => { if (n == null) return '—'; if (n < 1024) return n + ' B'; if (n < 1048576) return (n / 1024).toFixed(1) + ' KB'; return (n / 1048576).toFixed(1) + ' MB'; };
   const IFRAME_ALLOW = 'autoplay; fullscreen; microphone; camera; midi; gamepad; xr-spatial-tracking; clipboard-read; clipboard-write; accelerometer; gyroscope';
   const LOAD_NOTICE_MS = 30000;
 
@@ -87,7 +88,7 @@
     els: {},
 
     init() {
-      const ids = ['flipperView', 'flCloseBtn', 'flName', 'flModeBadge', 'flStateBadge', 'flBuildBadge', 'flPosition', 'flPrevBtn', 'flNextBtn', 'flReloadBtn', 'flOpenBtn', 'flCaptureBtn', 'flDetailsBtn', 'flScrubber', 'flStage', 'flDetails'];
+      const ids = ['flipperView', 'flCloseBtn', 'flName', 'flModeBadge', 'flStateBadge', 'flBuildBadge', 'flPosition', 'flPrevBtn', 'flNextBtn', 'flReloadBtn', 'flOpenBtn', 'flCaptureBtn', 'flExploreBtn', 'flDetailsBtn', 'flScrubber', 'flStage', 'flDetails'];
       ids.forEach(id => this.els[id] = $(id));
       const e = this.els;
       e.flCloseBtn.addEventListener('click', () => this.close());
@@ -95,6 +96,7 @@
       e.flNextBtn.addEventListener('click', () => this.go(1));
       e.flReloadBtn.addEventListener('click', () => this.reload());
       e.flCaptureBtn.addEventListener('click', () => { if (this.current) Captures.captureOne(this.current.id); });
+      e.flExploreBtn.addEventListener('click', () => this.openExplorer());
       e.flDetailsBtn.addEventListener('click', () => this.toggleDetails());
       e.flScrubber.addEventListener('input', () => this.goTo(parseInt(e.flScrubber.value, 10)));
       try { this.detailsOpen = localStorage.getItem('qnav-flipper-details') === '1'; } catch {}
@@ -124,7 +126,7 @@
       const t = ev.target;
       const tag = t && t.tagName ? t.tagName.toLowerCase() : '';
       const typing = tag === 'input' || tag === 'textarea' || tag === 'select' || (t && t.isContentEditable);
-      if (ev.key === 'Escape') { ev.preventDefault(); this.close(); return; }
+      if (ev.key === 'Escape') { ev.preventDefault(); if ($('flExplorer')) { this.closeExplorer(); return; } this.close(); return; }
       if (typing) return;
       if (ev.key === 'ArrowLeft') { ev.preventDefault(); this.go(-1); }
       else if (ev.key === 'ArrowRight') { ev.preventDefault(); this.go(1); }
@@ -152,6 +154,7 @@
 
     close(opts = {}) {
       if (!this.isOpen) return;
+      this.closeExplorer();
       this.releaseCurrent();
       this.destroyIframe();
       this.current = null;
@@ -372,6 +375,10 @@
       return `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.go(-1)" ${this.index <= 0 ? 'disabled' : ''}><span class="material-symbols-rounded">chevron_left</span>Previous</button><button class="fl-btn" onclick="Flipper.go(1)" ${this.index >= this.order.length - 1 ? 'disabled' : ''}>Next<span class="material-symbols-rounded">chevron_right</span></button></div>`;
     },
 
+    exploreAction() {
+      return `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.openExplorer()"><span class="material-symbols-rounded">folder_open</span>Explore all HTML files</button></div>`;
+    },
+
     renderLoadingTail() {
       const tail = $('flLoadingTail');
       if (!tail || !this.current) return;
@@ -386,14 +393,14 @@
       this.current.state = plan.mode;
       let body = '';
       if (plan.mode === 'choose-entry') {
-        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--cyan">alt_route</span>Choose an entry point</h3><p>${esc(plan.reason || '')} The choice is remembered for this project.</p><ul class="choices">${plan.candidates.filter(c => !c.requiresBundler).map(c => `<li><button onclick="Flipper.chooseEntry(${JSON.stringify(c.relPath).replace(/"/g, '&quot;')})"><span>${esc(c.relPath)}</span><small>${esc(c.kind === 'built-output' ? 'existing build' : c.kind.replace('-', ' '))}</small></button></li>`).join('')}</ul>${this.navActions()}`;
+        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--cyan">alt_route</span>Choose an entry point</h3><p>${esc(plan.reason || '')} The choice is remembered for this project.</p><ul class="choices">${plan.candidates.filter(c => !c.requiresBundler).map(c => `<li><button onclick="Flipper.chooseEntry(${JSON.stringify(c.relPath).replace(/"/g, '&quot;')})"><span>${esc(c.relPath)}</span><small>${esc(c.kind === 'built-output' ? 'existing build' : c.kind.replace('-', ' '))}</small></button></li>`).join('')}</ul>${this.exploreAction()}${this.navActions()}`;
       } else if (plan.mode === 'setup-required') {
         const cmd = (plan.overrides && plan.overrides.commandLine) || plan.suggestedCommandLine || (plan.launch ? `${plan.launch.command} ${plan.launch.args.join(' ')}` : '');
         body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--yellow">build</span>Needs a development server</h3><p>${esc(plan.reason || '')}</p>${(plan.requirements || []).length ? `<ul class="why fl-warn">${plan.requirements.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
           ${plan.launchStatus === 'ambiguous' || plan.launchStatus === 'ok' ? `<label class="fl-label">Command to run in the project folder (use {PORT} or the PORT env var)</label><input type="text" id="flSetupCmd" class="fl-input" value="${esc(cmd)}"/><div class="fl-actions"><button class="fl-btn primary" onclick="Flipper.saveCommandAndLaunch()"><span class="material-symbols-rounded">play_arrow</span>Save command &amp; launch</button><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Details</button></div>` : `<div class="fl-actions"><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Details &amp; options</button></div>`}
-          ${plan.staticAvailable ? `<p>A static entry also exists. <button class="fl-link" onclick="Flipper.setMode('static')">Show the static files instead</button>.</p>` : ''}${this.navActions()}`;
+          ${plan.staticAvailable ? `<p>A static entry also exists. <button class="fl-link" onclick="Flipper.setMode('static')">Show the static files instead</button>.</p>` : ''}${this.exploreAction()}${this.navActions()}`;
       } else {
-        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--slate">block</span>No visual preview</h3><p>${esc(plan.reason || 'Nothing to show for this entry.')}</p><p class="fl-path">${esc(plan.projectPath)}</p><div class="fl-actions"><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Attach a running server…</button></div>${this.navActions()}`;
+        body = `<h3><span class="material-symbols-rounded fl-ico fl-ico--slate">block</span>No visual preview</h3><p>${esc(plan.reason || 'Nothing to show for this entry.')}</p><p class="fl-path">${esc(plan.projectPath)}</p><div class="fl-actions"><button class="fl-btn" onclick="Flipper.openExplorer()"><span class="material-symbols-rounded">folder_open</span>Explore all HTML files</button><button class="fl-btn" onclick="Flipper.toggleDetails(true)"><span class="material-symbols-rounded">tune</span>Attach a running server…</button></div>${this.navActions()}`;
       }
       stage.insertAdjacentHTML('beforeend', `<div class="fl-overlay"><div class="fl-card">${body}</div></div>`);
       this.renderHeader(App.byId(this.current.id));
@@ -421,6 +428,7 @@
       e.flOpenBtn.href = url || '#';
       e.flOpenBtn.classList.toggle('is-dim', !url);
       e.flCaptureBtn.disabled = !(plan && mode);
+      e.flExploreBtn.disabled = !c;
       e.flReloadBtn.disabled = !c;
     },
 
@@ -482,6 +490,72 @@
     },
     async pinSession(sessionId, pinned) {
       try { await api.post('/api/preview/pin', { sessionId, pinned }); } catch (err) { toast('Pin failed: ' + err.message); }
+    },
+
+    // ---------------------------------------------------------------- explore: every HTML file
+
+    openExplorer() {
+      const c = this.current; if (!c) return;
+      this.closeExplorer();
+      const project = App.byId(c.id);
+      const modal = document.createElement('div');
+      modal.id = 'flExplorer';
+      modal.className = 'fl-overlay translucent ex-overlay';
+      modal.innerHTML = `<div class="fl-card ex-wide" role="dialog" aria-label="Explore HTML files"><h3><span class="material-symbols-rounded fl-ico fl-ico--cyan">folder_open</span>Explore — ${esc(project ? project.name : c.id)}</h3><p class="fl-muted">Listing every HTML file…</p></div>`;
+      document.body.appendChild(modal);
+      modal.addEventListener('click', (ev) => { if (ev.target === modal) this.closeExplorer(); });
+      (async () => {
+        try {
+          const [listing, plan] = await Promise.all([
+            api.get('/api/preview/files/' + c.id),
+            api.get('/api/preview/plan/' + c.id),
+          ]);
+          if (!document.getElementById('flExplorer')) return;
+          Explorer.show(modal, c.id, plan, listing);
+        } catch (err) {
+          const card = modal.querySelector('.fl-card');
+          if (card) card.innerHTML += `<p class="fl-red">Could not list files: ${esc(err.message)}</p>`;
+        }
+      })();
+    },
+
+    closeExplorer() { const m = $('flExplorer'); if (m) m.remove(); },
+
+    async openFile(relPath) {
+      const c = this.current; if (!c) return;
+      const token = ++this.token;
+      this.releaseCurrent();
+      this.destroyIframe();
+      this.closeExplorer();
+      this.setState('loading', 'Opening ' + relPath + '…');
+      let result;
+      try {
+        result = await api.post('/api/preview/acquire', { projectId: c.id, consumerId, entryRelPath: relPath });
+      } catch (err) {
+        if (token !== this.token) return;
+        if (err.plan) { this.current.plan = err.plan; this.renderPlanState(err.plan); }
+        else this.setState('failed', { message: err.message });
+        this.renderDetails();
+        return;
+      }
+      if (token !== this.token) {
+        api.post('/api/preview/release', { sessionId: result.session.id, consumerId }).catch(() => {});
+        return;
+      }
+      this.current.plan = result.plan;
+      this.current.session = result.session;
+      Sessions.track(result.session);
+      this.applySession(result.session);
+      this.renderDetails();
+    },
+
+    async saveExplorerEntry(relPath) {
+      const c = this.current; if (!c) return;
+      try {
+        await api.put('/api/preview/overrides/' + c.id, { entryRelPath: relPath, mode: 'static' });
+        this.closeExplorer();
+        this.navigate();
+      } catch (err) { toast('Could not save entry: ' + err.message); }
     },
 
     // ---------------------------------------------------------------- details drawer
@@ -760,6 +834,82 @@
         try { const d = await api.post('/api/captures/run', { projectIds: ids }); Captures.queue = d.queue; this.refresh(); toast(`Queued ${d.queued} capture${d.queued === 1 ? '' : 's'}.`); }
         catch (err) { toast('Could not start: ' + err.message, 5000); }
       };
+    },
+  };
+
+  // ======================================================================
+  // Explorer: every HTML file in the project as a launchable grid
+  // ======================================================================
+  const Explorer = {
+    show(modal, projectId, plan, listing) {
+      const files = listing.files || [];
+      const devReady = plan.mode === 'managed' || plan.managedAvailable;
+      const card = modal.querySelector('.fl-card');
+      card.innerHTML = `
+        <h3><span class="material-symbols-rounded fl-ico fl-ico--cyan">folder_open</span>Explore — ${esc(plan.name || projectId)}</h3>
+        <p class="fl-muted">${esc(devReady
+          ? 'How each file opens depends on the project: plain pages are served statically by qnav, files marked “needs dev server” open through the project’s dev server entry.'
+          : 'Served statically by qnav from the project folder — no dev server involved.')}</p>
+        <div class="ex-tools">
+          <input type="search" id="exSearch" class="fl-input ex-search" placeholder="Filter files…" aria-label="Filter files"/>
+          <span class="fl-hint mono" id="exCount"></span>
+          <button class="fl-btn" id="exClose"><span class="material-symbols-rounded">close</span>Close</button>
+        </div>
+        ${listing.truncated ? '<p class="fl-warn fl-hint">Large project — showing the first 500 HTML files (up to 6 folders deep).</p>' : ''}
+        ${files.length ? '<div class="ex-grid" id="exGrid"></div>' : '<p class="fl-muted">No HTML files found in this project.</p>'}`;
+      modal.querySelector('#exClose').onclick = () => Flipper.closeExplorer();
+      const grid = modal.querySelector('#exGrid');
+      const search = modal.querySelector('#exSearch');
+      modal.querySelector('#exCount').textContent = `0 / ${files.length}`;
+      if (grid) {
+        const state = { q: '' };
+        const paint = () => {
+          const q = state.q.toLowerCase();
+          const shown = files.filter(f => !q || f.relPath.toLowerCase().includes(q));
+          modal.querySelector('#exCount').textContent = `${shown.length} / ${files.length}`;
+          grid.innerHTML = shown.map(f => this.tile(f, plan)).join('');
+        };
+        search.addEventListener('input', () => { state.q = search.value; paint(); });
+        grid.addEventListener('click', (ev) => this.onGridClick(ev, projectId, plan));
+        paint();
+      }
+      search.focus();
+    },
+
+    tile(f, plan) {
+      const base = f.relPath.split('/').pop();
+      const isCurrent = plan.entryRelPath === f.relPath;
+      const badges = [
+        isCurrent ? '<span class="fl-badge static">current</span>' : '',
+        f.requiresBundler ? '<span class="fl-badge managed">needs dev server</span>' : '',
+      ].join('');
+      const canSave = plan.kind === 'folder' && !f.requiresBundler;
+      return `<div class="ex-card" data-rel="${esc(f.relPath)}">
+        <div class="ex-name" title="${esc(f.relPath)}">${esc(base)}</div>
+        <div class="ex-rel mono">${esc(f.relPath)}${f.depth > 1 ? ` <span class="fl-muted">· ${f.depth} deep</span>` : ''}</div>
+        <div class="ex-meta mono">${esc(fmtSize(f.size))} · ${esc(fmtTime(f.mtime))} ${badges}</div>
+        <div class="ex-actions">
+          <button class="fl-btn primary" data-ex-launch title="${esc(f.requiresBundler ? 'Open the project’s dev server entry' : 'Open this file in the flipper')}"><span class="material-symbols-rounded">play_arrow</span>${f.requiresBundler ? 'Dev server' : 'Launch'}</button>
+          <button class="fl-btn" data-ex-tab title="Open in a new tab"><span class="material-symbols-rounded">open_in_new</span></button>
+          ${canSave && !isCurrent ? `<button class="fl-btn" data-ex-save title="Remember as this project’s entry point"><span class="material-symbols-rounded">push_pin</span></button>` : ''}
+        </div>
+      </div>`;
+    },
+
+    async onGridClick(ev, projectId, plan) {
+      const btn = ev.target.closest('[data-ex-launch],[data-ex-tab],[data-ex-save]');
+      if (!btn) return;
+      const card = btn.closest('.ex-card');
+      const rel = card && card.dataset.rel;
+      if (!rel) return;
+      if (btn.hasAttribute('data-ex-save')) { Flipper.saveExplorerEntry(rel); return; }
+      if (!btn.hasAttribute('data-ex-tab')) { Flipper.openFile(rel); return; }
+      try {
+        const result = await api.post('/api/preview/acquire', { projectId, consumerId, entryRelPath: rel });
+        Sessions.track(result.session);
+        window.open(result.session.url, '_blank', 'noopener');
+        toast(plan.mode === result.plan.mode ? 'Opened in a new tab.' : `Opened in a new tab via ${result.plan.mode}.`);
+      } catch (err) { toast('Could not open: ' + (err.plan ? (err.plan.reason || err.message) : err.message), 5000); }
     },
   };
 

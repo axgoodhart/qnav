@@ -150,3 +150,5 @@ Related projects and graph edges use the same supported tags and project relatio
 
 The reader uses the existing Codex sign-in and consumes its usage allowance. Missing sign-in, usage limits, or invalid output stop the queue with a visible recovery message. `QNAV_CODEX_BIN` can point to the executable when `codex` is outside the server’s PATH. `npm run profiles -- <project name, id, or absolute path>` can generate saved readings against an already running catalog. After installing the server changes, restart qnav; saved readings remain visible through the static snapshot until then.
 
+**Reader settings** (dashboard, under What’s inside your projects) chooses Auto or Manual mode, the reading frequency (max readings per hour, pause between readings), the per-project size caps, and ignored filetypes and paths. **Readings** lists every project with its state, the date it was read, and how much source each Codex call received, with an Analyze button per row; in Manual mode that button is the only trigger. Settings persist in `data/meaning/profiles.json`.
+

@@ -164,6 +164,40 @@
                         <label class="meaning-search">Find a candidate <input type="search" id="candidateSearch" placeholder="Project name or capability" /></label>
                         <div class="meaning-table-scroll"><table class="meaning-table"><thead><tr><th>Project</th><th>Selection evidence</th><th>Decision</th></tr></thead><tbody id="profileCandidates"></tbody></table></div>
                     </details>
+                    <details class="meaning-settings" id="profileSettingsWrap">
+                        <summary>Reader settings</summary>
+                        <p class="meaning-note">Manual mode reads nothing on its own; use Analyze on a project to read it. Size caps bound what each Codex call receives. Ignores are matched case-insensitively: filetypes as filename suffixes, paths as substrings of the project-relative path.</p>
+                        <div class="meaning-form">
+                            <label>Mode
+                                <span class="meaning-radios">
+                                    <label><input type="radio" name="profileMode" value="auto" /> Auto</label>
+                                    <label><input type="radio" name="profileMode" value="manual" /> Manual</label>
+                                </span>
+                            </label>
+                            <label>Max readings per hour <input type="number" id="profileMaxPerHour" min="0" max="1000" step="1" placeholder="0 = no cap" /></label>
+                            <label>Pause between readings (seconds) <input type="number" id="profileGapSec" min="0" max="120" step="1" /></label>
+                            <label>Max KB sent per project <input type="number" id="profileMaxKB" min="1" max="488" step="1" /></label>
+                            <label>Max files sampled per project <input type="number" id="profileMaxFiles" min="1" max="100" step="1" /></label>
+                            <label>Ignore filetypes <input type="text" id="profileIgnoreExt" placeholder=".min.js, .map" /></label>
+                            <label>Ignore paths <textarea id="profileIgnorePaths" rows="2" placeholder="demo/
+archive/old"></textarea></label>
+                        </div>
+                        <div class="meaning-form-actions"><button class="btn" id="profileSaveSettings">Save settings</button><span class="meaning-note" id="profileSettingsNote"></span></div>
+                    </details>
+                    <details class="meaning-readings" id="profileReadingsWrap">
+                        <summary>Readings <span class="meaning-note" id="profileReadingsCount"></span></summary>
+                        <label class="meaning-search">Find a reading <input type="search" id="readingSearch" placeholder="Project name" />
+                            <select id="readingFilter" aria-label="Filter by state">
+                                <option value="">All states</option>
+                                <option value="ready">Read</option>
+                                <option value="queued">Queued</option>
+                                <option value="reading">Reading</option>
+                                <option value="unread">Unread</option>
+                                <option value="error">Failed</option>
+                            </select>
+                        </label>
+                        <div class="meaning-table-scroll"><table class="meaning-table"><thead><tr><th>Project</th><th>State</th><th>Sent</th><th></th></tr></thead><tbody id="profileReadings"></tbody></table></div>
+                    </details>
                 </section>
             </div>
         </section>
@@ -180,6 +214,7 @@
                             <h1 class="detail-name" id="detailName">...</h1>
                             <div class="btn-row">
                                 <button class="btn btn--primary" id="detailPreviewBtn"><span class="material-symbols-rounded">play_arrow</span>Preview</button>
+                                <button class="btn" id="detailExploreBtn"><span class="material-symbols-rounded">folder_open</span>Explore</button>
                                 <button class="btn" id="detailCaptureBtn"><span class="material-symbols-rounded">photo_camera</span>Capture</button>
                             </div>
                             <div id="detailCapture" class="hidden"></div>
@@ -277,6 +312,7 @@
                     <button class="fl-btn" id="flReloadBtn" title="Reload preview (R)"><span class="material-symbols-rounded">refresh</span></button>
                     <a class="fl-btn" id="flOpenBtn" target="_blank" rel="noopener" href="#" title="Open in new tab"><span class="material-symbols-rounded">open_in_new</span></a>
                     <button class="fl-btn" id="flCaptureBtn" title="Capture screenshot"><span class="material-symbols-rounded">photo_camera</span></button>
+                    <button class="fl-btn" id="flExploreBtn" title="Explore every HTML file in this project"><span class="material-symbols-rounded">folder_open</span><span class="fl-hide-narrow">Explore</span></button>
                     <button class="fl-btn" id="flDetailsBtn" title="Technical details (D)" aria-expanded="false"><span class="material-symbols-rounded">tune</span><span class="fl-hide-narrow">Details</span></button>
                 </div>
             </div>
@@ -707,6 +743,12 @@ const App = {
         });
         document.getElementById('detailPreviewBtn').addEventListener('click', () => {
             if (this.currentProject && window.Flipper) window.Flipper.open(this.currentProject.id);
+        });
+        document.getElementById('detailExploreBtn').addEventListener('click', () => {
+            if (this.currentProject && window.Flipper) {
+                window.Flipper.open(this.currentProject.id);
+                window.Flipper.openExplorer();
+            }
         });
         document.getElementById('detailCaptureBtn').addEventListener('click', () => {
             if (this.currentProject && window.Captures) window.Captures.captureOne(this.currentProject.id);

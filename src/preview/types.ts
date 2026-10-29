@@ -138,4 +138,6 @@ export interface AcquireOptions {
   noEvict?: boolean;
   /** Upper bound to wait in the capacity queue before giving up. */
   queueTimeoutMs?: number;
+  /** Explore: open one specific HTML file instead of the planned entry. */
+  entryRelPath?: string;
 }

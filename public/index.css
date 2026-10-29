@@ -1110,6 +1110,15 @@ button.chip:hover {
 .meaning-connection p { font-size: .875rem; color: var(--text-2); }
 .meaning-connection small { display: block; margin-top: .5rem; color: var(--muted); font-size: .75rem; }
 .meaning-candidates { border-top: 1px solid var(--line); padding-top: 1rem; }
+.meaning-settings, .meaning-readings { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1rem; }
+.meaning-settings > summary, .meaning-readings > summary { color: var(--cyan); cursor: pointer; font-size: .875rem; }
+.meaning-note { color: var(--muted); font-size: .8rem; margin: .6rem 0; max-width: 72ch; }
+.meaning-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .75rem 1.5rem; margin: 1rem 0; max-width: 72rem; }
+.meaning-form > label { display: grid; gap: .35rem; font-size: .8rem; color: var(--muted); align-content: start; }
+.meaning-form input[type=number], .meaning-form input[type=text], .meaning-form textarea { color: var(--text); background: var(--panel); border: 1px solid var(--line-strong); border-radius: .375rem; padding: .45rem .6rem; font: inherit; font-size: .875rem; width: 100%; resize: vertical; }
+.meaning-radios { display: flex; gap: 1.25rem; color: var(--text-2); font-size: .875rem; }
+.meaning-radios label { display: flex; align-items: center; gap: .4rem; }
+.meaning-form-actions { display: flex; align-items: center; gap: .75rem; }
 .meaning-candidates > summary { color: var(--cyan); cursor: pointer; font-size: .875rem; }
 .meaning-search { display: grid; grid-template-columns: auto minmax(0, 22rem); align-items: center; gap: .75rem; margin: 1rem 0; font-size: .8rem; color: var(--muted); }
 .meaning-table-scroll { overflow: auto; max-height: 28rem; }

@@ -95,12 +95,21 @@ class CufolioServer {
     });
 
     app.post('/api/preview/acquire', async (req, res) => {
-      const { projectId, consumerId } = req.body || {};
+      const { projectId, consumerId, entryRelPath } = req.body || {};
       if (!projectId || !consumerId) return res.status(400).json({ error: 'projectId and consumerId are required' });
       try {
-        const result = await preview.acquirePreview(projectId, consumerId);
+        const result = await preview.acquirePreview(projectId, consumerId, typeof entryRelPath === 'string' && entryRelPath ? { entryRelPath } : {});
         res.json(result);
       } catch (err) { sendError(res, err); }
+    });
+
+    app.get('/api/preview/files/:id', async (req, res) => {
+      try {
+        res.json(await preview.listHtmlFiles(req.params.id));
+      } catch (err: any) {
+        const status = err?.message === 'Project not found' ? 404 : 500;
+        res.status(status).json({ error: err?.message || String(err) });
+      }
     });
 
     app.post('/api/preview/release', (req, res) => {
@@ -182,6 +191,24 @@ class CufolioServer {
       if (typeof req.body?.id !== 'string' || !this.projects.some(p => p.id === req.body.id)) return res.status(404).json({ error: 'Project not found' });
       this.profiles.prioritize(req.body.id);
       res.json(this.profiles.status());
+    });
+
+    this.app.get('/api/profiles/readings', (req, res) => {
+      res.json({ readings: this.profiles.readings() });
+    });
+
+    this.app.put('/api/profiles/settings', async (req, res) => {
+      try {
+        res.json({ settings: await this.profiles.updateSettings(req.body || {}) });
+      } catch (err: any) { res.status(400).json({ error: err?.message || String(err) }); }
+    });
+
+    this.app.post('/api/profiles/analyze', async (req, res) => {
+      if (typeof req.body?.id !== 'string' || !this.projects.some(p => p.id === req.body.id)) return res.status(404).json({ error: 'Project not found' });
+      try {
+        await this.profiles.analyzeNow(req.body.id);
+        res.json(this.profiles.status());
+      } catch (err: any) { res.status(500).json({ error: err?.message || String(err) }); }
     });
 
     // Get configuration

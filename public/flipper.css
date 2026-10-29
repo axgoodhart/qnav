@@ -758,3 +758,81 @@ a.fl-link:hover {
   font-size: 10px;
   color: var(--cc-teal-450);
 }
+
+/* ---------- explore: every HTML file as a grid ---------- */
+.ex-overlay {
+  position: fixed;
+  z-index: 70;
+}
+
+.fl-card.ex-wide {
+  max-width: 880px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ex-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.ex-search {
+  flex: 1;
+}
+
+.ex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 2px;
+}
+
+.ex-card {
+  background: var(--cc-gray-900-3);
+  border: 1px solid var(--cc-gray-750);
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-width: 0;
+}
+
+.ex-card:hover {
+  border-color: rgba(144, 233, 206, 0.45);
+}
+
+.ex-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cc-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ex-rel {
+  font-size: 10.5px;
+  color: var(--cc-teal-250);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 2px 0 4px;
+}
+
+.ex-meta {
+  font-size: 10.5px;
+  color: var(--cc-teal-450);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.ex-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
